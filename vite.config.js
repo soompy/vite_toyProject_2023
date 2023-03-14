@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import injectHTML from 'vite-plugin-html-inject';
-import { ViteFaviconsPlugin } from "vite-plugin-favicon";
+// import { ViteFaviconsPlugin } from "vite-plugin-favicon";
 
 const path = require('path');
 
@@ -17,8 +17,8 @@ export default defineConfig({
   },
   plugins: [
     injectHTML(),
-    ViteFaviconsPlugin({
-      logo: "./src/assets/favicon.png",
-    }),
+    // ViteFaviconsPlugin({
+    //   logo: "./src/assets/favicon.png",
+    // }),
   ],
 });

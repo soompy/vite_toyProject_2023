@@ -1,67 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./assets/FAV.11b04ece.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
-    <title>Frontend Masters Calculator App</title>
-    <script type="module" crossorigin src="./assets/index.4de155d6.js"></script>
-    <link rel="stylesheet" href="./assets/index.f7f22190.css">
-  </head>
-  <body class="flexed-center">
-    <pre id="dump"></pre>
-    <pre id="state"></pre>
-    <main class="calculator">
-      <div class="header">
-        <h1 class="lowercase">calc</h1>
-        <div class="theme-controls">
-          <h4>Theme</h4>
-          <div class="theme-switcher">
-            <div class="theme-switcher__background"></div>
-            <div>
-              <label for="light-mode">1</label>
-              <input id="light-mode" type="radio" name="theme-control" data-mode="light">
+
+<head>
+  <link rel="shortcut icon" href="41447798">
+  <link rel="icon" type="image/png" sizes="16x16" href="dabd0b71">
+  <link rel="icon" type="image/png" sizes="32x32" href="fde1e7f0">
+  <link rel="icon" type="image/png" sizes="48x48" href="09036587">
+  <link rel="manifest" href="ffa5b716">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#fff">
+  <meta name="application-name" content="frontend-mentors-calculator-app">
+  <link rel="apple-touch-icon" sizes="57x57" href="625ba70b">
+  <link rel="apple-touch-icon" sizes="60x60" href="38e49a72">
+  <link rel="apple-touch-icon" sizes="72x72" href="28ada981">
+  <link rel="apple-touch-icon" sizes="76x76" href="004d494d">
+  <link rel="apple-touch-icon" sizes="114x114" href="765043aa">
+  <link rel="apple-touch-icon" sizes="120x120" href="8d07aff7">
+  <link rel="apple-touch-icon" sizes="144x144" href="dee7b219">
+  <link rel="apple-touch-icon" sizes="152x152" href="c304578c">
+  <link rel="apple-touch-icon" sizes="167x167" href="c9532173">
+  <link rel="apple-touch-icon" sizes="180x180" href="3787ce14">
+  <link rel="apple-touch-icon" sizes="1024x1024" href="f0039db4">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="frontend-mentors-calculator-app">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="45802c33">
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="4616b8fc">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="2517a3e9">
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="d3831b59">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="67762a53">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="4b54b782">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="ca0a6f62">
+  <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="7a049297">
+  <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="927e7ce9">
+  <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="7b321a3b">
+  <link rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="fffd3137">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="e1489186">
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="37e0aa14">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="7abf8853">
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="73100875">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="7cb98a00">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="091ba1ce">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="2f4f3a14">
+  <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="78ed1537">
+  <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="db618c22">
+  <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="53dd2d9f">
+  <link rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="6a9e2621">
+  <link rel="icon" type="image/png" sizes="228x228" href="d42fa77d">
+  <meta name="msapplication-TileColor" content="#fff">
+  <meta name="msapplication-TileImage" content="956f8a98">
+  <meta name="msapplication-config" content="560bc9bc">
+  <link rel="yandex-tableau-widget" href="7bf2e22d">
+
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./assets/FAV.11b04ece.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+  <title>춘식러버 페이지</title>
+  <script type="module" crossorigin src="./assets/index.4de155d6.js"></script>
+  <link rel="stylesheet" href="./assets/index.f7f22190.css">
+</head>
+
+<body class="flexed-center">
+  <section class="systemComponent">
+    <header id="header">
+    <div class="inner">
+        <nav class="nav">
+            <button class="barMenu">
+                <span class="bar"></span>
+            </button>
+            <div class="gnb-wrapper">
+                <div class="gnb-inner">
+                    <button class="closeGnb">x</button>
+                    <ul class="gnb">
+                        <li><a href="./about-choonsik.html">춘식이 소개</a></li>
+                        <li><a href="./room-choonsik.html">춘식이방</a></li>
+                        <li><a href="./photo-choonsik.html">춘식이 화보</a></li>
+                        <li><a href="./diary-choonsik.html">춘식일기</a></li>
+                        <li><a href="./game-choonsik.html">춘식게임</a></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-              <label for="contrast-mode">2</label>
-              <input id="contrast-mode" type="radio" name="theme-control" data-mode="contrast">
-            </div>
-            <div>
-              <label for="dark-mode">3</label>
-              <input id="dark-mode" type="radio" name="theme-control" data-mode="dark">
+        </nav>
+        <h1 class="logo">
+            <a href="./choonsik_lover.html">
+                <img src="https://item.kakaocdn.net/do/b5d3d6a7b67fbf5afdaffb79fffbf8b18f324a0b9c48f77dbce3a43bd11ce785"
+                    alt="춘식">
+            </a>
+        </h1>
+    </div>
+</header>
+
+    <div class="choonsik-lover-wrapper">
+      <section class="visual">
+        <div class="marquee_wrap">
+          <div class="marquee_box">
+            <span class="marquee_text">lovely choonsik</span>
+          </div>
+          <div class="marquee_box">
+            <span class="marquee_text">lovely choonsik</span>
+          </div>
+          <div class="marquee_box">
+            <span class="marquee_text">lovely choonsik</span>
+          </div>
+          <div class="marquee_box">
+            <span class="marquee_text">lovely choonsik</span>
+          </div>
+        </div>
+
+        <div class="floating-obj">
+          <span class="obj-item"><img
+              src="https://item.kakaocdn.net/do/c5c470298d527ef65eb52883f0f186c49f5287469802eca457586a25a096fd31"
+              alt="춘식하트"></span>
+          <span class="obj-item"><img
+              src="https://item.kakaocdn.net/do/c5c470298d527ef65eb52883f0f186c4f604e7b0e6900f9ac53a43965300eb9a"
+              alt="춘식꾹꾹"></span>
+          <span class="obj-item"><img
+              src="https://item.kakaocdn.net/do/c5c470298d527ef65eb52883f0f186c482f3bd8c9735553d03f6f982e10ebe70"
+              alt="춘식무지개"></span>
+        </div>
+      </section>
+
+
+
+      <section id="one" class="contentsBox">
+        <div class="row no-gutters">
+          <div class="col">
+            <div class="rectangle"></div>
+            <div class="about-choonsik">
+              <div class="text-block">
+                <h2 class="mb-0">choonsik</h2>
+                <h5>happy</h5>
+              </div>
+              <div class="blocks">
+                <div class="faces"></div>
+                <div class="faces"></div>
+                <div class="faces"></div>
+                <div class="faces"></div>
+                <div class="faces"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- <div class="output radius shadowed--light flexed-center"><h2></h2></div> -->
-      <div class="output radius shadowed--light flexed-center">
-        <label for="calculations">Calculator Value</label>
-        <input class="radius" type="text" id="calculations" name="calculations" value="0" readonly>
-      </div>
-      <div class="buttons radius shadowed--light">
-        <button type="button" class="button" value="7" data-type="int">7</button>
-        <button type="button" class="button" value="8" data-type="int">8</button>
-        <button type="button" class="button" value="9" data-type="int">9</button>
-        <button type="button" class="uppercase button" value="BACKSPACE" data-type="exe" data-button="correction">Del</button>
-        <button type="button" class="button" value="4" data-type="int">4</button>
-        <button type="button" class="button" value="5" data-type="int">5</button>
-        <button type="button" class="button" value="6" data-type="int">6</button>
-        <button type="button" class="button" value="+" data-type="ops">+</button>
-        <button type="button" class="button" value="1" data-type="int">1</button>
-        <button type="button" class="button" value="2" data-type="int">2</button>
-        <button type="button" class="button" value="3" data-type="int">3</button>
-        <button type="button" class="button" value="-" data-type="ops">-</button>
-        <button type="button" class="button" value="." data-type="int">.</button>
-        <button type="button" class="button" value="0" data-type="int">0</button>
-        <button type="button" class="button" value="/" data-type="ops">/</button>
-        <button type="button" class="button" value="*" data-type="ops">x</button>
-        <button type="button" class="uppercase button reset" value="ESCAPE" data-type="exe" data-button="correction">Clear</button>
-        <button type="button" class="button" value="ENTER" data-type="exe" data-button="submission">=</button>
-      </div>
-    </main>
-    
-  </body>
+      </section>
+
+      <section id="two" class="contentsBox">
+        <div class="row no-gutters">
+          <div class="col">
+            <div class="room-choonsik">
+              <div>
+                <img src="https://i.pinimg.com/originals/95/8f/59/958f599f934e94f63d6d60b676707ece.png"
+                  class="img-fluid" alt="Responsive image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="three" class="contentsBox">
+        <div class="image"></div>
+        <div class="row no-gutters">
+          <div class="col">
+            <div class="elem">
+              <h2>GET OUT THERE</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="four" class="section">
+        <div class="image"></div>
+        <div class="row no-gutters">
+          <div class="col">
+            <div class="elem">
+              <h2>GO RIDE</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer id="footer">
+    <div class="inner">푸터</div>
+</footer>
+  </section>
+
+  
+</body>
+
 </html>

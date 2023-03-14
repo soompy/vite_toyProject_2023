@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
-// import handlebars from '@vituum/vite-plugin-handlebars'
 import injectHTML from 'vite-plugin-html-inject';
+import { ViteFaviconsPlugin } from "vite-plugin-favicon";
 
 const path = require('path');
 
@@ -16,27 +16,9 @@ export default defineConfig({
     }
   },
   plugins: [
-    // handlebars({
-    //   reload: true,
-    //   root: null,
-    //   helpers: {},
-    //   partials: {
-    //     directory: null,
-    //     extname: true
-    //   },
-    //   data: '*.json',
-    //   globals: {
-    //     template: 'path/to/template.hbs'
-    //   },
-    //   filetypes: {
-    //     html: /.(json.html|hbs.json.html|hbs.html)$/,
-    //     json: /.(json.hbs.html)$/
-    //   },
-    //   handlebars: {
-    //     compileOptions: {},
-    //     runtimeOptions: {}
-    //   }
-    // }),
     injectHTML(),
-  ]
+    ViteFaviconsPlugin({
+      logo: "./src/assets/favicon.png",
+    }),
+  ],
 });

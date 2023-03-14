@@ -1,0 +1,353 @@
+@use 'sass:math';
+
+// 테스트
+.random-demo {
+    .el {
+        width: 50px;
+        height: 50px;
+        background: #e0e0e0;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400');
+@import url('https://fonts.googleapis.com/css?family=Hi+Melody:400');
+
+
+@font-face {
+    font-family: "TypoCrayonM";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/Typo_CrayonM.ttf");    
+}
+
+* {
+    font-family: 'Indie Flower', cursive;
+}
+
+body {
+    position: relative;    
+}
+
+$mobile-size: 360;
+
+/* vw 변환 function */
+@function vw($target) {
+    @if type-of($target)==number {
+        @return (math.div(($target * 100), $mobile-size)) * 1vw;
+    }
+
+    @else if type-of($target)==list {
+        $vw: ();
+
+        @each $value in $target {
+            @if type-of($value)==number {
+                $vw: append($vw, (math.div(($value * 100), $mobile-size)) * 1vw);
+            }
+
+            @else if type-of($value)==string {
+                $vw: append($vw, $value);
+            }
+        }
+
+        @return $vw;
+    }
+
+    @else {
+        @return $target;
+    }
+}
+
+
+#header {    
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100vw;
+    height: vw(52);
+    background: #f5eb51;
+
+    .inner {
+        display: flex;
+        align-items: center;
+        padding: 0 vw(20);
+
+        .nav {
+            display: flex;
+            align-items: center;
+
+            .barMenu {
+                display: flex;
+                align-items: center;
+                position: relative;
+                width: vw(18);
+                height: vw(13);
+
+                .bar {
+                    display: block;
+                    width: 80%;
+                    height: vw(1);
+                    background: #1a1a1a;
+                    border-radius: vw(4);
+                }
+
+                &:before,
+                &:after {
+                    display: block;
+                    clear: both;
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: vw(1);
+                    background: #1a1a1a;
+                }
+
+                &:before {
+                    top: 0;
+                }
+
+                &:after {
+                    width: 60%;
+                    bottom: 0;
+                }
+            }
+
+            .gnb-wrapper {
+                display: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                z-index: 5;
+                width: 100%;
+                height: 100%;
+                background: #ffffff;
+
+                .gnb-inner {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 100%;
+                    padding: vw(20);
+
+                    .closeGnb {
+                        width: vw(30);
+                        height: vw(30);
+                        margin-left: auto;
+                    }
+
+                    .gnb {
+                        li {
+                            font-size: vw(14);
+                            padding: vw(8) 0;
+
+                            a {
+                                font-size: vw(18);
+                                font-family: "Hi Melody";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .logo {
+            font-size: vw(12);
+            margin: auto;
+            width: vw(50);
+            height: auto;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.choonsik-lover-wrapper {
+    // position: relative;
+    // width: 100%;
+    // background: #f5eb51;
+}
+
+.visual {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    .marquee_wrap {
+        position: absolute;
+        top: 30%;
+        white-space: nowrap;
+        font-size: vw(14);
+        display: flex;
+        align-items: center;
+        will-change: transform;
+        width: 100%;
+        transform: rotate(10deg);
+
+        .marquee_box {
+            will-change: transform;
+            animation: marquee 5s linear infinite;
+            font-weight: 700;
+        }
+    }
+
+    .floating-obj {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        .obj-item {
+            display: block;
+
+            &:nth-of-type(1) {
+                width: vw(150);
+            }
+
+            &:nth-of-type(2) {
+                width: vw(200);
+            }
+
+            &:nth-child(3) {
+                width: vw(120);
+            }
+        }
+    }
+}
+
+
+.specific-prop-params-demo {
+    height: 100%;
+
+    .el {
+        height: 10%;
+        background: #ccc;
+    }
+}
+
+@keyframes marquee {
+    from {
+        transform: translateZ(0)
+    }
+
+    to {
+        transform: translate3d(-100%, 0, 0)
+    }
+}
+
+.rectangle {
+    position: absolute;
+    width: 100vw;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 248, 144, 1) 0%, rgba(251, 241, 83, 0.5914740896358543) 48%, rgba(255, 242, 39, 1) 100%);
+}
+
+.contentsBox {
+    >.row {
+        >.col {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+    }
+}
+
+#one {
+    width: 100%;
+    background: #e0e0e0;
+
+    .about-choonsik {
+        opacity: 0;
+        letter-spacing: 0.04em;
+
+        .blocks {
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            align-items: center;
+
+            >.faces {
+                width: vw(30);
+                height: vw(30);
+                margin: vw(2);
+                background: url("https://item.kakaocdn.net/do/c5c470298d527ef65eb52883f0f186c48f324a0b9c48f77dbce3a43bd11ce785") center center no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    .text-block {
+        h2 {
+            font-size: vw(14);
+            font-weight: 300;
+        }
+
+        h5 {
+            font-size: vw(16)
+        }
+    }
+}
+
+#two {
+    height: auto;
+    overflow: hidden;
+    background: url("https://i.pinimg.com/736x/d4/7e/9b/d47e9be41e1aaacf7b762f8b60543c81.jpg") center center no-repeat;
+    background-size: cover;
+
+    .room-choonsik {}
+}
+
+#three {
+    position: relative;
+    overflow: hidden;
+
+    .image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background-image: url("https://drive.google.com/uc?export=view&id=10tzeBrvoR5OO3EK_Wcg-gRxbVO7xv6em");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+#four {
+    position: relative;
+    overflow: hidden;
+
+    .image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://drive.google.com/uc?export=view&id=1SzCTDu5_eAF569lFHtNyIlUCrdW2mOXu");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+@media (min-width: 500px) {
+    .rectangle {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1000px) {
+    #intro {
+        .col {
+            padding: 18vw 12vw;
+            font-size: 2.7vw;
+        }
+    }
+}

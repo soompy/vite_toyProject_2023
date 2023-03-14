@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+    <title>춘식러버 페이지</title>
+</head>
+
+<body>
+    <load ="./src/layouts/header.html" />
+
+    <div class="choonsik-lover-wrapper">
+        <div class="choonsik-diary-container">
+            <div class="choonsik-diary">
+                <section class="diary-page1 diary-page">
+                    <div class="paper-inner">                        
+                        <span class="paper image-container"><img
+                                src="https://item.kakaocdn.net/do/91481c46c6ee38c33e20deba29e1f73f9f17e489affba0627eb1eb39695f93dd"
+                                alt="춘식이 그림일기"></span>
+                        <div class="diary-text">
+                            <span class="time">07:00</span>
+                            <h4 class="title">춘식이 생일!</h4>
+                            <p>오전 7시 춘식이의 생일파티가 시작되었어요!<br />집에 있는 초를 가득 모아 대형 불꽃을 만들었어요.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="diary-page2 diary-page">
+                    <div class="paper-inner">                        
+                        <h3>춘식이의 오늘 컨디션은?</h3>
+                        <div class="choonsik-condition-container">
+                            <ul class="choonsik-condition">
+                                <li class="condition-face on"><button class="btn-face">😆</button></li>
+                                <li class="condition-face"><button class="btn-face">😍</button></li>
+                                <li class="condition-face"><button class="btn-face">😢</button></li>
+                                <li class="condition-face"><button class="btn-face">🤨</button></li>
+                                <li class="condition-face"><button class="btn-face">😱</button></li>
+                            </ul>
+                        </div>
+                        <div class="diary-text-wrap">
+                            <div class="diary-text">
+                                <div class="big-face-box"></div>
+                                <span class="time">12:00</span>
+                                <h4 class="title">춘식이의 기분은?!</h4>
+                                <div class="condition-text">
+                                    <p class="on">춘식이 기분은 너무 좋아요!! <br />기분이 째져!!</p>
+                                    <p>춘식이 기분은 하트 뿅뿅!! <br />행복해요!!</p>
+                                    <p>춘식이 기분은 눈물 쥬륵.. <br />슬퍼요ㅠ</p>
+                                    <p>춘식이 기분은 언짢.. <br />짜증나요!</p>
+                                    <p>춘식이 기분은 패닉! <br />멘탈이 나갔어요!!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="diary-page3 diary-page">
+                    <div class="paper-inner">                        
+                        <div class="paper image-container">
+                            <span class="cut-photo"><img src="https://i.pinimg.com/originals/0c/d1/7e/0cd17ee1883df899587319a4702302d3.jpg" alt=""></span>
+                            <span class="cut-photo"><img src="https://trendsafari.co.kr/wp-content/uploads/2021/07/%EB%9D%BC%EC%9D%B4%EC%96%B8%EC%B6%98%EC%8B%9D%EC%9D%B4.png" alt=""></span>
+                            <span class="cut-photo"><img src="https://i.pinimg.com/550x/b9/b6/bc/b9b6bc2b85518eea45bdb2e09a2ff991.jpg" alt=""></span>
+                            <span class="cut-photo"><img src="https://i.pinimg.com/736x/43/a7/f7/43a7f797189c5bce545cc44fe1a3446d.jpg" alt=""></span>                            
+                        </div>      
+                        <p class="cut-photo-text">인셍 네컷 춘식이</p>                  
+                    </div>
+                </section>                
+            </div>
+            <button class="btn-prev">&lt;</button>
+            <button id="nextPageBtn" class="btn-next">next &gt;</button>
+        </div>
+    </div>
+
+    <load ="./src/layouts/footer.html" />
+
+
+
+
+    <script>
+        const conditionFace = document.querySelectorAll(".condition-face");
+        const conditionText = document.querySelectorAll(".condition-text p");
+
+        conditionFace.forEach(function (i) {
+            document.querySelector(".big-face-box").innerHTML = conditionFace[0].innerHTML;
+
+            i.addEventListener('click', function () {
+                document.querySelector(".big-face-box").innerHTML = i.innerHTML;
+            });
+        });
+
+        conditionFace.forEach((face, idx) => {
+            face.addEventListener("click", () => {
+                conditionFace.forEach((btns) => {
+                    btns.classList.remove("on");
+                })
+                conditionText.forEach((text) => {
+                    text.classList.remove("on");
+                })
+                conditionFace[idx].classList.add("on");
+                conditionText[idx].classList.add("on");
+            })
+        })
+
+
+        const btnPrev = document.querySelector(".btn-prev");
+        const btnNext = document.querySelector(".btn-next");
+        const diaryPages = document.querySelectorAll(".diary-page");
+        const choonsikDiary = document.querySelector(".choonsik-diary");
+
+        let currentPosition = 0;
+        for (i = 0; i < diaryPages.length; i++) {
+            btnNext.addEventListener("click", () => {
+                currentPosition -= 100;
+                choonsikDiary.style.transform = `translateX(${currentPosition}vw)`;                
+            })
+            console.log(currentPosition)
+        }
+    </script>
+
+</body>
+
+</html>

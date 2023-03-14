@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+    <title>춘식러버 페이지</title>
+  </head>
+
+<body>
+    <load ="./src/layouts/header.html" />
+
+    <main class="building">
+        <section class="room room-1">
+            <div class="room-walls"></div>
+            <div class="room-content">         
+                <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>
+                <div class="switch">
+                    <input class="tgl tgl-switch" id="themeSwitch1" type="checkbox" onclick="lightSwitch()"/>
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch1"></label>
+                </div>
+            </div>
+        </section>
+
+        <section class="room room-2">
+            <div class="room-walls"></div>
+            <div class="room-content">
+                <!-- 어질러진 영역 // 방 정리하기 -->
+                <div class="wiggle-wrapper">
+                    <span class="object"><img src="" alt=""></span>
+                    <span class="object"><img src="" alt=""></span>
+                    <span class="object"><img src="" alt=""></span>
+                </div>
+
+                <div class="cleaning-box">
+                    <div class="container"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="room room-3">
+            <div class="room-walls"></div>
+            <div class="room-content">
+                <p class="">I'm here!!</p>
+                <div class="img-choonsik">
+                    <span class="sofa-choonsik"></span>                              
+                </div>                
+            </div>
+        </section>
+
+        <section class="room">
+            <div class="room-walls"></div>
+            <div class="room-content">if after all these years</div>
+        </section>
+
+        <section class="room">
+            <div class="room-walls"></div>
+            <div class="room-content">you'd like to meet</div>
+        </section>
+
+        <section class="room">
+            <div class="room-walls"></div>
+            <div class="room-content">to go over</div>
+        </section>
+
+        <section class="room">
+            <div class="room-walls"></div>
+            <div class="room-content">everything</div>
+        </section>
+    </main>
+
+    <load ="./src/layouts/footer.html" />
+
+
+    <style>
+        :root {
+            --depth: 500px;
+            --turnLeft: 0.06turn;
+            --turnRight: -0.06turn;
+            --turn: var(--turnRight);
+        }
+
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            height: 100%;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            background: #1a1a1a;
+            perspective: 1000px;
+            perspective-origin: 50% 35%;
+        }
+    </style>
+
+    <script>
+        const tgl = document.querySelector(".tgl");
+        const roomFirst = document.querySelector(".room-1");        
+
+        function lightSwitch() {
+            const checkSwitch = tgl.checked;
+            if(checkSwitch) {
+                roomFirst.classList.add("lightOn");
+            } else {
+                roomFirst.classList.remove("lightOn");
+            }
+        }
+    </script>
+</body>
+
+</html>

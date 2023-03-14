@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+    <title>춘식러버 페이지</title>
+</head>
+
+<body>
+    <load="./src/layouts/header.html" />
+
+    <div class="choonsik-lover-wrapper">
+        <div class="introduce-choonsik">
+            <p>
+                <span>cute</span>
+                <span>lovely</span>
+                <span>choonsik</span>
+            </p>
+        </div>
+
+        <div class="profile-choonsik">
+            <div class="profile-box">
+                <div class="profile-item">
+                    <p class="text">choonsik</p>
+                </div>
+                <div class="profile-item">
+                    <span class="circle"></span>
+                </div>
+            </div>
+            <div class="profile-box">
+                <div class="profile-item">
+                    <span class="square"></span>
+                </div>
+                <div class="profile-item">
+                    <span class="triangle"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 춘식이 매력도 -->
+        <section class="choonsik-chart">
+            <h3>춘식이의 매력을 알아볼까용</h3>
+            <span class="lovely-text">매력도 click!!</span>
+            <canvas id="lovelyChoonsik"></canvas>
+        </section>
+
+    </div>
+
+    <load="./src/layouts/footer.html" />
+
+    <!-- <script src="./node_modules/animejs/lib/anime.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script type="module" src="/main.js"></script>
+
+    <script>
+        function randomValues() {
+            anime({
+                targets: '.random-demo .el',
+                translateX: function () {
+                    return anime.random(0, 270);
+                },
+                easing: 'easeInOutQuad',
+                duration: 750,
+                complete: randomValues
+            });
+        }
+
+        randomValues();
+    </script>
+
+    <script>
+        anime({
+            targets: '.specific-prop-params-demo .el',
+            translateX: {
+                value: 250,
+                duration: 800
+            },
+            rotate: {
+                value: 360,
+                duration: 1800,
+                easing: 'easeInOutSine'
+            },
+            scale: {
+                value: 2,
+                duration: 1600,
+                delay: 800,
+                easing: 'easeInOutQuart'
+            },
+            delay: 250
+        });
+
+        const ctx = document.getElementById('lovelyChoonsik');
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+            data: {
+                labels: ['귀여움', '사랑스러움', '깜찍함', '멋짐'],
+                datasets: [{
+                    label: 'lovely choonsik',
+                    data: [25, 19, 13, 15],
+                    backgroundColor: [
+                        "#F6F7C1",
+                        "#BEF0CB",
+                        "#D1FFF3",
+                        "#C1AEFC"
+                    ],
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        beginAtZero: true
+                    }
+                },
+                responsive: false,
+                plugins: {
+                    datalabels: {
+                        formatter: (value) => {
+                            return value + '%';
+                        },
+                    },
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

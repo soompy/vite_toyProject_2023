@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+    <title>춘식러버 페이지</title>
+  </head>
+
+<body>
+    <load ="./src/layouts/header.html" />
+
+    <div class="choonsik-lover-wrapper" style="position: relative;top:0">
+        <div class="model-choonsik">
+            <h3 class="dancer-choonsik">cutie k-pop dancer choonsik</h3>
+
+            <div class="model-choonsik-photo">
+                <span class="choonsik-photo show"><img
+                        src="https://pbs.twimg.com/media/E5I4k-0UcAUFumc?format=jpg&name=900x900" alt="춘식 댄스 티져"></span>
+                <span class="choonsik-photo"><img
+                        src="https://blog.kakaocdn.net/dn/ba1Ajk/btq8ZJCvHeQ/d5MkQTXVnxzjI5GglnD30k/img.png"
+                        alt="분노 춘식"></span>
+                <span class="choonsik-photo"><img
+                        src="https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/e2VR/image/4FpkOSGfEf5scJFHCJ5ZUTP1Z3Q.png"
+                        alt="멋짐 춘식"></span>
+            </div>
+
+            <!-- 버튼 클릭 시 choonskik-photo 노출 -->
+            <div class="photo-type-button-wrap">
+                <button class="btn-photo btn-neon btn-slow on">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    춘식 댄스 티져
+                </button>
+                <button class="btn-photo btn-neon btn-blue btn-slow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    분노 춘식
+                </button>
+                <button class="btn-photo btn-neon btn-purple btn-slow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    멋짐 춘식
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <load ="./src/layouts/footer.html" />
+    
+    <script>      
+        const btnPhoto = document.querySelectorAll(".btn-photo");
+        const choonsikPhoto = document.querySelectorAll(".choonsik-photo");
+
+        btnPhoto.forEach((gallery, idx) => {
+            gallery.addEventListener("click", () => {
+                choonsikPhoto.forEach((photo) => {
+                    photo.classList.remove('show')
+                })
+
+                btnPhoto.forEach((btn) => {
+                    btn.classList.remove("on")
+                })
+
+                btnPhoto[idx].classList.add("on");
+                choonsikPhoto[idx].classList.add("show");
+            })
+        })
+    </script>
+</body>
+
+</html>

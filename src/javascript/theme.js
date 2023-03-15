@@ -1,12 +1,21 @@
 const themeSwitcher = () => {
-  // const setMode = document.getElementById("setMode");
-  let checkThemes = document.querySelector('input[name="mode"]:checked');
+  const setMode = document.getElementById("setMode");
+  // let checkThemes = document.querySelector('input[name="mode"]:checked');
 
-  if(checkThemes) {
+  // setMode.checked = document.documentElement.setAttribute('data-theme', 'dark');
+  // setMode.checked != document.documentElement.setAttribute('data-theme', 'light');
+
+
+
+
+  setMode.addEventListener("click", () => {
     document.documentElement.setAttribute('data-theme', 'dark');
-  } else {
-    document.documentElement.setAttribute('data-theme', 'light');
-  }
+    setMode.addEventListener("click", () => {
+      document.documentElement.setAttribute('data-theme', 'light');
+    })    
+  })
+
+
 }
 
 export default themeSwitcher

@@ -264,7 +264,7 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        z-index: 5;
+        z-index: 1;
 
         --btn-duration-slow: 2s;
         --btn-duration-normal: 3s;

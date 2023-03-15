@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @use 'sass:math';
 
 // 테스트
@@ -60,7 +62,7 @@ $mobile-size: 360;
 }
 
 
-#header {    
+#header {
     position: sticky;
     top: 0;
     left: 0;
@@ -161,6 +163,40 @@ $mobile-size: 360;
 
             img {
                 width: 100%;
+            }
+        }
+
+        .change-theme {
+            .theme-mode {
+                input {
+                    position: relative;
+                    border: vw(1) solid gray;
+                    border-radius: vw(12);
+                    width: vw(20);
+                    height: vw(12);
+                    background: transparent;                    
+                    &:before {                        
+                        position: absolute;
+                        left: 0;                        
+                        width: vw(10);
+                        height: vw(10);
+                        content: "";
+                        border-radius: 50%;
+                        transform: scale(0.8);
+                        background-color: gray;
+                        transition: left 250ms linear;
+                    }
+                    + span {
+                        font-size: vw(12);
+                    }
+                    &:checked {
+                        background: gray;                        
+                        &:before {
+                            left: vw(8);
+                            background: #ffffff;
+                        }
+                    }                    
+                }                
             }
         }
     }

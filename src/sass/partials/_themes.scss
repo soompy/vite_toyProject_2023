@@ -250,3 +250,20 @@
     background-color: var(--clr-surface--400);
   }
 }
+
+
+
+
+@media (prefers-color-scheme: light) {
+  :root[color-theme='light'] {
+    --background: $color-white;
+    --fontColor: $color-black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[color-theme='dark'] {
+    --background: $color-black-1;
+    --fontColor: $color-white;
+  }
+}

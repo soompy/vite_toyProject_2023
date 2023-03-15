@@ -16,7 +16,7 @@ export default defineConfig({
     }
   },
   plugins: [
-    injectHTML(),
+    injectHTML(),    
     // ViteFaviconsPlugin({
     //   logo: "./src/assets/favicon.png",
     // }),

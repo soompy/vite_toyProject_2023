@@ -21,6 +21,8 @@
     "favicons": "^7.1.1",
     "netlify-cli": "^9.16.1",
     "scrollmagic": "^2.0.8",
+    "scrollmagic-plugins": "^1.0.8",
+    "vite-plugin-ejs": "^1.6.4",
     "vite-plugin-favicons-inject": "^2.2.0",
     "vite-plugin-html-inject": "^1.0.1"
   }

@@ -8,11 +8,13 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^18.15.3",
     "chroma-js": "^2.4.2",
     "lodash": "^4.17.21",
     "sass": "^1.49.9",
     "vite": "^2.8.0",
-    "vite-plugin-favicon": "^1.0.8"
+    "vite-plugin-favicon": "^1.0.8",
+    "vite-tsconfig-paths": "^4.0.7"
   },
   "dependencies": {
     "@types/animejs": "^3.1.7",

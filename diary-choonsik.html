@@ -12,13 +12,13 @@
 </head>
 
 <body>
-    <load ="../layouts/header.html" />
+    <load="/header.html" />
 
     <div class="choonsik-lover-wrapper">
         <div class="choonsik-diary-container">
             <div class="choonsik-diary">
                 <section class="diary-page1 diary-page">
-                    <div class="paper-inner">                        
+                    <div class="paper-inner">
                         <span class="paper image-container"><img
                                 src="https://item.kakaocdn.net/do/91481c46c6ee38c33e20deba29e1f73f9f17e489affba0627eb1eb39695f93dd"
                                 alt="춘식이 그림일기"></span>
@@ -31,7 +31,7 @@
                 </section>
 
                 <section class="diary-page2 diary-page">
-                    <div class="paper-inner">                        
+                    <div class="paper-inner">
                         <h3>춘식이의 오늘 컨디션은?</h3>
                         <div class="choonsik-condition-container">
                             <ul class="choonsik-condition">
@@ -60,23 +60,31 @@
                 </section>
 
                 <section class="diary-page3 diary-page">
-                    <div class="paper-inner">                        
+                    <div class="paper-inner">
                         <div class="paper image-container">
-                            <span class="cut-photo"><img src="https://i.pinimg.com/originals/0c/d1/7e/0cd17ee1883df899587319a4702302d3.jpg" alt=""></span>
-                            <span class="cut-photo"><img src="https://trendsafari.co.kr/wp-content/uploads/2021/07/%EB%9D%BC%EC%9D%B4%EC%96%B8%EC%B6%98%EC%8B%9D%EC%9D%B4.png" alt=""></span>
-                            <span class="cut-photo"><img src="https://i.pinimg.com/550x/b9/b6/bc/b9b6bc2b85518eea45bdb2e09a2ff991.jpg" alt=""></span>
-                            <span class="cut-photo"><img src="https://i.pinimg.com/736x/43/a7/f7/43a7f797189c5bce545cc44fe1a3446d.jpg" alt=""></span>                            
-                        </div>      
-                        <p class="cut-photo-text">인셍 네컷 춘식이</p>                  
+                            <span class="cut-photo"><img
+                                    src="https://i.pinimg.com/originals/0c/d1/7e/0cd17ee1883df899587319a4702302d3.jpg"
+                                    alt=""></span>
+                            <span class="cut-photo"><img
+                                    src="https://trendsafari.co.kr/wp-content/uploads/2021/07/%EB%9D%BC%EC%9D%B4%EC%96%B8%EC%B6%98%EC%8B%9D%EC%9D%B4.png"
+                                    alt=""></span>
+                            <span class="cut-photo"><img
+                                    src="https://i.pinimg.com/550x/b9/b6/bc/b9b6bc2b85518eea45bdb2e09a2ff991.jpg"
+                                    alt=""></span>
+                            <span class="cut-photo"><img
+                                    src="https://i.pinimg.com/736x/43/a7/f7/43a7f797189c5bce545cc44fe1a3446d.jpg"
+                                    alt=""></span>
+                        </div>
+                        <p class="cut-photo-text">인셍 네컷 춘식이</p>
                     </div>
-                </section>                
+                </section>
             </div>
             <button class="btn-prev">&lt;</button>
             <button id="nextPageBtn" class="btn-next">next &gt;</button>
         </div>
     </div>
 
-    <load ="../layouts/footer.html" />
+    <load="/footer.html" />
 
 
 
@@ -116,7 +124,7 @@
         for (i = 0; i < diaryPages.length; i++) {
             btnNext.addEventListener("click", () => {
                 currentPosition -= 100;
-                choonsikDiary.style.transform = `translateX(${currentPosition}vw)`;                
+                choonsikDiary.style.transform = `translateX(${currentPosition}vw)`;
             })
             console.log(currentPosition)
         }

@@ -14,6 +14,7 @@
   --clr-primary--600: #929292;
   --clr-secondary--400: #e52e2e;
   --clr-secondary--600: #921c1c;
+  --clr-primary: #f5eb51;
 
   #dump {
     color: var(--clr-onsurface--800);
@@ -27,16 +28,11 @@
   }
 
   button {
-    color: var(--clr-onsurface--100);
-    background-color: var(--clr-onsurface--400);
-
-    &:hover {
-      color: var(--clr-onsurface--800);
-      background-color: var(--clr-onsurface--200);
-    }
+    background: transparent;
   }
 
-  .header {
+  #header {
+    background: var(--clr-primary);
     h1 {
       color: var(--clr-surface--400);
     }
@@ -98,6 +94,7 @@
   --clr-primary--600: #b3345a;
   --clr-secondary--400: #19f9d8;
   --clr-secondary--600: #0fa891;
+  --clr-primary: #f6e718;
 
   #dump {
     color: var(--clr-onsurface--100);
@@ -111,16 +108,11 @@
   }
 
   button {
-    color: var(--clr-onsurface--800);
-    background-color: var(--clr-onsurface--200);
-
-    &:hover {
-      color: var(--clr-onsurface--100);
-      background-color: var(--clr-onsurface--400);
-    }
+    background: transparent;
   }
 
-  .header {
+  #header {
+    background: var(--clr-primary);
     h1 {
       color: var(--clr-onsurface--400);
     }
@@ -183,6 +175,7 @@
   --clr-primary--600: #bc9edd;
   --clr-secondary--400: #f7b83d;
   --clr-secondary--600: #a57829;
+  --clr-primary: #f6e718;
 
   #dump {
     color: var(--clr-onsurface--200);
@@ -196,16 +189,11 @@
   }
 
   button {
-    color: var(--clr-onsurface--200);
-    background-color: var(--clr-onsurface--400);
-
-    &:hover {
-      color: var(--clr-onsurface--200);
-      background-color: var(--clr-onsurface--900);
-    }
+    background: transparent;
   }
 
-  .header {
+  #header {
+    background: var(--clr-primary);
     h1 {
       color: var(--clr-surface--200);
     }
@@ -252,18 +240,3 @@
 }
 
 
-
-
-@media (prefers-color-scheme: light) {
-  :root[color-theme='light'] {
-    --background: $color-white;
-    --fontColor: $color-black;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root[color-theme='dark'] {
-    --background: $color-black-1;
-    --fontColor: $color-white;
-  }
-}

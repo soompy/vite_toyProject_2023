@@ -21,7 +21,7 @@
     font-family: "TypoCrayonM";
     font-style: normal;
     font-weight: 500;
-    src: url("../fonts/Typo_CrayonM.ttf");    
+    src: url("../fonts/Typo_CrayonM.ttf");
 }
 
 * {
@@ -30,7 +30,7 @@
 }
 
 body {
-    position: relative;    
+    position: relative;
 }
 
 $mobile-size: 360;
@@ -70,7 +70,7 @@ $mobile-size: 360;
     z-index: 5;
     width: 100vw;
     height: vw(52);
-    background: #f5eb51;
+    // background: $colorPrimary;
 
     .inner {
         display: flex;
@@ -139,7 +139,9 @@ $mobile-size: 360;
                     .closeGnb {
                         width: vw(30);
                         height: vw(30);
-                        margin-left: auto;                        
+                        margin-left: auto;
+                        background: url("../../assets/images/Close_LG.png") center center no-repeat;
+                        background-size: cover;
                     }
 
                     .gnb {
@@ -172,16 +174,18 @@ $mobile-size: 360;
             .theme-mode {
                 display: flex;
                 align-items: center;
+
                 input {
                     position: relative;
                     border: vw(1) solid gray;
                     border-radius: vw(12);
                     width: vw(20);
                     height: vw(12);
-                    background: transparent;                    
-                    &:before {                        
+                    background: transparent;
+
+                    &:before {
                         position: absolute;
-                        left: 0;                        
+                        left: 0;
                         width: vw(10);
                         height: vw(10);
                         content: "";
@@ -189,21 +193,24 @@ $mobile-size: 360;
                         transform: scale(0.8);
                         background-color: gray;
                         transition: left 250ms linear;
-                    }                    
+                    }
+
                     &:checked {
-                        background: gray;                        
+                        background: gray;
+
                         &:before {
                             left: vw(8);
                             background: #ffffff;
                         }
-                    }                    
-                }  
+                    }
+                }
+
                 .mode-text {
                     font-size: vw(12);
                     line-height: vw(12);
                     text-align: center;
                     padding-left: vw(5);
-                }              
+                }
             }
         }
     }

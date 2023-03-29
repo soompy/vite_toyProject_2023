@@ -1,8 +1,9 @@
 /**********
 * LIGHT MODE STYLES
 **********/
-[data-theme="light"] {
-  --clr-background: #efece8;
+[data-theme="light"] {  
+  --clr-basic: #ffffff;
+  --clr-reversal: #333333;
   --clr-surface--200: #f2f2f2;
   --clr-surface--400: #cccac4;
   --clr-onsurface--100: #ffffff;
@@ -24,7 +25,7 @@
   }
 
   body {
-    background-color: var(--clr-background);
+    background-color: var(--clr-basic);
   }
 
   button {
@@ -82,7 +83,7 @@
 * CONTRAST MODE STYLES
 **********/
 [data-theme="contrast"] {
-  --clr-background: #474747;
+  --clr-basic: #474747;
   --clr-surface--200: #5a5f64;
   --clr-surface--400: #2f3133;
   --clr-onsurface--100: #ffffff;
@@ -104,7 +105,7 @@
   }
 
   body {
-    background-color: var(--clr-background);
+    background-color: var(--clr-basic);
   }
 
   button {
@@ -162,7 +163,8 @@
 * DARK MODE STYLES
 **********/
 [data-theme="dark"] {
-  --clr-background: #222629;
+  --clr-basic: #222629;
+  --clr-reversal: #ffffff;
   --clr-surface--200: #5a5f64;
   --clr-surface--400: #2f3133;
   --clr-onsurface--100: #ffffff;
@@ -175,7 +177,7 @@
   --clr-primary--600: #bc9edd;
   --clr-secondary--400: #f7b83d;
   --clr-secondary--600: #a57829;
-  --clr-primary: #f6e718;
+  --clr-primary: #35342d;
 
   #dump {
     color: var(--clr-onsurface--200);
@@ -185,7 +187,7 @@
   }
 
   body {
-    background-color: var(--clr-background);
+    background-color: var(--clr-basic);
   }
 
   button {

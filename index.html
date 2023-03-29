@@ -106,10 +106,38 @@
   <load="/footer.html" />
 
   <script type="module" src="/main.js"></script>  
-  
   <script src="./node_modules/animejs/lib/anime.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+
+  <script>
+    var tl = anime.timeline({
+        targets: '.floating-obj .obj-item',
+        delay: function (el, i) { return i * 200 },
+        duration: 1000,
+        easing: 'easeOutExpo',
+        direction: 'alternate',
+        loop: true
+    });
+
+    tl
+        .add({
+            translateX: 250,
+            easing: 'spring',
+        })
+        .add({
+            opacity: .5,
+            scale: 2
+        })
+        .add({
+            targets: '.floating-obj .obj-item.triangle',
+            rotate: 180
+        })
+        .add({
+            translateX: 0,
+            scale: 1
+        });       
+</script>
 </body>
 
 </html>

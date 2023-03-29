@@ -27,6 +27,7 @@
 * {
     font-family: 'Indie Flower', cursive;
     box-sizing: border-box;
+    color: var(--clr-reversal);
 }
 
 body {
@@ -70,7 +71,6 @@ $mobile-size: 360;
     z-index: 5;
     width: 100vw;
     height: vw(52);
-    // background: $colorPrimary;
 
     .inner {
         display: flex;
@@ -92,7 +92,7 @@ $mobile-size: 360;
                     display: block;
                     width: 80%;
                     height: vw(1);
-                    background: #1a1a1a;
+                    background: var(--clr-reversal);
                     border-radius: vw(4);
                 }
 
@@ -105,7 +105,7 @@ $mobile-size: 360;
                     left: 0;
                     width: 100%;
                     height: vw(1);
-                    background: #1a1a1a;
+                    background: var(--clr-reversal);
                 }
 
                 &:before {
@@ -127,7 +127,7 @@ $mobile-size: 360;
                 z-index: 5;
                 width: 100vw;
                 height: 100vh;
-                background: #ffffff;
+                background: var(--clr-basic);
 
                 .gnb-inner {
                     display: flex;
@@ -147,7 +147,7 @@ $mobile-size: 360;
                     .gnb {
                         li {
                             font-size: vw(14);
-                            padding: vw(8) 0;
+                            padding: vw(8) 0;                            
 
                             a {
                                 font-size: vw(18);
@@ -400,5 +400,38 @@ $mobile-size: 360;
             padding: 18vw 12vw;
             font-size: 2.7vw;
         }
+    }
+}
+
+
+// 테마
+[data-theme="dark"] {
+    * {
+        color: var(--clr-reversal);
+    }
+    
+    #header {
+
+        .inner {
+
+            .nav {
+
+                .barMenu {
+                    .bar {
+                        background: var(--clr-reversal);
+                    }
+
+                    &::before,
+                    &::after {
+                        background: var(--clr-reversal);
+                    }
+                }
+
+                .gnb-wrapper {
+                    background: var(--clr-basic);
+                }
+            }
+        }
+
     }
 }

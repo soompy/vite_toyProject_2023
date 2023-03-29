@@ -814,7 +814,7 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
 
 .room {
     position: relative;
-    border: vw(20) solid #1a1a1a;
+    border: vw(20) solid var(--clr-onsurface--400);
     height: 80vh;
     width: 100vw;
     scroll-snap-align: center;
@@ -833,8 +833,7 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
             justify-content: center;
             place-content: center;
             width: 100%;
-            height: 100%;
-            color: white;
+            height: 100%;            
             font-family: 'Indie Flower', cursive;
             font-size: clamp(1em, 10vmin, 3em);
             font-weight: 200;
@@ -950,7 +949,7 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
     place-content: center;
     width: 100%;
     height: 100%;
-    color: white;
+    color: var(--clr-reversal);
     font-family: 'Indie Flower', cursive;
     font-size: clamp(1em, 10vmin, 3em);
     font-weight: 200;

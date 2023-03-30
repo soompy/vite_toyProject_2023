@@ -221,7 +221,10 @@ $mobile-size: 360;
     // width: 100%;
     // background: #f5eb51;
 }
-
+#myCanvas {    
+    width: 100%;
+    height: 100%;
+}
 .visual {
     overflow: hidden;
     position: relative;

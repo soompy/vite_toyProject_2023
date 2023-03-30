@@ -5,35 +5,29 @@ const falling = () => {
 
     var fallTimer;
 
-    document.getElementById("start").addEventListener("click", function () {
-        fallTimer = setInterval(function () {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.beginPath();
-            context.rect(0, 0, canvas.width, canvas.height, "white");
-            context.fillStyle = 'white';
-            context.fill();
-            context.stroke();
-            if (newCircle % objects.time == 0) {
-                var xloc = Math.floor(Math.random(0, 1) * 400);
-                objects.centers.push([xloc, 0]);
-                objects.sizes.push(Math.floor(Math.random(0, 1) * 10 + 3));
-                var myColor = "#";
-                var q = 0;
-                for (q = 0; q < 6; q++) {
-                    myColor = myColor + colorCombos[Math.floor(Math.random(0, 1) * 16)];
-                }
-                objects.colors.push(myColor);
-                objects.stepSize.push(Math.random(0, 1) * 5);
-                objects.number++;
+    fallTimer = setInterval(function () {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.beginPath();
+        context.rect(0, 0, canvas.width, canvas.height, "white");
+        context.fillStyle = 'white';
+        context.fill();
+        context.stroke();
+        if (newCircle % objects.time == 0) {
+            var xloc = Math.floor(Math.random(0, 1) * 400);
+            objects.centers.push([xloc, 0]);
+            objects.sizes.push(Math.floor(Math.random(0, 1) * 10 + 3));
+            var myColor = "#";
+            var q = 0;
+            for (q = 0; q < 6; q++) {
+                myColor = myColor + colorCombos[Math.floor(Math.random(0, 1) * 16)];
             }
-            newCircle++;
-            objects.moveDown();
-        }, 10);
-    });
-
-    document.getElementById("stop").addEventListener("click", function () {
-        clearInterval(fallTimer);
-    });
+            objects.colors.push(myColor);
+            objects.stepSize.push(Math.random(0, 1) * 5);
+            objects.number++;
+        }
+        newCircle++;
+        objects.moveDown();
+    }, 10);
 
     var colorCombos = "0123456789ABCDEF";
 
@@ -75,16 +69,6 @@ const falling = () => {
             }
         },
     };
-
-    function updateTime() {
-        objects.time = document.getElementById("red").value;
-    }
-
-    function updateStep() {
-        //    objects.stepSize = document.getElementById("green").value / 20;
-
-    }
-
 
 }
 

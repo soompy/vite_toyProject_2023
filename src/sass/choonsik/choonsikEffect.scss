@@ -258,14 +258,17 @@ $mobile-size: 360;
 
             &:nth-of-type(1) {
                 width: vw(150);
+                top: 20%;
             }
 
             &:nth-of-type(2) {
-                width: vw(200);
+                width: vw(120);
+                top: 40%;
             }
 
             &:nth-child(3) {
                 width: vw(120);
+                top: 60%;
             }
         }
     }
@@ -297,6 +300,32 @@ $mobile-size: 360;
     height: 50%;
     background: linear-gradient(180deg, rgba(255, 248, 144, 1) 0%, rgba(251, 241, 83, 0.5914740896358543) 48%, rgba(255, 242, 39, 1) 100%);
 }
+
+
+
+
+
+
+
+input[type=range] {
+    -webkit-appearance: none;
+    background-color: silver;
+    width: 200px;
+    height:20px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: #666;
+    opacity: 0.5;
+    width: 10px;
+    height: 26px;
+}
+
+
+
+
+
 
 .contentsBox {
     >.row {

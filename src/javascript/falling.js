@@ -72,6 +72,4 @@ const falling = () => {
 
 }
 
-
-
 export default falling

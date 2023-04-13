@@ -9,11 +9,15 @@
   },
   "devDependencies": {
     "@types/node": "^18.15.3",
+    "autoprefixer": "^10.4.14",
     "chroma-js": "^2.4.2",
     "lodash": "^4.17.21",
+    "postcss": "^8.4.21",
     "sass": "^1.49.9",
+    "tailwindcss": "^3.3.1",
     "vite": "^2.8.0",
     "vite-plugin-favicon": "^1.0.8",
+    "vite-plugin-require-transform": "^1.0.12",
     "vite-tsconfig-paths": "^4.0.7"
   },
   "dependencies": {
@@ -21,6 +25,7 @@
     "@types/scrollmagic": "^2.0.3",
     "animejs": "^3.2.1",
     "favicons": "^7.1.1",
+    "matter-js": "^0.19.0",
     "netlify-cli": "^9.16.1",
     "scrollmagic": "^2.0.8",
     "scrollmagic-plugins": "^1.0.8",

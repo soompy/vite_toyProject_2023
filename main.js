@@ -4,7 +4,6 @@ import themeSwitcher from '@scripts/theme.js';
 import choonsik from '@scripts/choonsik';
 // import falling from '@scripts/falling';
 import anime from 'animejs/lib/anime.es.js';
-import Matter from 'matter-js';
 
 
 themeSwitcher();
@@ -12,4 +11,3 @@ themeSwitcher();
 choonsik();
 // falling();
 anime();
-Matter();

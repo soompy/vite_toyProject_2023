@@ -1,7 +1,4 @@
-
-
 const choonsik = () => {
-
     // gnb
     const barMenu = document.querySelector(".barMenu");
     const gnbWrapper = document.querySelector(".gnb-wrapper");

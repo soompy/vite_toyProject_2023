@@ -457,7 +457,41 @@ input[type="range"]::-webkit-slider-thumb {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1000px) {    
+    #header {
+        height: 102px;
+        .inner {    
+            .nav {                
+                .barMenu {
+                    width: 40px;
+                    height: 30px;
+                }
+            }
+            .logo {
+                width: 90px;
+            }
+            .change-theme {
+                .theme-mode {
+                    input {
+                        width: 68px;
+                        height: 43px;
+                        &::before {
+                            top: -1px;
+                        }
+                        &:checked {
+                            &::before{
+                                left: 23px;
+                            }
+                        }
+                    }
+                    .mode-text {
+                        font-size: 20px;
+                        line-height: 22px;
+                    }
+                }
+            }
+        }        
+    }
     #intro {
         .col {
             padding: 18vw 12vw;

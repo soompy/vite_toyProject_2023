@@ -40,7 +40,7 @@ const matterVi = () => {
 
     let defaultRectImageInfo = {
         type: "rectangle",
-        path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+        path: "src/assets/images/sweetPotato0.png",
         w: 1657,
         h: 604,
         xScale: 0.3,
@@ -50,7 +50,7 @@ const matterVi = () => {
 
     let defaultCircleImageInfo = {
         type: "circle",
-        path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+        path: "src/assets/images/sweetPotato0.png",
         w: 578,
         h: 578,
         xScale: 0.3,
@@ -98,37 +98,37 @@ const matterVi = () => {
     let imageInfos = [
         {
             ...defaultRectImageInfo,
-            path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+            path: "src/assets/images/sweetPotato0.png",
             w: 1684,
             h: 604,
         },
         {
             ...defaultRectImageInfo,
-            path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+            path: "src/assets/images/sweetPotato0.png",
             w: 1833,
             h: 604,
         },
         {
             ...defaultRectImageInfo,
-            path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+            path: "src/assets/images/sweetPotato0.png",
             w: 1533,
             h: 604,
         },
         {
             ...defaultRectImageInfo,
-            path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+            path: "src/assets/images/sweetPotato0.png",
             w: 1722,
             h: 604,
         },
         {
             ...defaultRectImageInfo,
-            path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+            path: "src/assets/images/sweetPotato0.png",
             w: 1657,
             h: 604,
         },
         {
             ...defaultCircleImageInfo,
-            path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+            path: "src/assets/images/sweetPotato0.png",
             w: 1824,
             h: 1823,
         },
@@ -155,37 +155,37 @@ const matterVi = () => {
         imageInfos = [
             {
                 ...defaultMobileRectImageInfo,
-                path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+                path: "src/assets/images/sweetPotato0.png",
                 w: 284,
                 h: 102,
             },
             {
                 ...defaultMobileRectImageInfo,
-                path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+                path: "src/assets/images/sweetPotato0.png",
                 w: 310,
                 h: 102,
             },
             {
                 ...defaultMobileRectImageInfo,
-                path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+                path: "src/assets/images/sweetPotato0.png",
                 w: 259,
                 h: 102,
             },
             {
                 ...defaultMobileRectImageInfo,
-                path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+                path: "src/assets/images/sweetPotato0.png",
                 w: 291,
                 h: 102,
             },
             {
                 ...defaultMobileRectImageInfo,
-                path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+                path: "src/assets/images/sweetPotato0.png",
                 w: 280,
                 h: 102,
             },
             {
                 ...defaultMobileCircleImageInfo,
-                path: "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/ck3S/image/6wW3rm9SeiAdNC4iXCnEPkhEc4A.PNG",
+                path: "src/assets/images/sweetPotato0.png",
                 w: 200,
                 h: 200,
             },

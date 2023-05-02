@@ -16,7 +16,7 @@ export default defineConfig({
       '@scripts': path.resolve(__dirname, './src/javascript'),
       '@parts': path.resolve(__dirname, './src/sass/partials'),
       '@styles': path.resolve(__dirname, './src/sass'),
-      '@images': path.resolve(__dirname, './src/assets/images'),
+      '@images': path.resolve(__dirname, 'src/assets/images'),      
       '@': path.resolve(__dirname, './'),
       '~': path.resolve(__dirname, './'),
     },
@@ -28,7 +28,6 @@ export default defineConfig({
     // ViteFaviconsPlugin({
     //   logo: "./src/assets/favicon.png",
     // }),
-  ],
-  
+  ],  
 });
 

@@ -819,12 +819,7 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
     width: 100vw;
     scroll-snap-align: center;
     transform-style: preserve-3d;
-    &.room-1 {
-        background: rgba(0,0,0,0.4);
-    }
-    &.room-2 {
-
-    }
+    background: rgba(0,0,0,0.4);    
     &.room-3 {     
         .room-content {
             display: flex;

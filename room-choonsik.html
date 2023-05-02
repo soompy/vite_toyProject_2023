@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
             <div class="room-content">         
                 <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>
                 <div class="switch">
-                    <input class="tgl tgl-switch" id="themeSwitch1" type="checkbox" onclick="lightSwitch()"/>
+                    <input class="tgl tgl-switch" id="themeSwitch1" type="checkbox"/>
                     <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch1"></label>
                 </div>
             </div>
@@ -39,37 +39,70 @@
                 <div class="cleaning-box">
                     <div class="container"></div>
                 </div>
+                
+                <div class="switch">
+                    <input class="tgl tgl-switch" id="themeSwitch2" type="checkbox"/>
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch2"></label>
+                </div>
             </div>
         </section>
 
         <section class="room room-3">
             <div class="room-walls"></div>
             <div class="room-content">
-                <p class="">I'm here!!</p>
+                <p class="room-text">I'm here!!</p>
+                <div class="switch">
+                    <input class="tgl tgl-switch" id="themeSwitch3" type="checkbox"/>
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch3"></label>
+                </div>
                 <div class="img-choonsik">
                     <span class="sofa-choonsik"></span>                              
                 </div>                
             </div>
         </section>
 
-        <section class="room">
+        <section class="room room-4">
             <div class="room-walls"></div>
-            <div class="room-content">if after all these years</div>
+            <div class="room-content">         
+                <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>
+                <div class="switch">
+                    <input class="tgl tgl-switch" id="themeSwitch4" type="checkbox"/>
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch4"></label>
+                </div>
+            </div>
         </section>
 
-        <section class="room">
+        <section class="room room-5">
             <div class="room-walls"></div>
-            <div class="room-content">you'd like to meet</div>
+            <div class="room-content">         
+                <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>
+                <div class="switch">
+                    <input class="tgl tgl-switch" id="themeSwitch5" type="checkbox"/>
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch5"></label>
+                </div>
+            </div>
         </section>
 
-        <section class="room">
+        <section class="room room-6">
             <div class="room-walls"></div>
-            <div class="room-content">to go over</div>
+            <div class="room-content">         
+                <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>
+                <div class="switch">
+                    <input class="tgl tgl-switch" id="themeSwitch6" type="checkbox"/>
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch6"></label>
+                </div>
+            </div>
         </section>
 
-        <section class="room">
+        <section class="room room-7">
             <div class="room-walls"></div>
-            <div class="room-content">everything</div>
+            <div class="room-content">         
+                <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>
+                <div class="switch">
+                    <input class="tgl tgl-switch" id="themeSwitch7" type="checkbox"/>
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch7"></label>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -98,11 +131,16 @@
             perspective-origin: 50% 35%;
         }
     </style>
+    
 
+    <script type="module" src="/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <script>
+        /*
         const tgl = document.querySelector(".tgl");
-        const roomFirst = document.querySelector(".room-1");        
-
+        const roomFirst = document.querySelector(".room-1");    
+        
         function lightSwitch() {
             const checkSwitch = tgl.checked;
             if(checkSwitch) {
@@ -111,9 +149,29 @@
                 roomFirst.classList.remove("lightOn");
             }
         }
-    </script>
+        */
 
-    <script type="module" src="/main.js"></script>
+        // 방 전체 스위치
+        const tgls = document.querySelectorAll(".tgl");
+        const roomLight = document.querySelectorAll(".room");        
+    
+        tgls.forEach((tgl, index) => {            
+
+            roomLight.forEach((light) => {
+                light.classList.remove('lightOn');
+            })
+
+            tgls.forEach((tglSwitch) => {
+                tglSwitch.checked = false;
+            })        
+
+            tgl.addEventListener("click", function() {
+                roomLight[index].classList.toggle("lightOn");
+                tgls[index].checked = true;                           
+            })            
+            
+        })
+    </script>
 </body>
 
 </html>

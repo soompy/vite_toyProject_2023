@@ -1219,3 +1219,42 @@ $text-black-color: #000;
       animation-fill-mode: forwards;
     }
   }
+
+// 게임
+.scrolling-contents {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    .scalebg {
+        position: relative;
+        width: 100%;
+        height: 100%;        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &:before, &:after {
+            display: block;
+            clear: both;
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;     
+            background: var(--clr-basic);;
+        }
+        &:before {
+            left: 0;
+        }
+        &:after {
+            right: 0;
+        }
+    }
+    .sticky-text {
+        position: sticky;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}

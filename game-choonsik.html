@@ -14,107 +14,164 @@
 <body>
     <load="/header.html" />
 
-    <div class="choonsik-lover-wrapper">
-        <section class="visual">
-            <div class="marquee_wrap">
-                <div class="marquee_box">
-                    <span class="marquee_text">lovely choonsik</span>
-                </div>
-                <div class="marquee_box">
-                    <span class="marquee_text">lovely choonsik</span>
-                </div>
-                <div class="marquee_box">
-                    <span class="marquee_text">lovely choonsik</span>
-                </div>
-                <div class="marquee_box">
-                    <span class="marquee_text">lovely choonsik</span>
-                </div>
+    <div id="matter-container" style="height:100vh"></div>
+    
+    <!-- 스크롤 배경 스케일 & 스티키 텍스트 영역 -->
+    <section class="scrolling-contents">
+        <div class="scalebg">
+            <img src="https://cdn.pixabay.com/photo/2021/01/14/19/30/water-5917708__480.jpg" alt="">
+        </div>
+
+        <div class="sticky-text">
+            <div class="inner">
+                <p>
+                    춘식이1 <br>
+                    춘식이2 <br>
+                    춘식이3 <br>
+                    춘식이4 <br><br>
+                    춘식이1 <br>
+                    춘식이2 <br>
+                    춘식이3 <br>
+                    춘식이4 <br>
+                </p>
             </div>
-        </section>
-
-
-
-        <section id="one" class="contentsBox">
-            <div class="row no-gutters">
-                <div class="col">
-                    <div class="rectangle"></div>
-                    <div class="about-choonsik">
-                        <div class="text-block">
-                            <h2 class="mb-0">choonsik</h2>
-                            <h5>happy</h5>
-                        </div>
-                        <div class="blocks">
-                            <div class="faces"></div>
-                            <div class="faces"></div>
-                            <div class="faces"></div>
-                            <div class="faces"></div>
-                            <div class="faces"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="two" class="contentsBox">
-            <div class="row no-gutters">
-                <div class="col">
-                    <div class="room-choonsik">
-                        <div>
-                            <img src="https://i.pinimg.com/originals/95/8f/59/958f599f934e94f63d6d60b676707ece.png"
-                                class="img-fluid" alt="Responsive image" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="three" class="contentsBox">
-            <div class="image"></div>
-            <div class="row no-gutters">
-                <div class="col">
-                    <div class="elem">
-                        <h2>GET OUT THERE</h2>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="four" class="section">
-            <div class="image"></div>
-            <div class="row no-gutters">
-                <div class="col">
-                    <div class="elem">
-                        <h2>GO RIDE</h2>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+        </div>
+    </section>    
 
     <load="/footer.html" />
 
-    <script src="./node_modules/animejs/lib/anime.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script src="./js/choonsik.js"></script>
+    <script type="module" src="/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"
+        integrity="sha512-5T245ZTH0m0RfONiFm2NF0zcYcmAuNzcGyPSQ18j8Bs5Pbfhp5HP1hosrR8XRt5M3kSRqzjNMYpm2+it/AUX/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        function randomValues() {
-            anime({
-                targets: '.random-demo .el',
-                translateX: function () {
-                    return anime.random(0, 270);
-                },
-                easing: 'easeInOutQuad',
-                duration: 750,
-                complete: randomValues
+        const matterContainer = document.querySelector("#matter-container");
+        const THICCNESS = 60;
+
+        // module aliases
+        var Engine = Matter.Engine,
+            Render = Matter.Render,
+            Runner = Matter.Runner,
+            Bodies = Matter.Bodies,
+            Composite = Matter.Composite;
+
+        // create an engine
+        var engine = Engine.create();
+
+        // create a renderer
+        var render = Render.create({
+            element: matterContainer,
+            engine: engine,
+            options: {
+                width: matterContainer.clientWidth,
+                height: matterContainer.clientHeight,
+                background: "transparent",
+                wireframes: false,
+                showAngleIndicator: false
+            }
+        });
+
+        // create two boxes and a ground
+        // var boxA = Bodies.rectangle(400, 200, 80, 80);
+        // var boxB = Bodies.rectangle(450, 50, 80, 80);
+
+        for (let i = 0; i < 10; i++) {
+            let circle = Bodies.circle(i, 10, 30, {
+                friction: 0.3,
+                frictionAir: 0.00001,
+                restitution: 0.8
             });
+            Composite.add(engine.world, circle);
         }
 
-        randomValues();
-    </script>
+        var ground = Bodies.rectangle(
+            matterContainer.clientWidth / 2,
+            matterContainer.clientHeight + THICCNESS / 2,
+            27184,
+            THICCNESS,
+            { isStatic: true }
+        );
 
-    <script type="module" src="/main.js"></script>
+        let leftWall = Bodies.rectangle(
+            0 - THICCNESS / 2,
+            matterContainer.clientHeight / 2,
+            THICCNESS,
+            matterContainer.clientHeight * 5,
+            {
+                isStatic: true
+            }
+        );
+
+        let rightWall = Bodies.rectangle(
+            matterContainer.clientWidth + THICCNESS / 2,
+            matterContainer.clientHeight / 2,
+            THICCNESS,
+            matterContainer.clientHeight * 5,
+            { isStatic: true }
+        );
+
+        // add all of the bodies to the world
+        Composite.add(engine.world, [ground, leftWall, rightWall]);
+
+        let mouse = Matter.Mouse.create(render.canvas);
+        let mouseConstraint = Matter.MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
+            }
+        });
+
+        Composite.add(engine.world, mouseConstraint);
+
+        // allow scroll through the canvas
+        mouseConstraint.mouse.element.removeEventListener(
+            "mousewheel",
+            mouseConstraint.mouse.mousewheel
+        );
+        mouseConstraint.mouse.element.removeEventListener(
+            "DOMMouseScroll",
+            mouseConstraint.mouse.mousewheel
+        );
+
+        // run the renderer
+        Render.run(render);
+
+        // create runner
+        var runner = Runner.create();
+
+        // run the engine
+        Runner.run(runner, engine);
+
+        function handleResize(matterContainer) {
+            // set canvas size to new values
+            render.canvas.width = matterContainer.clientWidth;
+            render.canvas.height = matterContainer.clientHeight;
+
+            // reposition ground
+            Matter.Body.setPosition(
+                ground,
+                Matter.Vector.create(
+                    matterContainer.clientWidth / 2,
+                    matterContainer.clientHeight + THICCNESS / 2
+                )
+            );
+
+            // reposition right wall
+            Matter.Body.setPosition(
+                rightWall,
+                Matter.Vector.create(
+                    matterContainer.clientWidth + THICCNESS / 2,
+                    matterContainer.clientHeight / 2
+                )
+            );
+        }
+
+        window.addEventListener("resize", () => handleResize(matterContainer));
+    </script>
 </body>
 
 </html>

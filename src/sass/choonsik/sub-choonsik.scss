@@ -1222,17 +1222,21 @@ $text-black-color: #000;
 
 // 게임
 .scrolling-contents {
+    overflow: hidden;
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 80px);
+    transition: all 2s linear;
     .scalebg {
         position: relative;
         width: 100%;
-        height: 100%;        
+        height: 100%;
+        transition: all 2s linear;
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: all 2s linear;
         }
         &:before, &:after {
             display: block;
@@ -1240,9 +1244,11 @@ $text-black-color: #000;
             content: '';
             position: absolute;
             top: 0;
+            z-index: 1;
             width: 50%;
             height: 100%;     
-            background: var(--clr-basic);;
+            background: var(--clr-basic);
+            transition: all 2s linear;
         }
         &:before {
             left: 0;
@@ -1251,11 +1257,54 @@ $text-black-color: #000;
             right: 0;
         }
     }
-    .sticky-text {
-        position: sticky;
+    .sticky-text {     
+        overflow-x: hidden;   
+        overflow-y: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
         left: 0;
         top: 0;
         width: 100%;
-        .inner {}
+        height: 100%;     
+        transition: all 2s linear;
+        .inner {
+            padding: 20px 0;
+            p {
+                font-size: 20px;
+                line-height: 30px;
+                font-weight: 300;
+                color: #ffffff;
+                text-align: center;
+                font-weight: bold;
+                transition: all 2s linear;
+                &::-webkit-scrollbar {display: none;}
+            }
+        }        
+    }
+    
+    &.on {
+        position: sticky;
+        top: 80px;
+        .scalebg {            
+            img {
+                transform: scale(1.2);
+            }
+            &:before {
+                left: -100%;
+            }
+            &:after {
+                right: -100%;
+            }
+        }  
+        .sticky-text {
+            .inner {
+                p {
+                    font-size: 50px;
+                    line-height: 70px;
+                }
+            }            
+        }    
     }
 }

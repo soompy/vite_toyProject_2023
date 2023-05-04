@@ -70,12 +70,13 @@ $mobile-size: 360;
     left: 0;
     z-index: 5;
     width: 100vw;
-    height: vw(52);
+    height: 80px;    
 
     .inner {
         display: flex;
         align-items: center;
-        padding: 0 vw(20);
+        height: 100%;
+        padding: 0 50px;               
 
         .nav {
             display: flex;
@@ -85,15 +86,15 @@ $mobile-size: 360;
                 display: flex;
                 align-items: center;
                 position: relative;
-                width: vw(18);
-                height: vw(13);
+                width: 34px;
+                height: 26px;                
 
                 .bar {
                     display: block;
                     width: 80%;
-                    height: vw(1);
+                    height: 1px;
                     background: var(--clr-reversal);
-                    border-radius: vw(4);
+                    border-radius: 4px;
                 }
 
                 &:before,
@@ -104,7 +105,7 @@ $mobile-size: 360;
                     position: absolute;
                     left: 0;
                     width: 100%;
-                    height: vw(1);
+                    height: 1px;
                     background: var(--clr-reversal);
                 }
 
@@ -162,7 +163,7 @@ $mobile-size: 360;
         .logo {
             font-size: vw(12);
             margin: auto;
-            width: vw(50);
+            width: 60px;            
             height: auto;
 
             img {
@@ -177,39 +178,40 @@ $mobile-size: 360;
 
                 input {
                     position: relative;
-                    border: vw(1) solid gray;
-                    border-radius: vw(12);
-                    width: vw(20);
-                    height: vw(12);
+                    border-radius: 22px;
+                    width: 68px;
+                    height: 44px;
                     background: transparent;
+                    background: #d0c301;
 
                     &:before {
                         position: absolute;
-                        left: 0;
-                        width: vw(10);
-                        height: vw(10);
+                        left: 2px;
+                        top: 2px;
+                        width: 40px;
+                        height: 40px;                        
                         content: "";
                         border-radius: 50%;
                         transform: scale(0.8);
-                        background-color: gray;
+                        background-color: var(--clr-primary);
                         transition: left 250ms linear;
                     }
 
                     &:checked {
                         background: gray;
 
-                        &:before {
-                            left: vw(8);
+                        &:before {                            
+                            left: 23px;
                             background: #ffffff;
                         }
                     }
                 }
 
                 .mode-text {
-                    font-size: vw(12);
-                    line-height: vw(12);
+                    font-size: 20px;
+                    line-height: 22px;
                     text-align: center;
-                    padding-left: vw(5);
+                    padding-left: 5px;
                 }
             }
         }
@@ -457,36 +459,39 @@ input[type="range"]::-webkit-slider-thumb {
     }
 }
 
-@media (min-width: 1000px) {    
+@media screen and (max-width: 1000px) {
     #header {
-        height: 102px;
+        height: vw(52);
         .inner {    
+            padding: 0 vw(20);
             .nav {                
                 .barMenu {
-                    width: 40px;
-                    height: 30px;
+                    width: vw(18);
+                    height: vw(13);
                 }
             }
             .logo {
-                width: 90px;
+                width: vw(50);
             }
             .change-theme {
                 .theme-mode {
                     input {
-                        width: 68px;
-                        height: 43px;
+                        width: 20px;
+                        height: 12px;
                         &::before {
                             top: -1px;
+                            width: 10px;
+                            height: 10px;                            
                         }
                         &:checked {
                             &::before{
-                                left: 23px;
+                                left: 8px;
                             }
                         }
                     }
                     .mode-text {
-                        font-size: 20px;
-                        line-height: 22px;
+                        font-size: 12px;
+                        line-height: 12px;                    
                     }
                 }
             }

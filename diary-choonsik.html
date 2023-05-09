@@ -87,8 +87,6 @@
     <load="/footer.html" />
 
 
-
-
     <script>
         const conditionFace = document.querySelectorAll(".condition-face");
         const conditionText = document.querySelectorAll(".condition-text p");
@@ -119,15 +117,28 @@
         const btnNext = document.querySelector(".btn-next");
         const diaryPages = document.querySelectorAll(".diary-page");
         const choonsikDiary = document.querySelector(".choonsik-diary");
-
-        let currentPosition = 0;
+        
+        /*
         for (i = 0; i < diaryPages.length; i++) {
             btnNext.addEventListener("click", () => {
-                currentPosition -= 100;
-                choonsikDiary.style.transform = `translateX(${currentPosition}vw)`;
-            })
-            console.log(currentPosition)
+                choonsikDiary.style.transform = `translateX(${-100 * i}vw)`;                                
+                console.log(i)
+            })            
         }
+        */
+
+        
+        btnNext.addEventListener("click", () => {
+            for (i = 0; i < diaryPages.length; i++) {
+                choonsikDiary.style.transform = `translateX(${-100 * i}vw)`;                                
+            }
+
+            if(i > diaryPages.length) {
+                return false
+            }
+                        
+        })
+        
     </script>
 
     <script type="module" src="/main.js"></script>

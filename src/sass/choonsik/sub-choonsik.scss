@@ -112,75 +112,121 @@ $mobile-size: 360;
     }
 }
 
-.profile-box {
+.profile-choonsik {
+    overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100vw;
+    background: rgb(245, 185, 195);    
 
-    .profile-item {
+    .text {
+        position: absolute;
+        left: 20%;
+        top: 20%;
+        z-index: 1;
+        font-family: "Hi Melody";
+        font-size: 20px;
+        font-weight: 900;
+        animation: fadeIn 1s infinite;
+    }
+
+    .profile-bg {        
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;        
+        width: 100%;
+        transform-origin: center;
+        animation: rotation 7s linear infinite;
+
+        .bg-circle {
+            display: block;
+            flex-shrink: 0;
+            width: 20vw;
+            height: 20vw;
+            background: rgb(249, 249, 61);
+            border-radius: 50%;
+            border: 5px solid #000;    
+            margin: 0 5px;  
+            animation: tensionX 7s linear infinite;
+        }
+    }
+    .profile-box {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50vw;
-        height: 50vw;
+        width: 80%;
+        height: 80%;
+        border-radius: 20px;
+        background: rgba( 255, 255, 255, 0.25 );        
+        backdrop-filter: blur( 17.5px );
+        -webkit-backdrop-filter: blur( 17.5px );
+        border-radius: 30px;        
 
-        >span {
+        .profile-item {                                  
             position: relative;
-            display: block;
-            width: 100%;
-            height: 100%;
+            
+            .spinner {
+                margin: auto;
+                transition: all 1s linear;
+                animation: rotation 10s infinite;
 
-            &:after {
-                display: block;
-                clear: both;
-                content: '';
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-            }
-        }
+                .triangle {
+                    display: block;    
+                    position: relative;                            
+                    width: 0;
+                    height: 0;
+                    border-left: 15vw solid transparent;
+                    border-right: 15vw solid transparent;
+                    border-bottom: 25vw solid green;
+                    transform-origin: center center;       
+                    transform: rotate(65deg);
+                    margin: auto;             
+                }
 
-        .circle {
-            background: lime;
-            background-size: cover;
-            border-radius: 50%;
+                .talk {
+                    position: relative;
+                    right: -30px;
+                    top: 0;
+                    margin-left: 120px;
+                    transform: rotate(45deg);
 
-            &:after {
-                display: block;
-                clear: both;
-                content: 'C';
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-                animation: twinkle 1s infinite steps(14);
-            }
-        }
+                    p {
+                        position: relative;
+                        display: inline-block;
+                        font-size: 16px;
+                        background: #ffffff;
+                        padding: 10px;
+                        border-radius: 20px;
+                        .talk-tail {
+                            position: absolute;
+                            left: 50%;
+                            bottom: -5px;
+                            transform: rotate(90deg);                            
+                            border-left: 10px solid transparent;
+                            border-right: 10px solid transparent;
+                            border-bottom: 10px solid #ffffff;
+                        }
+                    }
 
-        .square {
-            background: #ccc;
-
-            &:after {}
-        }
-
-        .triangle {
-            width: 0;
-            height: 0;
-            border-left: 25vw solid transparent;
-            border-right: 25vw solid transparent;
-            border-bottom: 25vw solid green;
-            transform-origin: center center;
-            animation: rotation 1s infinite;
-
-            &:after {}
+                    .following {
+                        position: absolute;
+                        top: 0;
+                        width: 50%;
+                        height: auto;
+                        margin: 44px auto 0;
+                    }
+                }                
+            }            
         }
     }
+
 }
 
 @keyframes rotation {
@@ -192,11 +238,42 @@ $mobile-size: 360;
         transform: rotate(180deg);
     }
 
+    50% {
+        transform: rotate(360deg);
+    }
+
     75% {
-        transform: rotate(180deg);
+        transform: rotate(-180deg);
     }
 
     100% {
+        transform: rotate(0);
+    }
+}
+
+@keyframes tensionX {
+    0% {
+        margin: 0 5px;
+        transform: rotate(0);
+    }
+
+    25% {
+        margin: 0 10px;  
+        transform: rotate(180deg);
+    }
+
+    50% {
+        margin: 0 5px;    
+        transform: rotate(360deg);
+    }
+
+    75% {
+        margin: 0 10px;  
+        transform: rotate(-180deg);
+    }
+
+    100% {
+        margin: 0 5px;  
         transform: rotate(0);
     }
 }

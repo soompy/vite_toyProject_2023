@@ -24,27 +24,33 @@
         </div>
 
         <div class="profile-choonsik">
-            <div class="profile-box">
-                <div class="profile-item">
-                    <p class="text">choonsik</p>
-                </div>
-                <div class="profile-item">
-                    <span class="circle"></span>
-                </div>
+            <p class="text">초록 삼각형에 꽂힌 춘식이</p>
+            <div class="profile-bg">
+                <span class="bg-circle"></span>
+                <span class="bg-circle"></span>
+                <span class="bg-circle"></span>
+                <span class="bg-circle"></span>
+                <span class="bg-circle"></span>
+                <span class="bg-circle"></span>
+                <span class="bg-circle"></span>
+                <span class="bg-circle"></span>                
             </div>
-            <div class="profile-box">
+            <div class="profile-box">                
                 <div class="profile-item">
-                    <span class="square"></span>
-                </div>
-                <div class="profile-item">
-                    <span class="triangle"></span>
+                    <div class="spinner">
+                        <span class="triangle"></span>
+                        <div class="talk">
+                            <p>초록 삼각형 잡을거양 <span class="talk-tail"></span></p>
+                            <img class="following" src="https://item.kakaocdn.net/do/b5d3d6a7b67fbf5afdaffb79fffbf8b115b3f4e3c2033bfd702a321ec6eda72c" alt="따라다니는춘식이">
+                        </div>                        
+                    </div>                    
                 </div>
             </div>
         </div>
 
         <!-- 춘식이 매력도 -->
         <section class="choonsik-chart">
-            <h3>춘식이의 매력을 알아볼까용</h3>
+            <!-- <h3>춘식이의 매력을 알아볼까용</h3> -->
             <span class="lovely-text">매력도 click!!</span>
             <canvas id="lovelyChoonsik"></canvas>
         </section>
@@ -53,8 +59,8 @@
 
     <load="/footer.html" />
 
-    <!-- <script src="./node_modules/animejs/lib/anime.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="./node_modules/animejs/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script type="module" src="/main.js"></script>
 
@@ -74,7 +80,7 @@
         randomValues();
     </script>
 
-    <script>
+    <script>                
         anime({
             targets: '.specific-prop-params-demo .el',
             translateX: {
@@ -94,6 +100,7 @@
             },
             delay: 250
         });
+
 
         const ctx = document.getElementById('lovelyChoonsik');
 

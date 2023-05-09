@@ -86,8 +86,8 @@ $mobile-size: 360;
                 display: flex;
                 align-items: center;
                 position: relative;
-                width: 34px;
-                height: 26px;                
+                width: 28px;
+                height: 20px;                
 
                 .bar {
                     display: block;
@@ -163,7 +163,7 @@ $mobile-size: 360;
         .logo {
             font-size: vw(12);
             margin: auto;
-            width: 60px;            
+            width: 70px;            
             height: auto;
 
             img {
@@ -179,17 +179,17 @@ $mobile-size: 360;
                 input {
                     position: relative;
                     border-radius: 22px;
-                    width: 68px;
-                    height: 44px;
+                    width: 50px;
+                    height: 30px;
                     background: transparent;
                     background: #d0c301;
 
                     &:before {
                         position: absolute;
                         left: 2px;
-                        top: 2px;
-                        width: 40px;
-                        height: 40px;                        
+                        top: 1px;
+                        width: 28px;
+                        height: 28px;                     
                         content: "";
                         border-radius: 50%;
                         transform: scale(0.8);
@@ -201,7 +201,7 @@ $mobile-size: 360;
                         background: gray;
 
                         &:before {                            
-                            left: 23px;
+                            left: 21px;
                             background: #ffffff;
                         }
                     }
@@ -479,7 +479,7 @@ input[type="range"]::-webkit-slider-thumb {
                         width: 20px;
                         height: 12px;
                         &::before {
-                            top: -1px;
+                            top: 1px;
                             width: 10px;
                             height: 10px;                            
                         }

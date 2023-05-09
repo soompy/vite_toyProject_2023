@@ -23,8 +23,7 @@
             </p>
         </div>
 
-        <div class="profile-choonsik">
-            <p class="text">초록 삼각형에 꽂힌 춘식이</p>
+        <div class="profile-choonsik">            
             <div class="profile-bg">
                 <span class="bg-circle"></span>
                 <span class="bg-circle"></span>
@@ -33,7 +32,9 @@
                 <span class="bg-circle"></span>
                 <span class="bg-circle"></span>
                 <span class="bg-circle"></span>
-                <span class="bg-circle"></span>                
+                <span class="bg-circle"></span>
+                <span class="bg-circle"></span>
+                <span class="bg-circle"></span>
             </div>
             <div class="profile-box">                
                 <div class="profile-item">
@@ -54,58 +55,18 @@
             <span class="lovely-text">매력도 click!!</span>
             <canvas id="lovelyChoonsik"></canvas>
         </section>
-
     </div>
 
     <load="/footer.html" />
 
-    <script src="./node_modules/animejs/lib/anime.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
     <script type="module" src="/main.js"></script>
 
-    <script>
-        function randomValues() {
-            anime({
-                targets: '.random-demo .el',
-                translateX: function () {
-                    return anime.random(0, 270);
-                },
-                easing: 'easeInOutQuad',
-                duration: 750,
-                complete: randomValues
-            });
-        }
-
-        randomValues();
-    </script>
-
     <script>                
-        anime({
-            targets: '.specific-prop-params-demo .el',
-            translateX: {
-                value: 250,
-                duration: 800
-            },
-            rotate: {
-                value: 360,
-                duration: 1800,
-                easing: 'easeInOutSine'
-            },
-            scale: {
-                value: 2,
-                duration: 1600,
-                delay: 800,
-                easing: 'easeInOutQuart'
-            },
-            delay: 250
-        });
-
-
         const ctx = document.getElementById('lovelyChoonsik');
 
         new Chart(ctx, {
-            type: 'doughnut',
+            type: 'bar',
             tooltipFillColor: "rgba(51, 51, 51, 0.55)",
             data: {
                 labels: ['귀여움', '사랑스러움', '깜찍함', '멋짐'],
@@ -135,14 +96,22 @@
                     }
                 },
                 responsive: false,
+                indexAxis: 'y',
                 plugins: {
                     datalabels: {
                         formatter: (value) => {
                             return value + '%';
                         },
                     },
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 20
+                            }
+                        }
+                    },
                 },
-            },
+            },            
         });
     </script>
 

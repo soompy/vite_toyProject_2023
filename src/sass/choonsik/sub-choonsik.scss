@@ -126,8 +126,7 @@ $mobile-size: 360;
         position: absolute;
         left: 20%;
         top: 20%;
-        z-index: 1;
-        font-family: "Hi Melody";
+        z-index: 1;        
         font-size: 20px;
         font-weight: 900;
         animation: fadeIn 1s infinite;
@@ -142,8 +141,9 @@ $mobile-size: 360;
         align-items: center;
         justify-content: center;        
         width: 100%;
-        transform-origin: center;
+        transform-origin: 0;
         animation: rotation 7s linear infinite;
+        animation-fill-mode: forwards;
 
         .bg-circle {
             display: block;
@@ -154,7 +154,8 @@ $mobile-size: 360;
             border-radius: 50%;
             border: 5px solid #000;    
             margin: 0 5px;  
-            animation: tensionX 7s linear infinite;
+            animation: tensionX 10s linear infinite;
+            animation-fill-mode: forwards;
         }
     }
     .profile-box {
@@ -176,6 +177,7 @@ $mobile-size: 360;
                 margin: auto;
                 transition: all 1s linear;
                 animation: rotation 10s infinite;
+                animation-fill-mode: forwards;
 
                 .triangle {
                     display: block;    
@@ -201,9 +203,12 @@ $mobile-size: 360;
                         position: relative;
                         display: inline-block;
                         font-size: 16px;
+                        font-weight: bold;
+                        font-family: "Hi Melody";
                         background: #ffffff;
                         padding: 10px;
                         border-radius: 20px;
+                        
                         .talk-tail {
                             position: absolute;
                             left: 50%;
@@ -221,6 +226,8 @@ $mobile-size: 360;
                         width: 50%;
                         height: auto;
                         margin: 44px auto 0;
+                        animation: catch 2s linear infinite;
+
                     }
                 }                
             }            
@@ -254,27 +261,36 @@ $mobile-size: 360;
 @keyframes tensionX {
     0% {
         margin: 0 5px;
-        transform: rotate(0);
     }
 
     25% {
-        margin: 0 10px;  
-        transform: rotate(180deg);
+        margin: 0 40px;          
     }
 
     50% {
         margin: 0 5px;    
-        transform: rotate(360deg);
     }
 
     75% {
-        margin: 0 10px;  
-        transform: rotate(-180deg);
+        margin: 0 40px;          
     }
 
     100% {
         margin: 0 5px;  
-        transform: rotate(0);
+    }
+}
+
+@keyframes catch {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }
 

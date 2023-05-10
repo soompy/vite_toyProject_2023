@@ -14,7 +14,7 @@
 <body>
     <load="/header.html" />
 
-    <div class="choonsik-lover-wrapper">
+    <div class="choonsik-lover-wrapper">        
         <div class="choonsik-diary-container">
             <div class="choonsik-diary">
                 <section class="diary-page1 diary-page">
@@ -32,7 +32,7 @@
 
                 <section class="diary-page2 diary-page">
                     <div class="paper-inner">
-                        <h3>춘식이의 오늘 컨디션은?</h3>
+                        <h3 class="condition-title">춘식이의 오늘 컨디션은?<span class="click-text">click!!</span></h3>
                         <div class="choonsik-condition-container">
                             <ul class="choonsik-condition">
                                 <li class="condition-face on"><button class="btn-face">😆</button></li>
@@ -44,8 +44,7 @@
                         </div>
                         <div class="diary-text-wrap">
                             <div class="diary-text">
-                                <div class="big-face-box"></div>
-                                <span class="time">12:00</span>
+                                <div class="big-face-box"></div>                                
                                 <h4 class="title">춘식이의 기분은?!</h4>
                                 <div class="condition-text">
                                     <p class="on">춘식이 기분은 너무 좋아요!! <br />기분이 째져!!</p>
@@ -60,6 +59,7 @@
                 </section>
 
                 <section class="diary-page3 diary-page">
+                    <button class="choonsik-condition-btn btn-first">처음으로 가기</button>
                     <div class="paper-inner">
                         <div class="paper image-container">
                             <span class="cut-photo"><img
@@ -79,13 +79,10 @@
                     </div>
                 </section>
             </div>
-            <button class="btn-prev">&lt;</button>
-            <button id="nextPageBtn" class="btn-next">next &gt;</button>
         </div>
-    </div>
-
-    <load="/footer.html" />
-
+        
+        <button id="nextPageBtn" class="choonsik-condition-btn btn-next">next &gt;</button>
+    </div>    
 
     <script>
         const conditionFace = document.querySelectorAll(".condition-face");
@@ -113,32 +110,27 @@
         })
 
 
-        const btnPrev = document.querySelector(".btn-prev");
-        const btnNext = document.querySelector(".btn-next");
         const diaryPages = document.querySelectorAll(".diary-page");
         const choonsikDiary = document.querySelector(".choonsik-diary");
-        
-        /*
-        for (i = 0; i < diaryPages.length; i++) {
-            btnNext.addEventListener("click", () => {
-                choonsikDiary.style.transform = `translateX(${-100 * i}vw)`;                                
-                console.log(i)
-            })            
-        }
-        */
+        const btnFirst = document.querySelector(".btn-first");
+        let turnPageBtn = document.getElementById("nextPageBtn");
 
-        
-        btnNext.addEventListener("click", () => {
-            for (i = 0; i < diaryPages.length; i++) {
-                choonsikDiary.style.transform = `translateX(${-100 * i}vw)`;                                
-            }
+        let pageCount = 0;
+        let pageCount2 = 0;
+        const widthNextD = -100;                                
 
-            if(i > diaryPages.length) {
+        turnPageBtn.onclick = function() {            
+            if(pageCount < 2) {
+                pageCount += 1;
+                choonsikDiary.style.transform = `translateX(${widthNextD * pageCount}vw)`;                                
+            } else {
                 return false
-            }
-                        
+            }                     
+        };
+
+        btnFirst.addEventListener("click", function() {
+            choonsikDiary.style.transform = `translateX(${0 * pageCount}vw)`;            
         })
-        
     </script>
 
     <script type="module" src="/main.js"></script>

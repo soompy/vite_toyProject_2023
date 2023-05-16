@@ -970,7 +970,7 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
     transform-style: preserve-3d;
     background: rgba(0,0,0,0.4);    
     &.room-3 {   
-        background: transparent;  
+        background: trans;  
         .room-content {
             display: flex;
             flex-direction: column;
@@ -1435,6 +1435,7 @@ $text-black-color: #000;
                 color: #ffffff;
                 text-align: center;
                 font-weight: bold;
+                word-break: keep-all;
                 transition: all 2s linear;
                 &::-webkit-scrollbar {display: none;}
             }
@@ -1458,8 +1459,8 @@ $text-black-color: #000;
         .sticky-text {
             .inner {
                 p {
-                    font-size: 50px;
-                    line-height: 70px;
+                    font-size: 20px;
+                    line-height: 30px;
                 }
             }            
         }    

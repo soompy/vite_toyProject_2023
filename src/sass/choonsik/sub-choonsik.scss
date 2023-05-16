@@ -1000,26 +1000,43 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
             }
         }   
         .img-choonsik {
-            overflow: visible;
-            position: relative;
-            width: vw(375);
-            height: vw(290);
-            margin: auto;
-            .sofa-choonsik {
-                position: relative;
-                width: vw(340);
-                height: 100%;
-                display: block;
-                width: 82%;
-                height: vw(300);
+            .sofa-choonsik {                
                 background: url("https://og.kakaobank.io/view/8cf8a9ab-de88-42a8-92ba-1b55fc691ddc") 0 0 no-repeat;
                 background-size: vw(2380) vw(299.5);                
-                animation: loop-seq-ani 1.2s steps(7) infinite;
-            }
-        }        
+                animation: loop-seq-ani 1.2s steps(7) infinite;                
+            }            
+        }                
     }
-    &.lightOn {        
-        background: transparent;
+    .img-choonsik {
+        overflow: visible;
+        position: relative;
+        width: vw(375);
+        height: vw(290);
+        margin: auto;
+        .sofa-choonsik {
+            position: relative;
+            width: vw(340);
+            height: 100%;
+            display: block;
+            width: 82%;
+            height: vw(300);             
+        }
+        &.blank {
+            display: none;
+            .sofa-choonsik {
+                background: url("https://item.kakaocdn.net/do/a7fd7c0630f8aea8419a565fb2773bbc4022de826f725e10df604bf1b9725cfd") 0 0 no-repeat;
+                animation: none;
+                margin: 60px auto;
+            }                
+        }
+    }   
+    &.lightOn { 
+        background: transparent;       
+        .img-choonsik {                        
+            &.blank {
+                display: block;              
+            }
+        }  
     }
 }
 
@@ -1157,6 +1174,20 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
     }
 }
 
+.switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    width: 100%;
+    transform: translateX(-50%);
+    .switch {
+        margin-bottom: 10px;
+    }
+}
 .tgl-switch {
     +.tgl-btn {
         overflow: hidden;

@@ -112,6 +112,28 @@ $mobile-size: 500;
     }
 }
 
+@keyframes scaleEffect {
+    0% {
+        transform: scale(0);        
+        color: var(--clr-basic);
+    }
+
+    25% {
+        transform: scale(1.1);
+        color: var(--clr-secondary--400);
+    }
+
+    75% {
+        transform: scale(1.1);
+        color: var(--clr-secondary--400);
+    }
+
+    100% {
+        transform: scale(0);
+        color: var(--clr-basic);
+    }
+}
+
 .profile-choonsik {
     overflow: hidden;
     display: flex;
@@ -710,7 +732,8 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
     
                     .click-text {
                         display: block;
-                        animation: twinkle 1.4s linear infinite;
+                        animation: twinkle 3s ease-in-out, scaleEffect 2s linear infinite;
+                        transform-origin: center center;
                         font-weight: bold;
                         text-align: center;
                     }
@@ -844,7 +867,7 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
                                 font-size: vw(50);
                                 margin: auto;
                                 transition: all 0.5s ease-in-out;
-                                animation: fadeIn 0.7s ease-in-out infinite;
+                                animation: catch 1s ease-in-out infinite;
                             }
     
                             .condition-text {
@@ -946,7 +969,8 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
     scroll-snap-align: center;
     transform-style: preserve-3d;
     background: rgba(0,0,0,0.4);    
-    &.room-3 {     
+    &.room-3 {   
+        background: transparent;  
         .room-content {
             display: flex;
             flex-direction: column;
@@ -961,11 +985,18 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
             text-align: center;
             transform: translatez(calc(var(--depth) / -2)) rotatey(var(--turn));
             .room-text {
-                font-size: vw(16);
-                font-weight: bold;        
-                color: #333333;
-                animation: twinkle 1.3s ease-in-out infinite;
-                margin-bottom: vw(10);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: vw(400);                             
+                background: url(https://cdn-icons-png.flaticon.com/512/3667/3667893.png) center center no-repeat;
+                background-size: contain;    
+                span {
+                    font-size: vw(40);
+                    font-weight: bold;        
+                    color: #333333;
+                    animation: twinkle 1.3s ease-in-out infinite;            
+                }
             }
         }   
         .img-choonsik {
@@ -979,13 +1010,13 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
                 width: vw(340);
                 height: 100%;
                 display: block;
-                width: 100%;
+                width: 82%;
                 height: vw(300);
                 background: url("https://og.kakaobank.io/view/8cf8a9ab-de88-42a8-92ba-1b55fc691ddc") 0 0 no-repeat;
                 background-size: vw(2380) vw(299.5);                
                 animation: loop-seq-ani 1.2s steps(7) infinite;
             }
-        }
+        }        
     }
     &.lightOn {        
         background: transparent;

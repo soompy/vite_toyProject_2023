@@ -50,14 +50,16 @@
         <section class="room room-3">
             <div class="room-walls"></div>
             <div class="room-content">
-                <p class="room-text">I'm here!!</p>
                 <div class="switch">
-                    <input class="tgl tgl-switch" id="themeSwitch3" type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch3"></label>
+                    <input class="tgl tgl-switch" id="themeSwitch4" type="checkbox"/>
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch4"></label>
                 </div>
+                <p class="room-text">
+                    <span>I'm here!!</span>                    
+                </p>
                 <div class="img-choonsik">
                     <span class="sofa-choonsik"></span>                              
-                </div>                
+                </div>
             </div>
         </section>
 
@@ -136,41 +138,15 @@
     <script type="module" src="/main.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script>
-        /*
-        const tgl = document.querySelector(".tgl");
-        const roomFirst = document.querySelector(".room-1");    
-        
-        function lightSwitch() {
-            const checkSwitch = tgl.checked;
-            if(checkSwitch) {
-                roomFirst.classList.add("lightOn");
-            } else {
-                roomFirst.classList.remove("lightOn");
-            }
-        }
-        */
-
-        // 방 전체 스위치
+    <script>         
         const tgls = document.querySelectorAll(".tgl");
-        const roomLight = document.querySelectorAll(".room");        
-    
-        tgls.forEach((tgl, index) => {            
+        const roomLight = document.querySelectorAll(".room");
 
-            roomLight.forEach((light) => {
-                light.classList.remove('lightOn');
-            })
-
-            tgls.forEach((tglSwitch) => {
-                tglSwitch.checked = false;
-            })        
-
-            tgl.addEventListener("click", function() {
-                roomLight[index].classList.toggle("lightOn");
-                tgls[index].checked = true;                           
-            })            
-            
-        })
+        tgls.forEach(function(tgl, index) {            
+            tgl.addEventListener("click", function() {                
+                roomLight[index].classList.toggle('lightOn');
+            });
+        });
     </script>
 </body>
 

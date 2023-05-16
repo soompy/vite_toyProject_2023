@@ -58,8 +58,7 @@
                     </div>
                 </section>
 
-                <section class="diary-page3 diary-page">
-                    <button class="choonsik-condition-btn btn-first">처음으로 가기</button>
+                <section class="diary-page3 diary-page">                    
                     <div class="paper-inner">
                         <div class="paper image-container">
                             <span class="cut-photo"><img
@@ -81,6 +80,7 @@
             </div>
         </div>
         
+        <button id="prevPageBtn" class="choonsik-condition-btn btn-go-first">&lt;</button>
         <button id="nextPageBtn" class="choonsik-condition-btn btn-next">next &gt;</button>
     </div>    
 
@@ -112,25 +112,29 @@
 
         const diaryPages = document.querySelectorAll(".diary-page");
         const choonsikDiary = document.querySelector(".choonsik-diary");
-        const btnFirst = document.querySelector(".btn-first");
-        let turnPageBtn = document.getElementById("nextPageBtn");
+        var previousButton = document.getElementById('prevPageBtn');
+        var nextButton = document.getElementById('nextPageBtn');
+        var currentPage = 0;
+        
+        function previousButtonClicked() {
+            if (currentPage > 0) {
+                currentPage--;
+                choonsikDiary.style.transform = `translateX(-${currentPage * 100}vw)`;
+            }
+            console.log(currentPage);
+        }
 
-        let pageCount = 0;
-        let pageCount2 = 0;
-        const widthNextD = -100;                                
+        function nextButtonClicked() {
+        var maxPage = choonsikDiary.children.length - 1;
+            if (currentPage < maxPage) {
+                currentPage++;
+                choonsikDiary.style.transform = `translateX(-${currentPage * 100}vw)`;
+            }
+            console.log(currentPage);
+        }
 
-        turnPageBtn.onclick = function() {            
-            if(pageCount < 2) {
-                pageCount += 1;
-                choonsikDiary.style.transform = `translateX(${widthNextD * pageCount}vw)`;                                
-            } else {
-                return false
-            }                     
-        };
-
-        btnFirst.addEventListener("click", function() {
-            choonsikDiary.style.transform = `translateX(${0 * pageCount}vw)`;            
-        })
+        previousButton.addEventListener('click', previousButtonClicked);        
+        nextButton.addEventListener('click', nextButtonClicked);    
     </script>
 
     <script type="module" src="/main.js"></script>

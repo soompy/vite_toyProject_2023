@@ -896,7 +896,7 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
                         }
                     }
                 }
-            }
+            }            
         }    
     }
 }
@@ -905,14 +905,15 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
     position: fixed;
     z-index: 5;
 
-    &.btn-first {
+    &.btn-go-first {
         position: absolute;          
         left: 10%;
-        top: vw(60);                
+        top: vw(60);                        
         font-size: vw(18);
         color: #fff227;
-        background: #444444;
-        padding: vw(10);
+        background: #444444;        
+        border-radius: vw(14);
+        padding: vw(10) vw(14);
     }
     
     &.btn-next {
@@ -1543,7 +1544,7 @@ $text-black-color: #000;
     }
 
     .choonsik-condition-btn {        
-        &.btn-first {             
+        &.btn-go-first {             
             left: 20px;
             top: 120px;        
             font-size: 20px;

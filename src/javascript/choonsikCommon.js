@@ -2,7 +2,7 @@ const choonsik = () => {
     // gnb
     const barMenu = document.querySelector(".barMenu");
     const gnbWrapper = document.querySelector(".gnb-wrapper");
-    const btnPrev = document.querySelector(".choonsik-condition-btn.btn-prev");
+    const btnPrev = document.querySelector(".choonsik-condition-btn.btn-go-first");
     const btnNext = document.querySelector(".choonsik-condition-btn.btn-next");
 
     const closeGnb = document.querySelector(".closeGnb");

@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <title>춘식러버 페이지</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 </head>
 
 <body>
-  <load=" /header.html" />
+  <load="/header.html" />
 
   <div class="choonsik-lover-wrapper">
     <section class="visual on">
@@ -34,11 +34,10 @@
       <!-- 쿠폰혜택 -->
       <section class="area-common _01">
         <div class="inner">
-          <h2 class="cont-title">쿠폰혜택</h2>
+          <h2 class="cont-title t-center">쿠폰혜택</h2>
           <!-- 쿠폰이미지 -->
           <div class="coupon-box">
             <p>
-              춘식이
               <strong>70%</strong>
               할인
             </p>
@@ -46,22 +45,88 @@
           <button class="btn btn-primary wide">쿠폰받기</button>
         </div>
       </section>
+
       <!-- 스토어새소식 -->
-      <section class="area-common _02"></section>
+      <section class="area-common _02">
+        <div class="inner">
+          <h2 class="cont-title t-center">새소식</h2>
+
+          <div class="swiper news">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="slide-inner">
+                  <img src="https://i.pinimg.com/originals/95/8f/59/958f599f934e94f63d6d60b676707ece.png" alt="화보1">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-inner">
+                  <img src="https://i.pinimg.com/originals/95/8f/59/958f599f934e94f63d6d60b676707ece.png" alt="화보1">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-inner">
+                  <img src="https://i.pinimg.com/originals/95/8f/59/958f599f934e94f63d6d60b676707ece.png" alt="화보1">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>      
+
+
+
+      </section>
+
       <!-- 브랜드별 -->
-      <section class="area-common _03"></section>
+      <section class="area-common _03">
+        <div class="inner">
+          <h2 class="cont-title t-center">브랜드</h2>
+        </div>
+      </section>
       <!-- 신상리스트 -->
-      <section class="area-common _04"></section>
+      <section class="area-common _04">
+        <div class="inner">
+          <h2 class="cont-title t-center">New</h2>
+        </div>
+      </section>
       <!-- 알림받기영역 -->
-      <section class="area-common _05"></section>
+      <section class="area-common _05">
+        <div class="inner">
+          <h2 class="cont-title t-center">알림받기</h2>
+        </div>
+      </section>
     </div>
   </div>
 
-  <!-- <load="/footer.html" /> -->
+  <load="/footer.html" />
 
 
   <script type="module" src="/main.js"></script>
   <script src="./node_modules/animejs/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script type="text/javascript">
+    var swiper = new Swiper(".news", {      
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      autoplay: true,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2,
+        slideShadows: true
+      },
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+    });
+  </script>
   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
 </body>

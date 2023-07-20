@@ -658,11 +658,9 @@ $inset-shadow: inset -1vw(2) -1vw(2) 30px 5px rgba(255, 255, 255, 0.9),
 
 
 
-
-
 // diary
 .choonsik-lover-wrapper {
-    overflow: hidden;
+    // overflow: hidden;
     position: relative;
     width: 100%;
     height: calc(100vh - 52px);

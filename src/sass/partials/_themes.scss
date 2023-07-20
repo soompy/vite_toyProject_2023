@@ -204,6 +204,25 @@
   #header {
     background: var(--clr-primary);
 
+    .inner {
+      .nav {
+        .barMenu {
+          .bar {
+            background: var(--clr-reversal);
+          }
+
+          &::before,
+          &::after {
+            background: var(--clr-reversal);
+          }
+        }
+
+        .gnb-wrapper {
+          background: var(--clr-basic);
+        }
+      }
+    }
+
     h1 {
       color: var(--clr-surface--200);
     }

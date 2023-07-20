@@ -9,24 +9,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
     <title>춘식러버 페이지 - 춘식이 방</title>
-  </head>
+</head>
 
 <body>
-    <load="/header.html" />
+    <!-- <load="/header.html" /> -->
 
     <main class="building">
         <section class="room room-1">
             <div class="room-walls"></div>
-            <div class="room-content">    
+            <div class="room-content">
                 <div class="switch-wrapper">
                     <div class="switch">
-                        <input class="tgl tgl-switch" id="themeSwitch1" type="checkbox"/>
+                        <input class="tgl tgl-switch" id="themeSwitch1" type="checkbox" />
                         <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch1"></label>
                     </div>
-                    <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>                
-                </div>                                     
+                    <p class="room-text">춘식이는 어느방에 있을까요?? <br /> 불을 켜보세요!!💡</p>
+                </div>
                 <div class="img-choonsik blank">
-                    <span class="sofa-choonsik"></span>                              
+                    <span class="sofa-choonsik"></span>
                 </div>
             </div>
         </section>
@@ -44,65 +44,65 @@
                 <div class="cleaning-box">
                     <div class="container"></div>
                 </div>
-                
+
                 <div class="switch-wrapper">
                     <div class="switch">
-                        <input class="tgl tgl-switch" id="themeSwitch2" type="checkbox"/>
+                        <input class="tgl tgl-switch" id="themeSwitch2" type="checkbox" />
                         <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch2"></label>
                     </div>
-                    <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>                
-                </div>                  
+                    <p class="room-text">춘식이는 어느방에 있을까요?? <br /> 불을 켜보세요!!💡</p>
+                </div>
             </div>
         </section>
 
         <section class="room room-3 lightOn">
             <div class="room-walls"></div>
-            <div class="room-content">                
+            <div class="room-content">
                 <div class="switch-wrapper">
                     <div class="switch">
                         <input class="tgl tgl-switch" id="themeSwitch3" type="checkbox" checked />
                         <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch3"></label>
                     </div>
-                    <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>                
-                </div>                                     
+                    <p class="room-text">춘식이는 어느방에 있을까요?? <br /> 불을 켜보세요!!💡</p>
+                </div>
 
                 <p class="room-text">
-                    <span>I'm here!!</span>                    
+                    <span>I'm here!!</span>
                 </p>
                 <div class="img-choonsik">
-                    <span class="sofa-choonsik"></span>                              
+                    <span class="sofa-choonsik"></span>
                 </div>
             </div>
         </section>
 
         <section class="room room-4">
             <div class="room-walls"></div>
-            <div class="room-content">         
+            <div class="room-content">
                 <div class="switch-wrapper">
                     <div class="switch">
-                        <input class="tgl tgl-switch" id="themeSwitch4" type="checkbox"/>
+                        <input class="tgl tgl-switch" id="themeSwitch4" type="checkbox" />
                         <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch4"></label>
                     </div>
-                    <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>                
-                </div>                                     
+                    <p class="room-text">춘식이는 어느방에 있을까요?? <br /> 불을 켜보세요!!💡</p>
+                </div>
             </div>
         </section>
 
         <section class="room room-5">
             <div class="room-walls"></div>
-            <div class="room-content">                         
+            <div class="room-content">
                 <div class="switch-wrapper">
                     <div class="switch">
-                        <input class="tgl tgl-switch" id="themeSwitch5" type="checkbox"/>
+                        <input class="tgl tgl-switch" id="themeSwitch5" type="checkbox" />
                         <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="themeSwitch5"></label>
                     </div>
-                    <p class="room-text">춘식이는 어느방에 있을까요?? <br/> 불을 켜보세요!!💡</p>                
-                </div>                                     
+                    <p class="room-text">춘식이는 어느방에 있을까요?? <br /> 불을 켜보세요!!💡</p>
+                </div>
             </div>
-        </section>        
+        </section>
     </main>
 
-    <load="/footer.html" />
+    <!-- <load="/footer.html" /> -->
 
 
     <style>
@@ -127,17 +127,17 @@
             perspective-origin: 50% 35%;
         }
     </style>
-    
+
 
     <script type="module" src="/main.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script>         
+    <script>
         const tgls = document.querySelectorAll(".tgl");
         const roomLight = document.querySelectorAll(".room");
 
-        tgls.forEach(function(tgl, index) {            
-            tgl.addEventListener("click", function() {                
+        tgls.forEach(function (tgl, index) {
+            tgl.addEventListener("click", function () {
                 roomLight[index].classList.toggle('lightOn');
             });
         });

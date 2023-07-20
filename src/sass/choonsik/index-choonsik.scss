@@ -2,36 +2,32 @@
 
 @use 'sass:math';
 
-// 테스트
-.random-demo {
-    .el {
-        width: 50px;
-        height: 50px;
-        background: #e0e0e0;
-    }
-}
-
 @import "https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap";
 @import "https://fonts.googleapis.com/css?family=Black+Han+Sans:400";
 @import "https://fonts.googleapis.com/css?family=Hi+Melody:400";
 
-
+@import "../partials/themes";
 
 @font-face {
-    font-family: "TypoCrayonM";
+    font-family: "TypoCrayonB";
     font-style: normal;
-    font-weight: 500;
-    src: url("../fonts/Typo_CrayonM.ttf");
+    font-weight: 400;
+    src: url("../../src/assets/fonts/Typo_CrayonB.ttf");
+}
+
+@font-face {
+    font-family: "TypoCrayonL";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../../src/assets/fonts/Typo_CrayonL.ttf");
 }
 
 * {
-    font-family: 'Indie Flower', cursive;
+    font-family: "TypoCrayonL";
     box-sizing: border-box;
     color: var(--clr-reversal);
-}
-
-body {
-    position: relative;
+    background: var(--clr-basic);
+    color: var(--clr-reversal);
 }
 
 $mobile-size: 360;
@@ -301,6 +297,42 @@ $mobile-size: 360;
     }
 }
 
+.content {
+    position: relative;
+    width: 100%;
+
+    .area-common {
+        position: relative;
+
+        .inner {
+            padding: 0 20px;
+        }
+
+        .cont-title {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: "TypoCrayonB";
+        }
+
+        &._01 {
+            .coupon-box {
+                position: relative;
+                width: 100%;
+                max-width: 400px;
+                background: var(--clr-reversal);
+
+                p {
+                    display: flex;
+
+                    strong {
+                        color: var(--clr-basic);
+                    }
+                }
+            }
+        }
+    }
+}
+
 @keyframes updown {
     0% {
         transform: translateY(0);
@@ -323,205 +355,7 @@ $mobile-size: 360;
     }
 }
 
-.objects-contents {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 100vh;
 
-    .marquee_wrap {
-        position: absolute;
-        top: 30%;
-        white-space: nowrap;
-        font-size: vw(14);
-        display: flex;
-        align-items: center;
-        will-change: transform;
-        width: 100%;
-        transform: rotate(10deg);
-
-        .marquee_box {
-            will-change: transform;
-            animation: marquee 5s linear infinite;
-            font-weight: 700;
-        }
-    }
-
-    .floating-obj {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-
-        .obj-item {
-            display: block;
-
-            &:nth-of-type(1) {
-                width: vw(150);
-                top: 20%;
-            }
-
-            &:nth-of-type(2) {
-                width: vw(120);
-                top: 40%;
-            }
-
-            &:nth-child(3) {
-                width: vw(120);
-                top: 60%;
-            }
-        }
-    }
-}
-
-.specific-prop-params-demo {
-    height: 100%;
-
-    .el {
-        height: 10%;
-        background: #ccc;
-    }
-}
-
-@keyframes marquee {
-    from {
-        transform: translateZ(0)
-    }
-
-    to {
-        transform: translate3d(-100%, 0, 0)
-    }
-}
-
-.rectangle {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(180deg, rgba(255, 248, 144, 1) 0%, rgba(251, 241, 83, 0.5914740896358543) 48%, rgba(255, 242, 39, 1) 100%);
-}
-
-
-
-
-
-
-
-input[type=range] {
-    -webkit-appearance: none;
-    background-color: silver;
-    width: 200px;
-    height: 20px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background-color: #666;
-    opacity: 0.5;
-    width: 10px;
-    height: 26px;
-}
-
-
-
-
-
-
-.contentsBox {
-    >.row {
-        >.col {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            align-items: center;
-        }
-    }
-}
-
-#one {
-    width: 100%;
-    background: #e0e0e0;
-
-    .about-choonsik {
-        opacity: 0;
-        letter-spacing: 0.04em;
-
-        .blocks {
-            display: flex;
-            justify-content: space-between;
-            align-content: center;
-            align-items: center;
-
-            >.faces {
-                width: vw(30);
-                height: vw(30);
-                margin: vw(2);
-                background: url("https://item.kakaocdn.net/do/c5c470298d527ef65eb52883f0f186c48f324a0b9c48f77dbce3a43bd11ce785") center center no-repeat;
-                background-size: cover;
-            }
-        }
-    }
-
-    .text-block {
-        h2 {
-            font-size: vw(14);
-            font-weight: 300;
-        }
-
-        h5 {
-            font-size: vw(16)
-        }
-    }
-}
-
-#two {
-    height: auto;
-    overflow: hidden;
-    background: url("https://i.pinimg.com/736x/d4/7e/9b/d47e9be41e1aaacf7b762f8b60543c81.jpg") center center no-repeat;
-    background-size: cover;
-
-    .room-choonsik {}
-}
-
-#three {
-    position: relative;
-    overflow: hidden;
-
-    .image {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        background-image: url("https://drive.google.com/uc?export=view&id=10tzeBrvoR5OO3EK_Wcg-gRxbVO7xv6em");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-}
-
-#four {
-    position: relative;
-    overflow: hidden;
-
-    .image {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("https://drive.google.com/uc?export=view&id=1SzCTDu5_eAF569lFHtNyIlUCrdW2mOXu");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-}
-
-@media (min-width: 500px) {
-    .rectangle {
-        width: 80%;
-    }
-}
 
 @media screen and (max-width: 1000px) {
     #header {
@@ -578,38 +412,5 @@ input[type="range"]::-webkit-slider-thumb {
             padding: 18vw 12vw;
             font-size: 2.7vw;
         }
-    }
-}
-
-
-// 테마
-[data-theme="dark"] {
-    * {
-        color: var(--clr-reversal);
-    }
-
-    #header {
-
-        .inner {
-
-            .nav {
-
-                .barMenu {
-                    .bar {
-                        background: var(--clr-reversal);
-                    }
-
-                    &::before,
-                    &::after {
-                        background: var(--clr-reversal);
-                    }
-                }
-
-                .gnb-wrapper {
-                    background: var(--clr-basic);
-                }
-            }
-        }
-
     }
 }

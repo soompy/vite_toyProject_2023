@@ -12,9 +12,9 @@
 </head>
 
 <body>
-    <load="/header.html" />
+    <!-- <load="/header.html" /> -->
 
-    <div class="choonsik-lover-wrapper">        
+    <div class="choonsik-lover-wrapper">
         <div class="choonsik-diary-container">
             <div class="choonsik-diary">
                 <section class="diary-page1 diary-page">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="diary-text-wrap">
                             <div class="diary-text">
-                                <div class="big-face-box"></div>                                
+                                <div class="big-face-box"></div>
                                 <h4 class="title">춘식이의 기분은?!</h4>
                                 <div class="condition-text">
                                     <p class="on">춘식이 기분은 너무 좋아요!! <br />기분이 째져!!</p>
@@ -58,7 +58,7 @@
                     </div>
                 </section>
 
-                <section class="diary-page3 diary-page">                    
+                <section class="diary-page3 diary-page">
                     <div class="paper-inner">
                         <div class="paper image-container">
                             <span class="cut-photo"><img
@@ -79,10 +79,10 @@
                 </section>
             </div>
         </div>
-        
+
         <button id="prevPageBtn" class="choonsik-condition-btn btn-go-first">&lt;</button>
         <button id="nextPageBtn" class="choonsik-condition-btn btn-next">next &gt;</button>
-    </div>    
+    </div>
 
     <script>
         const conditionFace = document.querySelectorAll(".condition-face");
@@ -115,7 +115,7 @@
         var previousButton = document.getElementById('prevPageBtn');
         var nextButton = document.getElementById('nextPageBtn');
         var currentPage = 0;
-        
+
         function previousButtonClicked() {
             if (currentPage > 0) {
                 currentPage--;
@@ -125,7 +125,7 @@
         }
 
         function nextButtonClicked() {
-        var maxPage = choonsikDiary.children.length - 1;
+            var maxPage = choonsikDiary.children.length - 1;
             if (currentPage < maxPage) {
                 currentPage++;
                 choonsikDiary.style.transform = `translateX(-${currentPage * 100}vw)`;
@@ -133,7 +133,7 @@
             console.log(currentPage);
         }
 
-        previousButton.addEventListener('click', previousButtonClicked);        
+        previousButton.addEventListener('click', previousButtonClicked);
         nextButton.addEventListener('click', nextButtonClicked);    
     </script>
 

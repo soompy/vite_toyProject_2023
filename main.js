@@ -1,10 +1,10 @@
 import '@styles/main.scss';
-import themeSwitcher from '@scripts/theme.js';
+// import themeSwitcher from '@scripts/theme.js';
 // import calculations from '@scripts/calculations'
-import choonsikCommon from '@scripts/choonsikCommon';
+// import choonsikCommon from '@scripts/choonsikCommon';
 import anime from 'animejs/lib/anime.es.js';
 
-themeSwitcher();
+// themeSwitcher();
 // calculations();
-choonsikCommon();
+// choonsikCommon();
 anime();

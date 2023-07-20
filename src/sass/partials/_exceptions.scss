@@ -11,16 +11,17 @@
   [data-button="correction"] {
     color: var(--clr-onsurface--800);
     background-color: var(--clr-primary--400);
-  
+
     &:hover {
       color: var(--clr-onsurface--100);
       background-color: var(--clr-primary--600);
     }
   }
+
   [data-button="submission"] {
     color: var(--clr-onsurface--800);
     background-color: var(--clr-secondary--400);
-  
+
     &:hover {
       color: var(--clr-onsurface--100);
       background-color: var(--clr-secondary--600);
@@ -32,15 +33,16 @@
   [data-button="correction"] {
     color: var(--clr-onsurface--800);
     background-color: var(--clr-primary--400);
-  
+
     &:hover {
       color: var(--clr-onsurface--100);
       background-color: var(--clr-primary--600);
     }
   }
+
   [data-button="submission"] {
     background-color: var(--clr-secondary--400);
-  
+
     &:hover {
       background-color: var(--clr-secondary--600);
     }
@@ -51,16 +53,17 @@
   [data-button="correction"] {
     color: var(--clr-onsurface--200);
     background-color: var(--clr-primary--400);
-  
+
     &:hover {
       color: var(--clr-onsurface--800);
       background-color: var(--clr-primary--600);
     }
   }
+
   [data-button="submission"] {
     color: var(--clr-onsurface--800);
     background-color: var(--clr-secondary--400);
-  
+
     &:hover {
       color: var(--clr-onsurface--100);
       background-color: var(--clr-secondary--600);

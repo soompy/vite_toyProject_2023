@@ -151,6 +151,7 @@ $mobile-size: 720;
                 position: relative;
                 width: vw(48);
                 height: vw(34);
+                background: transparent;
 
                 .bar {
                     display: block;
@@ -198,23 +199,25 @@ $mobile-size: 720;
                     flex-direction: column;
                     width: 100%;
                     height: 100%;
-                    padding: vw(20);
+                    padding: vw(40);
 
                     .closeGnb {
-                        width: vw(30);
-                        height: vw(30);
-                        margin-left: auto;
-                        background: url("../../assets/images/Close_LG.png") center center no-repeat;
-                        background-size: cover;
+                        width: vw(40);
+                        height: vw(40);
+
+                        .icon {
+                            width: 100%;
+                            height: 100%;
+                        }
                     }
 
                     .gnb {
                         li {
-                            font-size: vw(14);
-                            padding: vw(8) 0;
+                            font-size: vw(28);
+                            padding: vw(16) 0;
 
                             a {
-                                font-size: vw(18);
+                                font-size: vw(36);
                                 font-family: "Hi Melody";
                             }
                         }
@@ -293,6 +296,8 @@ $mobile-size: 720;
     position: relative;
     width: 100%;
     height: calc(100vh - 160px);
+    top: 0;
+    left: 0;
     transition: all 1s ease-in-out;
 
     .carrot_obj_wrap {
@@ -344,8 +349,8 @@ $mobile-size: 720;
             position: absolute;
             left: 50%;
             top: 50%;
-            width: vw(200);
-            height: vw(100);
+            width: vw(500);
+            height: vw(250);
             background: url("../../src/assets/images/carrot.png") center center no-repeat;
             background-size: contain;
             transform: translate(-50%, -50%);
@@ -383,6 +388,8 @@ $mobile-size: 720;
         }
 
         &._01 {
+            display: block;
+
             .coupon-box {
                 position: relative;
                 width: vw(500);
@@ -391,7 +398,11 @@ $mobile-size: 720;
                 margin: auto;
                 border-radius: vw(20);
 
-                p {
+                .coupon-name {
+                    font-size: vw(28);
+                }
+
+                .percentage {
                     position: absolute;
                     left: 50%;
                     top: 50%;
@@ -399,6 +410,7 @@ $mobile-size: 720;
                     font-size: vw(40);
                     color: var(--clr-basic);
                     font-family: "TypoCrayonL";
+                    margin: vw(30) 0 vw(40);
 
                     strong {
                         color: var(--clr-primary);
@@ -441,7 +453,7 @@ $mobile-size: 720;
                 &.news {
                     .swiper-slide {
                         width: vw(400);
-                        border-radius: 10px;
+                        border-radius: vw(20);
 
                         .slide-inner {
                             img {
@@ -491,7 +503,7 @@ $mobile-size: 720;
                     position: relative;
                     width: 50%;
                     height: vw(300);
-                    flex: auto;
+                    flex: 1 1 200px;
                     flex-shrink: 0;
                     object-fit: cover;
                     background-repeat: no-repeat;
@@ -509,7 +521,7 @@ $mobile-size: 720;
                         display: block;
                         transition: 0.5s;
                         position: absolute;
-                        border-radius: 10px;
+                        border-radius: vw(20);
                         background: radial-gradient(circle at 80px 40px, #fff, transparent);
                     }
 
@@ -525,7 +537,7 @@ $mobile-size: 720;
                     }
 
                     &:hover {
-                        box-shadow: 0px 0px 70px #111;
+                        box-shadow: 0px 0px vw(140) #111;
 
                         .circle-light {
                             opacity: 0.4;
@@ -535,7 +547,7 @@ $mobile-size: 720;
             }
         }
 
-        &._04 {            
+        &._04 {
 
             .tag {
                 display: flex;
@@ -558,10 +570,11 @@ $mobile-size: 720;
             .new {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
+                place-items: center;
                 gap: vw(20);
                 position: relative;
 
-                .new-item {                    
+                .new-item {
 
                     .new-img {
                         height: vw(400);
@@ -582,13 +595,12 @@ $mobile-size: 720;
                         white-space: normal;
                         word-break: break-all;
                     }
-
                 }
             }
         }
 
         &._05 {
-            background: var(--clr-primary);            
+            background: var(--clr-primary);
 
             .alarm {
                 padding: vw(50);
@@ -613,7 +625,7 @@ $mobile-size: 720;
                             width: vw(40);
                             height: vw(40);
                             font-size: 0;
-                            background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E");                            
+                            background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E");
                             background-repeat: no-repeat;
                             background-position: center center;
                             background-size: 100% auto;
@@ -632,9 +644,9 @@ $mobile-size: 720;
 
                 .btn-wrap {
                     display: flex;
-                    align-items: center;      
+                    align-items: center;
                     width: vw(500);
-                    margin: vw(40) auto 0;            
+                    margin: vw(40) auto 0;
 
                     button {
                         display: flex;
@@ -646,10 +658,10 @@ $mobile-size: 720;
                         border-radius: vw(24);
                         background: var(--clr-secondary);
 
-                        > span {
-                            color: var(--clr-basic);  
-                            margin-right: vw(10);                                                 
-                        }                                             
+                        >span {
+                            color: var(--clr-basic);
+                            margin-right: vw(10);
+                        }
 
                         .icon {
                             display: block;
@@ -662,15 +674,68 @@ $mobile-size: 720;
 
                         &.btn-alarm {
                             flex: 1;
-                            margin-right: vw(20);                            
+                            margin-right: vw(20);
                         }
-                        
-                        &.btn-share {                            
-                            width: vw(80);      
-                            font-size: 0;                     
+
+                        &.btn-share {
+                            width: vw(80);
+                            font-size: 0;
                         }
                     }
                 }
+            }
+        }
+
+        &.testbox {
+            display: block;
+
+            .radio-test {
+                accent-color: magenta;
+            }
+
+            .scroll-container,
+            .scroll-area {
+                max-width: 850px;
+                height: 300px;
+                font-size: 60px;
+            }
+
+            .scroll-container {
+                overflow: auto;
+                scroll-snap-type: y mandatory;
+                height: 500px;
+            }
+
+            .scroll-area {
+                scroll-snap-align: start;
+            }
+
+            .scroll-container,
+            .scroll-area {
+                margin: 0 auto;
+            }
+
+            .scroll-area {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+
+            .scroll-area:nth-of-type(1) {
+                background: IndianRed;
+            }
+
+            .scroll-area:nth-of-type(2) {
+                background: Moccasin;
+            }
+
+            .scroll-area:nth-of-type(3) {
+                background: thistle;
+            }
+
+            .scroll-area:nth-of-type(4) {
+                background: seagreen;
             }
         }
     }
@@ -699,7 +764,6 @@ $mobile-size: 720;
         transform: translateY(0);
     }
 }
-
 
 
 @media screen and (min-width: 720px) {
@@ -766,14 +830,14 @@ $mobile-size: 720;
 
                         .gnb {
                             li {
-                                font-size: 14px;
-                                padding: 8px 0;
+                                font-size: 28px;
+                                padding: 16px 0;
 
                                 a {
-                                    font-size: 18px;
+                                    font-size: 36px;
                                 }
                             }
-                        }
+                        }                        
                     }
                 }
             }
@@ -821,6 +885,8 @@ $mobile-size: 720;
     }
 
     .visual {
+        height: calc(100vh - 80px);
+
         .carrot_obj_wrap {
             .carrot {
                 width: 50px;
@@ -828,8 +894,8 @@ $mobile-size: 720;
             }
 
             .big-carrot {
-                width: 200px;
-                height: 100px;
+                width: 500px;
+                height: 250px;
             }
         }
     }
@@ -850,8 +916,14 @@ $mobile-size: 720;
                     height: 160px;
                     border-radius: 20px;
 
-                    p {
+
+                    .coupon-name {
+                        font-size: 28px;
+                    }
+
+                    .percentage {
                         font-size: 40px;
+                        margin: 30px 0 40px;
                     }
 
                     &::before,
@@ -872,6 +944,125 @@ $mobile-size: 720;
                 .btn {
                     width: 500px;
                     margin: 40px auto 0;
+                }
+            }
+
+            &._02 {
+                .swiper {
+                    &.news {
+                        .swiper-slide {
+                            width: 400px;
+                            border-radius: 20px;
+                        }
+                    }
+                }
+            }
+
+            &._03 {
+                .brand {
+                    padding: 50px;
+
+                    .brand-item {
+                        height: 300px;
+
+                        .circle-light {
+                            border-radius: 20px;
+                        }
+
+                        &:hover {
+                            box-shadow: 0px 0px 140px #111;
+
+                            .circle-light {
+                                opacity: 0.4;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &._04 {
+                .tag {
+                    .tag-box {
+                        min-width: 80px;
+                        font-size: 24px;
+                        padding: 20px;
+                        border-radius: 40px;
+                        margin: 10px;
+                    }
+                }
+
+                .new {
+                    gap: 20px;
+
+                    .new-item {
+                        .new-img {
+                            height: 400px;
+                        }
+
+                        .date {
+                            margin-top: 20px;
+                            font-size: 24px;
+                        }
+
+                        .title {
+                            font-size: 32px;
+                        }
+                    }
+                }
+            }
+
+            &._05 {
+                .alarm {
+                    padding: 50px;
+
+                    .text {
+                        font-size: 28px;
+                    }
+
+                    .follow-counter {
+                        .btn-q {
+                            margin-left: 10px;
+
+                            .blind {
+                                width: 40px;
+                                height: 40px;
+                            }
+
+                            .q-box {
+                                top: 39px;
+                                box-shadow: 0px 0px 140px #111;
+                                border-radius: 30px;
+                            }
+                        }
+                    }
+
+                    .btn-wrap {
+                        width: 500px;
+                        margin: 40px auto 0;
+
+                        button {
+                            height: 80px;
+                            font-size: 28px;
+                            border-radius: 24px;
+
+                            >span {
+                                margin-right: 10px;
+                            }
+
+                            .icon {
+                                width: 30px;
+                                height: 30px;
+                            }
+
+                            &.btn-alarm {
+                                margin-right: 20px;
+                            }
+
+                            &.btn-share {
+                                width: 80px;
+                            }
+                        }
+                    }
                 }
             }
         }

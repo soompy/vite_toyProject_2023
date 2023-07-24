@@ -120,6 +120,10 @@
         &.ic_close {
             background-image: icon(ic_close);
 
+            &.white {
+                background-image: icon(ic_close, 'ffffff');
+            }
+
             &.black {
                 background-image: icon(ic_close, '000000');
             }
@@ -222,8 +226,12 @@
         &.ic_close {
             background-image: icon(ic_close);
 
-            &.black {
+            &.white {
                 background-image: icon(ic_close, '000000');
+            }
+
+            &.black {
+                background-image: icon(ic_close, 'ffffff');
             }
         }
     }

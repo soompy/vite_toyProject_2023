@@ -2,9 +2,9 @@
 
 @use 'sass:math';
 
-@import "https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap";
-@import "https://fonts.googleapis.com/css?family=Black+Han+Sans:400";
-@import "https://fonts.googleapis.com/css?family=Hi+Melody:400";
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Courgette&family=Hi+Melody&family=Playfair+Display+SC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Courgette&family=Playfair+Display+SC:wght@700&display=swap');
 
 @import "../partials/themes";
 
@@ -32,9 +32,13 @@ body {
     background: var(--clr-basic);
 }
 
-$mobile-size: 720;
+
 
 /* vw 변환 function */
+// 함수 정의
+
+$mobile-size: 720;
+
 @function vw($target) {
     @if type-of($target)==number {
         @return (math.div(($target * 100), $mobile-size)) * 1vw;
@@ -101,13 +105,34 @@ $mobile-size: 720;
     }
 }
 
+// 말줄임
+.ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ellipsis2 {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+
+
 #header {
     position: sticky;
     top: 0;
     left: 0;
     z-index: 5;
     width: 100%;
-    height: vw(80);
+    height: vw(120);
     background: var(--clr-primary);
 
     .inner {
@@ -124,13 +149,13 @@ $mobile-size: 720;
                 display: flex;
                 align-items: center;
                 position: relative;
-                width: vw(28);
-                height: vw(20);
+                width: vw(48);
+                height: vw(34);
 
                 .bar {
                     display: block;
                     width: 80%;
-                    height: vw(1);
+                    height: vw(2);
                     background: var(--clr-reversal);
                     border-radius: vw(4);
                 }
@@ -201,7 +226,7 @@ $mobile-size: 720;
         .logo {
             font-size: vw(12);
             margin: auto;
-            width: vw(70);
+            width: vw(100);
             height: auto;
 
             img {
@@ -345,7 +370,6 @@ $mobile-size: 720;
     height: 100%;
 
     .area-common {
-        display: none;
         position: relative;
 
         .inner {
@@ -411,7 +435,7 @@ $mobile-size: 720;
             }
         }
 
-        &._02 {            
+        &._02 {
 
             .swiper {
                 &.news {
@@ -452,134 +476,198 @@ $mobile-size: 720;
         }
 
         &._03 {
-            display: block;
-            
-            .card {
+            .brand {
+                position: relative;
+                width: 100%;
                 display: flex;
-                align-items: center;
+                flex-wrap: wrap;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                padding: vw(50);
 
-                .item {
-                    top: 0px;
-                    left: 0px;
-                    opacity: 0;
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
+                .brand-item {
                     overflow: hidden;
-                    transition: 0.5s;
-                    visibility: hidden;
                     position: relative;
-                    padding: 50px 20px;
-                    position: absolute;
-                    align-items: center;
-                    justify-content: center;
-                    box-sizing: border-box;
+                    width: 50%;
+                    height: vw(300);
+                    flex: auto;
+                    flex-shrink: 0;
+                    object-fit: cover;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
+                    transition: 0.5s;
+
+                    .circle-light {
+                        top: 0px;
+                        left: 0px;
+                        opacity: 0;
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        transition: 0.5s;
+                        position: absolute;
+                        border-radius: 10px;
+                        background: radial-gradient(circle at 80px 40px, #fff, transparent);
+                    }
+
+                    .brand-img {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        display: inline-block;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        z-index: 1;
+                    }
 
                     &:hover {
+                        box-shadow: 0px 0px 70px #111;
 
-                        .bg {
-                            opacity: 0.2;
-                        }
-
-                        .block {
-                            box-shadow: 0px 0px 50px #333;
+                        .circle-light {
+                            opacity: 0.4;
                         }
                     }
+                }
+            }
+        }
 
-                    &.active {
-                        opacity: 1;
-                        visibility: visible;
+        &._04 {            
+
+            .tag {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                .tag-box {
+                    display: inline-block;
+                    background: #c0c0c0;
+                    min-width: vw(80);
+                    font-size: vw(24);
+                    text-align: center;
+                    padding: vw(20);
+                    border-radius: vw(40);
+                    margin: vw(10);
+                }
+            }
+
+            .new {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: vw(20);
+                position: relative;
+
+                .new-item {                    
+
+                    .new-img {
+                        height: vw(400);
+
+                        img {
+                            object-fit: cover;
+                        }
                     }
 
-                    .bg {
-                        top: 0px;
-                        left: 0px;
-                        opacity: 1;
-                        z-index: -1;
-                        width: 100%;
-                        height: 100%;
-                        transition: 0.5s;
-                        position: absolute;
-                        transform: scale(1.03);
-                        background-size: cover;
-                        background-position: center;
-                        background-attachment: fixed;
+                    .date {
+                        display: block;
+                        margin-top: vw(20);
+                        font-size: vw(24);
                     }
 
-                    .blur {
-                        top: 0px;
-                        left: 0px;
-                        z-index: -1;
-                        width: 100%;
-                        height: 100%;
-                        transition: 0.5s;
-                        filter: blur(5px);
-                        position: absolute;
-                        transform: scale(1.03);
-                        background-size: cover;
-                        background-position: center;
-                        background-attachment: fixed;
+                    .title {
+                        font-size: vw(32);
+                        white-space: normal;
+                        word-break: break-all;
                     }
 
-                    .block {
-                        width: 100%;
-                        height: 100%;
-                        padding: 20px;
-                        color: #ffffff;
-                        transition: box-shadow 0.5s;
-                        max-width: 300px;
-                        overflow: hidden;
-                        max-height: 450px;
-                        border-radius: 10px;
-                        transform: scale(1.03);
-                        box-sizing: border-box;
-                        background-size: cover;
-                        background-position: center;
-                        background-attachment: fixed;
-                        box-shadow: none;
+                }
+            }
+        }
 
-                        .circleLight {
-                            top: 0px;
-                            left: 0px;
-                            opacity: 0;
-                            content: '';
-                            width: 100%;
-                            height: 100%;
+        &._05 {
+            background: var(--clr-primary);            
+
+            .alarm {
+                padding: vw(50);
+
+                .text {
+                    font-size: vw(28);
+                    text-align: center;
+                }
+
+                .follow-counter {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .btn-q {
+                        position: relative;
+                        background-color: transparent;
+                        margin-left: vw(10);
+
+                        .blind {
                             display: block;
-                            transition: 0.5s;
+                            width: vw(40);
+                            height: vw(40);
+                            font-size: 0;
+                            background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E");                            
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            background-size: 100% auto;
+                        }
+
+                        .q-box {
+                            display: none;
                             position: absolute;
-                            border-radius: 10px;
-                            background: radial-gradient(circle at 80px 40px, #fff, transparent);
-                        }
-
-                        .text {
-                            width: 100%;
-                            height: 100%;
-                            display: flex;
-                            text-align: center;
-                            flex-direction: column;
-                            justify-content: center;
-                            background-position: center;
-                            background-attachment: fixed;
-                        }
-
-                        h2 {
-                            font-family: 'Oswald', sans-serif;
-                            font-size: 130px;
-                            margin-bottom: 0px;
-                        }
-
-                        p {
-                            font-family: 'Open Sans', sans-serif;
-                            font-size: 15px;
-                        }
-
-                        &:hover {
+                            right: 0;
+                            top: vw(39);
                             box-shadow: 0px 0px 70px #111;
+                            border-radius: vw(30);
+                        }
+                    }
+                }
 
-                            .circleLight {
-                                opacity: 0.4;
-                            }
+                .btn-wrap {
+                    display: flex;
+                    align-items: center;      
+                    width: vw(500);
+                    margin: vw(40) auto 0;            
+
+                    button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                        height: vw(80);
+                        font-size: vw(28);
+                        border-radius: vw(24);
+                        background: var(--clr-secondary);
+
+                        > span {
+                            color: var(--clr-basic);  
+                            margin-right: vw(10);                                                 
+                        }                                             
+
+                        .icon {
+                            display: block;
+                            width: vw(30);
+                            height: vw(30);
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            background-size: contain;
+                        }
+
+                        &.btn-alarm {
+                            flex: 1;
+                            margin-right: vw(20);                            
+                        }
+                        
+                        &.btn-share {                            
+                            width: vw(80);      
+                            font-size: 0;                     
                         }
                     }
                 }
@@ -587,8 +675,6 @@ $mobile-size: 720;
         }
     }
 }
-
-
 
 
 

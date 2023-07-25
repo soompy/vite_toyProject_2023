@@ -73,6 +73,7 @@ $mobile-size: 720;
 .btn {
     position: relative;
     border-radius: vw(8);
+    font-weight: 500;
 
     // 형태별 클래스
     &.btn-round {
@@ -99,7 +100,7 @@ $mobile-size: 720;
     }
 
     &.wide {
-        font-size: vw(32);
+        font-size: vw(26);
         width: 100%;
         height: vw(80);
     }
@@ -378,13 +379,22 @@ $mobile-size: 720;
         position: relative;
 
         .inner {
-            padding: 0 vw(40);
+            padding: vw(40);
         }
 
         .cont-title {
             font-size: vw(50);
             font-weight: bold;
             font-family: "TypoCrayonB";
+            margin-bottom: vw(20);
+        }
+
+        .cont-sub-title {
+            font-size: vw(24);
+            font-weight: 500;
+            font-family: "TypoCrayonL";
+            text-align: center;
+            margin-bottom: vw(30);
         }
 
         &._01 {
@@ -392,6 +402,10 @@ $mobile-size: 720;
 
             .coupon-box {
                 position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
                 width: vw(500);
                 height: vw(300);
                 background: var(--clr-secondary);
@@ -399,20 +413,21 @@ $mobile-size: 720;
                 border-radius: vw(20);
 
                 .coupon-name {
-                    font-size: vw(28);
+                    display: inline-block;
+                    font-size: vw(24);
+                    font-weight: bold;
+                    text-align: center;
+                    margin-bottom: vw(20);
+                    color: var(--clr-basic);
                 }
 
                 .percentage {
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
                     font-size: vw(40);
                     color: var(--clr-basic);
                     font-family: "TypoCrayonL";
-                    margin: vw(30) 0 vw(40);
 
                     strong {
+                        font-size: vw(80);
                         color: var(--clr-primary);
                     }
                 }
@@ -448,9 +463,14 @@ $mobile-size: 720;
         }
 
         &._02 {
+            .inner {
+                padding: vw(40) 0;
+            }
 
             .swiper {
                 &.news {
+                    margin-bottom: vw(20);
+
                     .swiper-slide {
                         width: vw(400);
                         border-radius: vw(20);
@@ -488,6 +508,10 @@ $mobile-size: 720;
         }
 
         &._03 {
+            .inner {
+                padding: vw(40) 0;
+            }
+
             .brand {
                 position: relative;
                 width: 100%;
@@ -510,6 +534,7 @@ $mobile-size: 720;
                     background-position: center center;
                     background-size: cover;
                     transition: 0.5s;
+                    cursor: pointer;
 
                     .circle-light {
                         top: 0px;
@@ -548,22 +573,23 @@ $mobile-size: 720;
         }
 
         &._04 {
-
             .tag {
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
                 flex-wrap: wrap;
+                margin-bottom: vw(30);
 
                 .tag-box {
                     display: inline-block;
-                    background: #c0c0c0;
+                    background: var(--clr-primary);
                     min-width: vw(80);
                     font-size: vw(24);
+                    font-family: "TypoCrayonB";
                     text-align: center;
                     padding: vw(20);
                     border-radius: vw(40);
-                    margin: vw(10);
+                    margin: vw(4);
                 }
             }
 
@@ -575,6 +601,7 @@ $mobile-size: 720;
                 position: relative;
 
                 .new-item {
+                    margin-bottom: auto;
 
                     .new-img {
                         height: vw(400);
@@ -588,10 +615,12 @@ $mobile-size: 720;
                         display: block;
                         margin-top: vw(20);
                         font-size: vw(24);
+                        font-weight: 500;
                     }
 
                     .title {
                         font-size: vw(32);
+                        font-weight: 500;
                         white-space: normal;
                         word-break: break-all;
                     }
@@ -607,6 +636,7 @@ $mobile-size: 720;
 
                 .text {
                     font-size: vw(28);
+                    font-weight: 500;
                     text-align: center;
                 }
 
@@ -614,6 +644,12 @@ $mobile-size: 720;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    font-size: vw(20);
+                    margin-top: vw(20);
+
+                    p {
+                        font-weight: 500;
+                    }
 
                     .btn-q {
                         position: relative;
@@ -622,8 +658,8 @@ $mobile-size: 720;
 
                         .blind {
                             display: block;
-                            width: vw(40);
-                            height: vw(40);
+                            width: vw(30);
+                            height: vw(30);
                             font-size: 0;
                             background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E");
                             background-repeat: no-repeat;
@@ -634,10 +670,15 @@ $mobile-size: 720;
                         .q-box {
                             display: none;
                             position: absolute;
-                            right: 0;
-                            top: vw(39);
-                            box-shadow: 0px 0px 70px #111;
-                            border-radius: vw(30);
+                            left: 0;
+                            top: vw(39);                            
+                            min-width: vw(230);
+                            font-size: vw(22);
+                            text-align: left;
+                            background: var(--clr-basic);
+                            box-shadow: 0 0 vw(40) var(--clr-reversal);
+                            border-radius: vw(20);
+                            padding: vw(20);
                         }
                     }
                 }
@@ -675,6 +716,7 @@ $mobile-size: 720;
                         &.btn-alarm {
                             flex: 1;
                             margin-right: vw(20);
+                            font-weight: 500;
                         }
 
                         &.btn-share {
@@ -765,6 +807,21 @@ $mobile-size: 720;
     }
 }
 
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    position: inherit;
+}
+
+.swiper-pagination-bullet {
+    width: vw(50);
+    height: vw(20);
+    border: vw(4) solid var(--clr-reversal);
+    border-radius: vw(10);
+
+    &.swiper-pagination-bullet-active {
+        background: var(--clr-primary);
+    }
+}
+
 
 @media screen and (min-width: 720px) {
     .btn {
@@ -783,7 +840,7 @@ $mobile-size: 720;
         }
 
         &.wide {
-            font-size: 32px;
+            font-size: 26px;
             width: 100%;
             height: 80px;
         }
@@ -903,27 +960,36 @@ $mobile-size: 720;
     .content {
         .area-common {
             .inner {
-                padding: 0 40px;
+                padding: 40px;
             }
 
             .cont-title {
                 font-size: 50px;
+                margin-bottom: 20px;
+            }
+
+            .cont-sub-title {
+                font-size: 24px;
+                margin-bottom: 30px;
             }
 
             &._01 {
                 .coupon-box {
                     width: 500px;
-                    height: 160px;
+                    height: 300px;
                     border-radius: 20px;
 
 
                     .coupon-name {
-                        font-size: 28px;
+                        font-size: 24px;
                     }
 
                     .percentage {
                         font-size: 40px;
-                        margin: 30px 0 40px;
+
+                        strong {
+                            font-size: 80px;
+                        }
                     }
 
                     &::before,
@@ -948,8 +1014,14 @@ $mobile-size: 720;
             }
 
             &._02 {
+                .inner {
+                    padding: 40px 0;
+                }
+
                 .swiper {
                     &.news {
+                        margin-bottom: 20px;
+
                         .swiper-slide {
                             width: 400px;
                             border-radius: 20px;
@@ -959,6 +1031,10 @@ $mobile-size: 720;
             }
 
             &._03 {
+                .inner {
+                    padding: 40px 0;
+                }
+
                 .brand {
                     padding: 50px;
 
@@ -982,12 +1058,14 @@ $mobile-size: 720;
 
             &._04 {
                 .tag {
+                    margin-bottom: 30px;
+
                     .tag-box {
                         min-width: 80px;
                         font-size: 24px;
                         padding: 20px;
                         border-radius: 40px;
-                        margin: 10px;
+                        margin: 4px;
                     }
                 }
 
@@ -1020,18 +1098,24 @@ $mobile-size: 720;
                     }
 
                     .follow-counter {
+                        font-size: 20px;
+                        margin-top: 20px;
+
                         .btn-q {
                             margin-left: 10px;
 
                             .blind {
-                                width: 40px;
-                                height: 40px;
+                                width: 30px;
+                                height: 30px;
                             }
 
                             .q-box {
                                 top: 39px;
-                                box-shadow: 0px 0px 140px #111;
-                                border-radius: 30px;
+                                min-width: 230px;
+                                font-size: 22px;
+                                box-shadow: 0 0 40px var(--clr-reversal);
+                                border-radius: 20px;
+                                padding: 20px;
                             }
                         }
                     }
@@ -1073,5 +1157,12 @@ $mobile-size: 720;
         width: 100%;
         max-width: 720px;
         margin: auto;
+    }
+
+    .swiper-pagination-bullet {
+        width: 50px;
+        height: 20px;
+        border: 4px solid var(--clr-reversal);
+        border-radius: 10px;
     }
 }

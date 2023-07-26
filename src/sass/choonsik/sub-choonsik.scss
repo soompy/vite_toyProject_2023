@@ -97,6 +97,42 @@ $mobile-size: 720;
     }
 }
 
+
+.scroll-container,
+.scroll-area {
+    max-width: vw(720);    
+    margin: 0 auto;
+}
+
+.scroll-container {
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    height: 80vh;
+
+    .scroll-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-snap-align: start;
+
+        &:nth-of-type(1) {
+            background: IndianRed;
+        }
+
+        &:nth-of-type(2) {
+            background: Moccasin;
+        }
+
+        &:nth-of-type(3) {
+            background: thistle;
+        }
+
+        &:nth-of-type(4) {
+            background: seagreen;
+        }
+    }
+}
+
 .profile-choonsik {
     overflow: hidden;
     display: flex;
@@ -112,7 +148,7 @@ $mobile-size: 720;
         left: 20%;
         top: 20%;
         z-index: 1;
-        font-size: vw(40);
+        font-size: vw(80);
         font-weight: 900;
         animation: fadeIn 1s infinite;
     }
@@ -170,9 +206,9 @@ $mobile-size: 720;
                     position: relative;
                     width: 0;
                     height: 0;
-                    border-left: 15vw solid transparent;
-                    border-right: 15vw solid transparent;
-                    border-bottom: 25vw solid green;
+                    border-left: vw(15) solid transparent;
+                    border-right: vw(15) solid transparent;
+                    border-bottom: vw(25) solid green;
                     transform-origin: center center;
                     transform: rotate(65deg);
                     margin: auto;
@@ -218,8 +254,8 @@ $mobile-size: 720;
             }
         }
     }
-
 }
+
 
 @keyframes rotation {
     0% {
@@ -276,6 +312,35 @@ $mobile-size: 720;
 
     100% {
         transform: translateX(0);
+    }
+}
+
+.music-progress-wrap {
+    .music-progress {
+        position: relative;
+        max-width: vw(400);
+        max-height: vw(400);
+
+        .outside-circle {            
+            stroke: var(--clr-primary);
+        }
+
+        .inside-circle {
+            transition: all 0.2s linear;            
+        }
+
+        text {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: vw(80);
+        }        
+    }
+    
+    .play-btn {
+        width: vw(80);
+        height: vw(80);
+        margin: auto;
     }
 }
 
@@ -640,15 +705,16 @@ $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
     }
 
     .lovely-text {
+        font-size: vw(34);
         font-family: "TypoCrayonB";
         animation: twinkle 1.3s ease-in-out infinite;
     }
 }
 
 #lovelyChoonsik {
+    font-size: vw(40);
     margin: auto;
 }
-
 
 
 // diary
@@ -1344,7 +1410,13 @@ $text-black-color: #000;
 }
 
 @media screen and (min-width: 720px) {
-    .choonsik-lover-wrapper {        
+    .scroll-container,
+    .scroll-area {
+        max-width: 720px;
+        min-height: 300px;
+    }
+
+    .choonsik-lover-wrapper {
         .choonsik-diary-container {
             .choonsik-diary {
                 .diary-page {
@@ -1462,6 +1534,34 @@ $text-black-color: #000;
             font-size: 20px;
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
+        }
+    }
+
+
+    .music-progress-wrap {
+        
+        .music-progress {
+            max-width: 400px;
+            max-height: 400px;            
+
+            .outside-circle {
+                width: 100%;
+                height: 100%;
+            }
+    
+            .inside-circle {
+                width: 100%;
+                height: 100%;
+            }
+    
+            text {
+                font-size: 80px;
+            }        
+        }
+        
+        .play-btn {
+            width: 80px;
+            height: 80px;            
         }
     }
 }

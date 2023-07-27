@@ -15,7 +15,17 @@
 <body>
     <load="/header.html" />
 
-    <div id="matter-container" style="width: 100vw;height: calc(100vh - 80px);border: none;"></div>
+    <div class="choonsik-lover-wrapper">
+        <div class="inner">
+            <h2 class="light-text"> 
+                <span>There's</span>  
+                <span class="light">light</span> 
+                <span> even in</span> 
+                <span>the darkest</span>  
+                <span>places</span>
+              </h2>
+        </div>
+    </div>    
 
 
     <!-- 스크롤 배경 스케일 & 스티키 텍스트 영역 -->
@@ -42,67 +52,6 @@
     <script src="./node_modules/animejs/lib/anime.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"
-        integrity="sha512-5T245ZTH0m0RfONiFm2NF0zcYcmAuNzcGyPSQ18j8Bs5Pbfhp5HP1hosrR8XRt5M3kSRqzjNMYpm2+it/AUX/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script>
-        // matter.js
-        const matterContainer = document.querySelector("#matter-container");
-
-        const { Engine, Render, World, Bodies, Runner } = Matter;
-
-        const engine = Engine.create();
-        const world = engine.world;
-
-        const width = matterContainer.clientWidth; // 뷰포트 너비
-        const height = matterContainer.clientHeight; // 뷰포트 높이
-
-        const render = Render.create({
-            element: matterContainer, // 렌더링할 요소 지정 (여기서는 body)
-            engine: engine, // 렌더링에 사용할 엔진 지정
-            options: {
-                width: width, // 뷰포트 너비
-                height: height, // 뷰포트 높이
-                background: "transparent",
-                wireframes: false,
-                showAngleIndicator: false
-            },
-        });
-        Render.run(render); // 렌더링 실행
-
-        function createFallingObject(x, y) {
-            const objectWidth = 40;
-            const objectHeight = 40;
-            const object = Bodies.rectangle(x, y, objectWidth, objectHeight, {
-                friction: 0.5,
-                frictionAir: 0.00001,
-                restitution: 0.5,
-            });
-            World.add(world, object);
-        }
-
-        function createRandomFallingObjects() {
-            const objectCount = 10; // 생성할 오브젝트 개수
-            const spaceBetween = 80; // 오브젝트 간의 간격
-
-            for (let i = 0; i < objectCount; i++) {
-                const randomX = Math.random() * (width - spaceBetween) + spaceBetween / 2;
-                const randomY = Math.random() * height / 2; // 상단 반정도 영역 내에서 생성
-                createFallingObject(randomX, randomY);
-            }
-        }
-
-        createRandomFallingObjects();
-
-        function update() {
-            Engine.update(engine); // 물리 시뮬레이션 업데이트
-            requestAnimationFrame(update); // 애니메이션 루프 설정
-        }
-
-        update(); // 애니메이션 루프 시작
-
-    </script>
 
     <script>
         // detector

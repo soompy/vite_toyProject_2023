@@ -107,7 +107,7 @@ $mobile-size: 720;
 .scroll-container {
     overflow: auto;
     scroll-snap-type: y mandatory;
-    height: 80vh;
+    max-height: 80vh;
 
     .scroll-area {
         display: flex;
@@ -129,6 +129,33 @@ $mobile-size: 720;
 
         &:nth-of-type(4) {
             background: seagreen;
+        }
+    }
+}
+
+.about-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    .profile-photo {
+        display: block;
+        flex: 1;
+        flex-shrink: 0;
+        object-fit: cover;
+        min-height: vw(200);
+        margin-right: vw(20);
+    }
+
+    .about-choonsik {
+        flex: 2;
+        font-size: vw(20);
+        text-align: left;
+
+        p {
+            display: flex;
+            align-items: center;
+            margin-bottom: vw(16);
         }
     }
 }
@@ -173,7 +200,7 @@ $mobile-size: 720;
             height: vw(100);
             background: rgb(249, 249, 61);
             border-radius: 50%;
-            border: vw(10) solid #000;
+            border: vw(10) solid var(--clr-reversal);
             margin: 0 vw(10);
             animation: tensionX 10s linear infinite;
             animation-fill-mode: forwards;
@@ -315,6 +342,10 @@ $mobile-size: 720;
     }
 }
 
+.choonsik-music {
+    font-size: vw(28);
+}
+
 .music-progress-wrap {
     .music-progress {
         position: relative;
@@ -322,7 +353,7 @@ $mobile-size: 720;
         max-height: vw(400);
 
         .outside-circle {            
-            stroke: var(--clr-primary);
+            stroke: var(--clr-secondary);
         }
 
         .inside-circle {
@@ -334,13 +365,25 @@ $mobile-size: 720;
             left: 0;
             top: 0;
             font-size: vw(80);
+            fill: var(--clr-basic);
         }        
     }
     
     .play-btn {
-        width: vw(80);
-        height: vw(80);
+        width: vw(40);
+        height: vw(40);
         margin: auto;
+        cursor: pointer;
+
+        .play-icon {
+            .play-circle {
+                
+            }
+        }
+
+        .pause-icon {
+
+        }
     }
 }
 
@@ -350,7 +393,6 @@ $drop-shadow: vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
 
 $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
     inset vw(12) vw(12) 30px 5px rgba(50, 58, 73, 0.2);
-
 
 .model-choonsik {
     overflow: hidden;
@@ -713,6 +755,7 @@ $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
 
 #lovelyChoonsik {
     font-size: vw(40);
+    width: 100%;
     margin: auto;
 }
 
@@ -1416,6 +1459,20 @@ $text-black-color: #000;
         min-height: 300px;
     }
 
+    .choonsik-chart {
+        h3 {
+            font-size: 16px;
+        }
+
+        .lovely-text {
+            font-size: 34px;
+        }
+    }
+
+    #lovelyChoonsik {
+        font-size: 40px;
+    }
+
     .choonsik-lover-wrapper {
         .choonsik-diary-container {
             .choonsik-diary {
@@ -1537,9 +1594,77 @@ $text-black-color: #000;
         }
     }
 
+    .about-box {
+        .profile-photo {
+            min-height: 200px;
+            margin-right: 20px;
+        }
 
-    .music-progress-wrap {
-        
+        .about-choonsik {
+            font-size: 20px;
+
+            p {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    .profile-choonsik {    
+        .text {
+            font-size: 80px;            
+        }
+
+        .profile-bg {            
+            .bg-circle {
+                width: 100px;
+                height: 100px;                
+                margin: 0 10px;                
+            }
+        }
+
+        .profile-box {
+            border-radius: 40px;
+            border-radius: 60px;
+
+            .profile-item {
+                .spinner {                    
+                    .triangle {
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        border-bottom: 25px solid green;                        
+                    }
+
+                    .talk {
+                        right: -60px;                        
+                        margin-left: 240px;
+
+                        p {
+                            font-size: 32px;
+                            padding: 20px;
+                            border-radius: 40px;                            
+
+                            .talk-tail {
+                                bottom: -10px;
+                                border-left: 20px solid transparent;
+                                border-right: 20px solid transparent;
+                                border-bottom: 20px solid #ffffff;
+                            }
+                        }
+
+                        .following {
+                            margin: 88px auto 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .choonsik-music {
+        font-size: 20px;
+    }
+
+    .music-progress-wrap {        
         .music-progress {
             max-width: 400px;
             max-height: 400px;            
@@ -1560,8 +1685,8 @@ $text-black-color: #000;
         }
         
         .play-btn {
-            width: 80px;
-            height: 80px;            
+            width: 40px;
+            height: 40px;            
         }
     }
 }

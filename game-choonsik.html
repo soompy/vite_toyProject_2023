@@ -36,8 +36,6 @@
 
     <div id="stickyEnd"></div>
 
-
-
     <load="/footer.html" />
 
     <script type="module" src="/main.js"></script>
@@ -51,130 +49,59 @@
     <script>
         // matter.js
         const matterContainer = document.querySelector("#matter-container");
-        const THICCNESS = 60;
 
-        // module aliases
-        var Engine = Matter.Engine,
-            Render = Matter.Render,
-            Runner = Matter.Runner,
-            Bodies = Matter.Bodies,
-            Composite = Matter.Composite;
+        const { Engine, Render, World, Bodies, Runner } = Matter;
 
-        // create an engine
-        var engine = Engine.create();
+        const engine = Engine.create();
+        const world = engine.world;
 
-        // create a renderer
-        var render = Render.create({
-            element: matterContainer,
-            engine: engine,
+        const width = matterContainer.clientWidth; // 뷰포트 너비
+        const height = matterContainer.clientHeight; // 뷰포트 높이
+
+        const render = Render.create({
+            element: matterContainer, // 렌더링할 요소 지정 (여기서는 body)
+            engine: engine, // 렌더링에 사용할 엔진 지정
             options: {
-                width: matterContainer.clientWidth,
-                height: matterContainer.clientHeight,
+                width: width, // 뷰포트 너비
+                height: height, // 뷰포트 높이
                 background: "transparent",
                 wireframes: false,
                 showAngleIndicator: false
-            }
+            },
         });
+        Render.run(render); // 렌더링 실행
 
-        // create two boxes and a ground
-        // var boxA = Bodies.rectangle(400, 200, 80, 80);
-        // var boxB = Bodies.rectangle(450, 50, 80, 80);
-
-        for (let i = 0; i < 50; i++) {
-            let circle = Bodies.circle(i, 10, 30, {
-                friction: 0.3,
+        function createFallingObject(x, y) {
+            const objectWidth = 40;
+            const objectHeight = 40;
+            const object = Bodies.rectangle(x, y, objectWidth, objectHeight, {
+                friction: 0.5,
                 frictionAir: 0.00001,
-                restitution: 0.7
+                restitution: 0.5,
             });
-            Composite.add(engine.world, circle);
+            World.add(world, object);
         }
 
-        var ground = Bodies.rectangle(
-            matterContainer.clientWidth / 2,
-            matterContainer.clientHeight + THICCNESS / 2,
-            27184,
-            THICCNESS,
-            { isStatic: true }
-        );
+        function createRandomFallingObjects() {
+            const objectCount = 10; // 생성할 오브젝트 개수
+            const spaceBetween = 80; // 오브젝트 간의 간격
 
-        let leftWall = Bodies.rectangle(
-            0 - THICCNESS / 2,
-            matterContainer.clientHeight / 2,
-            THICCNESS,
-            matterContainer.clientHeight * 5,
-            {
-                isStatic: true
+            for (let i = 0; i < objectCount; i++) {
+                const randomX = Math.random() * (width - spaceBetween) + spaceBetween / 2;
+                const randomY = Math.random() * height / 2; // 상단 반정도 영역 내에서 생성
+                createFallingObject(randomX, randomY);
             }
-        );
-
-        let rightWall = Bodies.rectangle(
-            matterContainer.clientWidth + THICCNESS / 2,
-            matterContainer.clientHeight / 2,
-            THICCNESS,
-            matterContainer.clientHeight * 5,
-            { isStatic: true }
-        );
-
-        // add all of the bodies to the world
-        Composite.add(engine.world, [ground, leftWall, rightWall]);
-
-        let mouse = Matter.Mouse.create(render.canvas);
-        let mouseConstraint = Matter.MouseConstraint.create(engine, {
-            mouse: mouse,
-            constraint: {
-                stiffness: 0.2,
-                render: {
-                    visible: false
-                }
-            }
-        });
-
-        Composite.add(engine.world, mouseConstraint);
-
-        // allow scroll through the canvas
-        mouseConstraint.mouse.element.removeEventListener(
-            "mousewheel",
-            mouseConstraint.mouse.mousewheel
-        );
-        mouseConstraint.mouse.element.removeEventListener(
-            "DOMMouseScroll",
-            mouseConstraint.mouse.mousewheel
-        );
-
-        // run the renderer
-        Render.run(render);
-
-        // create runner
-        var runner = Runner.create();
-
-        // run the engine
-        Runner.run(runner, engine);
-
-        function handleResize(matterContainer) {
-            // set canvas size to new values
-            render.canvas.width = matterContainer.clientWidth;
-            render.canvas.height = matterContainer.clientHeight;
-
-            // reposition ground
-            Matter.Body.setPosition(
-                ground,
-                Matter.Vector.create(
-                    matterContainer.clientWidth / 2,
-                    matterContainer.clientHeight + THICCNESS / 2
-                )
-            );
-
-            // reposition right wall
-            Matter.Body.setPosition(
-                rightWall,
-                Matter.Vector.create(
-                    matterContainer.clientWidth + THICCNESS / 2,
-                    matterContainer.clientHeight / 2
-                )
-            );
         }
 
-        window.addEventListener("resize", () => handleResize(matterContainer));
+        createRandomFallingObjects();
+
+        function update() {
+            Engine.update(engine); // 물리 시뮬레이션 업데이트
+            requestAnimationFrame(update); // 애니메이션 루프 설정
+        }
+
+        update(); // 애니메이션 루프 시작
+
     </script>
 
     <script>

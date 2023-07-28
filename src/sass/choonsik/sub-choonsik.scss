@@ -356,7 +356,9 @@ $mobile-size: 720;
             stroke: var(--clr-secondary);
         }
 
-        .inside-circle {
+        .inside-circle {            
+            transform: rotate(-90deg);
+            transform-origin: center;
             transition: all 0.2s linear;            
         }
 

@@ -403,7 +403,7 @@ $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
     position: relative;
     width: 100%;
     height: 92vh;
-    background: #1a1a1a;
+    background: var(--clr-reversal);
     padding: vw(50) vw(20);
 
     .dancer-choonsik {
@@ -411,7 +411,7 @@ $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
         font-family: 'Shantell Sans', cursive;
         text-transform: uppercase;
         text-align: center;
-        color: #ffffff;
+        color: var(--clr-basic);
         z-index: 1;
     }
 

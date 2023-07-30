@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?uloeg4');
+  src:  url('fonts/icomoon.eot?uloeg4#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?uloeg4') format('truetype'),
+    url('fonts/icomoon.woff?uloeg4') format('woff'),
+    url('fonts/icomoon.svg?uloeg4#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-music:before {
+  content: "\e911";
+}
+.icon-play:before {
+  content: "\e912";
+}
+.icon-pacman:before {
+  content: "\e916";
+}
+.icon-bullhorn:before {
+  content: "\e91a";
+}
+.icon-price-tags:before {
+  content: "\e936";
+}
+.icon-bubble:before {
+  content: "\e96b";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-spinner6:before {
+  content: "\e97f";
+}
+.icon-star-empty:before {
+  content: "\e9d7";
+}
+.icon-heart:before {
+  content: "\e9da";
+}
+.icon-evil2:before {
+  content: "\e9f0";
+}

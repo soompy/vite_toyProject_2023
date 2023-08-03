@@ -111,12 +111,12 @@
                         const magnifierSize = magnifierElem.getBoundingClientRect();                      
 
 
-                        gameBoard.addEventListener('mouthmove', (e) => {
-                            const mouthX = e.clientX - magnifierElemPath.left;
-                            const mouthY = e.clientY - magnifierElemPath.top;                            
+                        gameBoard.addEventListener('mousemove', (e) => {
+                            const mouseX = e.clientX - magnifierElemPath.left;
+                            const mouseY = e.clientY - magnifierElemPath.top;                            
 
-                            magnifierElem.style.transform = `translate(${mouthX - (magnifierSize.width / 2)}px, ${mouthY - (magnifierSize.height / 2)}px)`;
-                            maskElem.style.transform = `translate(${mouthX - (magnifierSize.width / 2)}px, ${mouthY - (magnifierSize.height / 2)}px)`;
+                            magnifierElem.style.transform = `translate(${mouseX - (magnifierSize.width / 2)}px, ${mouseY - (magnifierSize.height / 2)}px)`;
+                            maskElem.style.transform = `translate(${mouseX - (magnifierSize.width / 2)}px, ${mouseY - (magnifierSize.height / 2)}px)`;
                         });
                     });
                 </script>

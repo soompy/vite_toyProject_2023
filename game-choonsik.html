@@ -37,9 +37,10 @@
         <div class="sticky-text">
             <div class="inner">
                 <p>
-                    숨은 춘식이 찾기!!
+                    숨은 춘식이 찾기!!                    
                     <i class="icon-point-down"></i>
                 </p>
+                <strong>특명 춘식이를 찾아라!!</strong>
             </div>
         </div>
     </section>
@@ -48,9 +49,8 @@
 
     <section class="game-board">    
         <svg class="the-svg">
-            <defs>
-                <pattern id="pattern-bg" x="0" y="0" width="0.1" height="0.1">
-                    <circle cx="80" cy="80" r="160" d="M 80 0" viewBox="0 0 80 80" fill="url(#choonsik-face)" />
+            <defs>                
+                <pattern id="pattern-bg" x="0" y="0" width="0.1" height="0.1">                                      
                     <path class="face-line"
                         d="M138.61,133a29.89,29.89,0,1,1,21.14-8.75A29.72,29.72,0,0,1,138.61,133Zm0-55.38a25.49,25.49,0,1,0,18,7.46A25.32,25.32,0,0,0,138.61,77.63Z"
                         transform="translate(-107 -64)" />
@@ -64,10 +64,11 @@
                     <path class="hair-line"
                         d="M154.28,72.27a17.56,17.56,0,0,0-3.94.44c-1.76-5-8.37-8.71-16.25-8.71-9.15,0-16.58,5-16.72,11.2C111.23,77.38,107,82,107,87.23c0,7.4,8.32,13.4,18.59,13.4,6.84,0,12.82-2.66,16-6.63a16.61,16.61,0,0,0,12.65,5.53C163,99.53,170,93.43,170,85.9S163,72.27,154.28,72.27Z"
                         transform="translate(-107 -64)" />                                                        
+                    <circle cx="0" cy="0" r="25" viewBox="0 0 50 50" fill="url(#choonsik-face)" />
                 </pattern>                
 
                 <!-- 춘식이 얼굴 -->
-                <circle id="choonsik-face" x="0" y="0" cx="50" cy="50" r="50" patternUnits="userSpaceOnUse" width="100" height="100">
+                <circle id="choonsik-face" x="0" y="0" cx="0" cy="0" r="25" patternUnits="userSpaceOnUse" width="100" height="100">
                     <image x="0" y="0" width="100" height="100" xlink:href="https://m.switchs.co.kr/web/product/big/202303/a429abd3b01ea983738ab857c58bea83.png" />
                 </circle>
 
@@ -113,7 +114,7 @@
 
                         gameBoard.addEventListener('mousemove', (e) => {
                             const mouseX = e.clientX - magnifierElemPath.left;
-                            const mouseY = e.clientY - magnifierElemPath.top;                            
+                            const mouseY = e.clientY - magnifierElemPath.top;
 
                             magnifierElem.style.transform = `translate(${mouseX - (magnifierSize.width / 2)}px, ${mouseY - (magnifierSize.height / 2)}px)`;
                             maskElem.style.transform = `translate(${mouseX - (magnifierSize.width / 2)}px, ${mouseY - (magnifierSize.height / 2)}px)`;
@@ -129,6 +130,15 @@
             </g>
         </svg>
     </section>
+
+    <div class="test">
+        <div class="game-container">
+            <svg id="svg" class="svg-container">
+              
+            </svg>
+        </div>
+    </div>
+    
 
     <load="/footer.html" />
 
@@ -278,6 +288,58 @@
         sd.add(document.getElementById('stickyStart'), function () {
             $(".scrolling-contents").addClass("on")
         }, { actionType: "in" })
+    </script>
+
+    <script>
+        const svg = document.getElementById('svg');
+        const gridSize = 5;
+        const cellSize = 50;
+        const hiddenObject = Math.floor(Math.random() * gridSize * gridSize);
+        let magnifier;
+
+        for (let row = 0; row < gridSize; row++) {
+            for (let col = 0; col < gridSize; col++) {
+                const cell = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                cell.setAttribute('x', col * cellSize);
+                cell.setAttribute('y', row * cellSize);
+                cell.setAttribute('width', cellSize);
+                cell.setAttribute('height', cellSize);
+                cell.setAttribute('class', 'cell');
+                cell.dataset.index = row * gridSize + col;
+                
+                cell.addEventListener('click', () => checkCell(cell));
+
+                svg.appendChild(cell);
+            }
+        }
+
+        function checkCell(cell) {
+            const index = parseInt(cell.dataset.index);
+
+            if (index === hiddenObject) {
+                cell.classList.add('hidden-object');
+                setTimeout(() => {
+                alert('Congratulations! You found the hidden object!');
+                }, 500);
+            } else {
+                magnify(index);
+            }
+        }
+
+        function magnify(index) {
+            if (magnifier) {
+                svg.removeChild(magnifier);
+            }
+
+            magnifier = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            magnifier.setAttribute('cx', (index % gridSize) * cellSize + cellSize / 2);
+            magnifier.setAttribute('cy', Math.floor(index / gridSize) * cellSize + cellSize / 2);
+            magnifier.setAttribute('r', cellSize / 2);
+            magnifier.setAttribute('class', 'magnifier');
+
+            svg.appendChild(magnifier);
+        }
+
     </script>
 </body>
 

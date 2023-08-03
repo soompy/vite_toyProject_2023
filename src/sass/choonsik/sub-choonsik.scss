@@ -766,231 +766,231 @@ $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
 .choonsik-lover-wrapper {
     // overflow: hidden;
     position: relative;
-    width: 100%;
+    width: 100%;    
+}
 
-    .choonsik-diary-container {
+.choonsik-diary-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: "TypoCrayonB";
+
+    .choonsik-diary {
+        position: relative;
         display: flex;
         align-items: center;
-        position: relative;
-        width: 100%;
+        width: 300vw;
         height: 100%;
+        transition: all 1s linear;
         font-family: "TypoCrayonB";
 
-        .choonsik-diary {
-            position: relative;
+        .diary-page {
             display: flex;
             align-items: center;
-            width: 300vw;
+            flex-direction: column;
+            flex-shrink: 0;
+            position: relative;
+            width: 100vw;
             height: 100%;
             transition: all 1s linear;
-            font-family: "TypoCrayonB";
 
-            .diary-page {
+            .paper-inner {
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 flex-direction: column;
-                flex-shrink: 0;
-                position: relative;
-                width: 100vw;
+                width: 100%;
                 height: 100%;
-                transition: all 1s linear;
+                padding: vw(56) 0;
+
+                .click-text {
+                    display: block;
+                    animation: twinkle 3s ease-in-out, scaleEffect 2s linear infinite;
+                    transform-origin: center center;
+                    font-weight: bold;
+                    text-align: center;
+                }
+
+                .paper {
+                    display: block;
+                    width: 80%;
+                    margin: 0 auto;
+                    background: #ffffff;
+
+                    img {
+                        margin: auto;
+                    }
+                }
+
+                .diary-text {
+                    font-size: vw(18);
+                    padding: 0 vw(20);
+                    text-align: center;
+                    word-break: keep-all;
+                    color: #444444;
+
+                    .time {
+                        display: block;
+                        font-weight: 500;
+                        margin-top: vw(14);
+                    }
+
+                    .title {
+                        font-size: vw(18);
+                        font-family: "TypoCrayonB";
+                        font-weight: bold;
+                        margin: vw(12) 0;
+                    }
+
+                    p {
+                        font-weight: 500;
+                        line-height: vw(24);
+                        font-family: "TypoCrayonB";
+                    }
+                }
+            }
+
+            &.diary-page1 {
+                background: url("https://png.pngtree.com/thumb_back/fw800/background/20220217/pngtree-crayon-texture-blue-sky-and-white-clouds-background-image_941874.jpg") center center repeat;
+                background-size: cover;
+            }
+
+            &.diary-page2 {
+                background: url("https://png.pngtree.com/thumb_back/fw800/background/20220217/pngtree-crayon-texture-blue-sky-and-white-clouds-background-image_941874.jpg") center center repeat;
+                background-size: cover;
 
                 .paper-inner {
-                    display: flex;
-                    align-items: center;
                     justify-content: center;
-                    flex-direction: column;
-                    width: 100%;
-                    height: 100%;
-                    padding: vw(56) 0;
+                    padding: 0;
 
-                    .click-text {
-                        display: block;
-                        animation: twinkle 3s ease-in-out, scaleEffect 2s linear infinite;
-                        transform-origin: center center;
-                        font-weight: bold;
-                        text-align: center;
-                    }
-
-                    .paper {
-                        display: block;
-                        width: 80%;
-                        margin: 0 auto;
-                        background: #ffffff;
-
-                        img {
-                            margin: auto;
-                        }
-                    }
-
-                    .diary-text {
+                    .condition-title {
                         font-size: vw(18);
-                        padding: 0 vw(20);
-                        text-align: center;
-                        word-break: keep-all;
-                        color: #444444;
-
-                        .time {
-                            display: block;
-                            font-weight: 500;
-                            margin-top: vw(14);
-                        }
-
-                        .title {
-                            font-size: vw(18);
-                            font-family: "TypoCrayonB";
-                            font-weight: bold;
-                            margin: vw(12) 0;
-                        }
-
-                        p {
-                            font-weight: 500;
-                            line-height: vw(24);
-                            font-family: "TypoCrayonB";
-                        }
+                        font-family: "TypoCrayonB";
+                        font-weight: 500;
                     }
                 }
 
-                &.diary-page1 {
-                    background: url("https://png.pngtree.com/thumb_back/fw800/background/20220217/pngtree-crayon-texture-blue-sky-and-white-clouds-background-image_941874.jpg") center center repeat;
-                    background-size: cover;
-                }
+                .choonsik-condition-container {
+                    overflow: hidden;
+                    width: 100%;
+                    margin: vw(20) 0;
 
-                &.diary-page2 {
-                    background: url("https://png.pngtree.com/thumb_back/fw800/background/20220217/pngtree-crayon-texture-blue-sky-and-white-clouds-background-image_941874.jpg") center center repeat;
-                    background-size: cover;
-
-                    .paper-inner {
-                        justify-content: center;
-                        padding: 0;
-
-                        .condition-title {
-                            font-size: vw(18);
-                            font-family: "TypoCrayonB";
-                            font-weight: 500;
-                        }
-                    }
-
-                    .choonsik-condition-container {
-                        overflow: hidden;
+                    .choonsik-condition {
+                        overflow-y: auto;
+                        display: flex;
                         width: 100%;
-                        margin: vw(20) 0;
+                        padding: 0 vw(20);
 
-                        .choonsik-condition {
-                            overflow-y: auto;
-                            display: flex;
-                            width: 100%;
-                            padding: 0 vw(20);
+                        .condition-face {
+                            flex-shrink: 0;
+                            width: vw(80);
+                            height: vw(80);
+                            background: #fffce2;
+                            margin-right: vw(8);
+                            border-radius: vw(8);
+                            transition: all 0.5s ease-in-out;
 
-                            .condition-face {
-                                flex-shrink: 0;
-                                width: vw(80);
-                                height: vw(80);
-                                background: #fffce2;
-                                margin-right: vw(8);
-                                border-radius: vw(8);
-                                transition: all 0.5s ease-in-out;
+                            .btn-face {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                height: 100%;
+                                font-size: vw(24);
+                            }
+
+                            &:last-of-type {
+                                margin-right: 0;
+                            }
+
+                            &.on {
+                                background: #00B2FF;
 
                                 .btn-face {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    width: 100%;
-                                    height: 100%;
-                                    font-size: vw(24);
+                                    font-size: vw(34);
                                 }
-
-                                &:last-of-type {
-                                    margin-right: 0;
-                                }
-
-                                &.on {
-                                    background: #00B2FF;
-
-                                    .btn-face {
-                                        font-size: vw(34);
-                                    }
-                                }
-                            }
-
-                            &::-webkit-scrollbar {
-                                display: none;
                             }
                         }
+
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
                     }
+                }
 
-                    .diary-text-wrap {
-                        position: relative;
-                        width: 90%;
-                        padding: 0 vw(20);
-                        margin-left: vw(-20);
+                .diary-text-wrap {
+                    position: relative;
+                    width: 90%;
+                    padding: 0 vw(20);
+                    margin-left: vw(-20);
 
-                        .diary-text {
-                            width: 100%;
-                            background: #ffffff;
-                            border: vw(2) solid #1DB6E9;
-                            border-radius: vw(20);
-                            padding: vw(40) vw(20);
-                            box-shadow:
-                                white vw(10) vw(-10) 0 vw(-3),
-                                #1DB6E9 vw(10) vw(-10) 0 vw(-1),
-                                white vw(20) vw(-20) 0 vw(-3),
-                                #1DB6E9 vw(20) vw(-20) 0 vw(-1);
+                    .diary-text {
+                        width: 100%;
+                        background: #ffffff;
+                        border: vw(2) solid #1DB6E9;
+                        border-radius: vw(20);
+                        padding: vw(40) vw(20);
+                        box-shadow:
+                            white vw(10) vw(-10) 0 vw(-3),
+                            #1DB6E9 vw(10) vw(-10) 0 vw(-1),
+                            white vw(20) vw(-20) 0 vw(-3),
+                            #1DB6E9 vw(20) vw(-20) 0 vw(-1);
 
-                            .big-face-box {
-                                font-size: vw(50);
-                                margin: auto;
-                                transition: all 0.5s ease-in-out;
-                                animation: catch 1s ease-in-out infinite;
-                            }
+                        .big-face-box {
+                            font-size: vw(50);
+                            margin: auto;
+                            transition: all 0.5s ease-in-out;
+                            animation: catch 1s ease-in-out infinite;
+                        }
 
-                            .condition-text {
-                                p {
-                                    display: none;
+                        .condition-text {
+                            p {
+                                display: none;
 
-                                    &.on {
-                                        display: block;
-                                    }
+                                &.on {
+                                    display: block;
                                 }
                             }
                         }
                     }
                 }
+            }
 
-                &.diary-page3 {
-                    background: #1a1a1a;
-                    font-family: "TypoCrayonB";
+            &.diary-page3 {
+                background: #1a1a1a;
+                font-family: "TypoCrayonB";
 
-                    .paper-inner {
+                .paper-inner {
+                    justify-content: center;
+
+                    .paper {
+                        display: flex;
+                        align-items: center;
                         justify-content: center;
+                        flex-wrap: wrap;
+                        background: #1a1a1a;
 
-                        .paper {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            flex-wrap: wrap;
-                            background: #1a1a1a;
+                        .cut-photo {
+                            display: block;
+                            width: calc(50% - 16px);
+                            height: vw(180);
+                            margin: vw(4);
 
-                            .cut-photo {
-                                display: block;
-                                width: calc(50% - 16px);
-                                height: vw(180);
-                                margin: vw(4);
-
-                                img {
-                                    width: 100%;
-                                    height: 100%;
-                                    object-fit: cover;
-                                }
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
                             }
                         }
+                    }
 
-                        .cut-photo-text {
-                            font-size: vw(18);
-                            font-family: "TypoCrayonB";
-                            color: #ffffff;
-                            margin-top: vw(20);
-                        }
+                    .cut-photo-text {
+                        font-size: vw(18);
+                        font-family: "TypoCrayonB";
+                        color: #ffffff;
+                        margin-top: vw(20);
                     }
                 }
             }
@@ -1350,6 +1350,7 @@ $text-black-color: #000;
 
 // 게임
 .light-text {
+    background: var(--clr-surface);
     color: var(--clr-basic);
     text-transform: uppercase;
     font-weight: bold;
@@ -1383,7 +1384,7 @@ $text-black-color: #000;
     }    
 }  
   
-@keyframes flash{
+@keyframes flash {
     to {
         opacity: 1;
     }
@@ -1400,7 +1401,7 @@ $text-black-color: #000;
     position: relative;
     width: 100%;
     max-width: 720px;
-    height: calc(100vh - 80px);
+    height: 50vh;
     transition: all 2s linear;
     margin: auto;
 
@@ -1454,11 +1455,9 @@ $text-black-color: #000;
         transition: all 2s linear;
 
         .inner {
-            padding: 20px 0;
-
             p {
-                font-size: 20px;
-                line-height: 30px;
+                font-size: vw(40);
+                line-height: vw(60);
                 font-weight: 300;
                 color: var(--clr-basic);
                 text-align: center;
@@ -1478,9 +1477,6 @@ $text-black-color: #000;
     }
 
     &.on {
-        position: sticky;
-        top: 80px;
-
         .scalebg {
             img {
                 transform: scale(1.2);
@@ -1498,8 +1494,8 @@ $text-black-color: #000;
         .sticky-text {
             .inner {
                 p {
-                    font-size: 20px;
-                    line-height: 30px;
+                    font-size: vw(40);
+                    line-height: vw(60);
                 }
             }
         }
@@ -1513,6 +1509,18 @@ $text-black-color: #000;
     height: 100vh;
     background: var(--clr-basic);
     margin: auto;
+
+    .the-svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        svg {
+            background: var(--clr-reversal);
+        }
+    }
 }
 
 
@@ -1590,104 +1598,102 @@ $text-black-color: #000;
         font-size: 40px;
     }
 
-    .choonsik-lover-wrapper {
-        .choonsik-diary-container {
-            .choonsik-diary {
-                .diary-page {
-                    .paper-inner {
-                        .paper {
-                            width: 50%;
+    .choonsik-diary-container {
+        .choonsik-diary {
+            .diary-page {
+                .paper-inner {
+                    .paper {
+                        width: 50%;
+                    }
+
+                    .diary-text {
+                        font-size: 18px;
+                        padding: 0 20px;
+
+                        .title {
+                            font-size: 20px;
+                            margin: 12px 0;
                         }
+
+                        p {
+                            line-height: 24px;
+                        }
+                    }
+                }
+
+
+                &.diary-page2 {
+                    .paper-inner {
+                        .condition-title {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .choonsik-condition-container {
+                        width: auto;
+                        margin: 20px 0;
+
+                        .choonsik-condition {
+                            padding: 0 20px;
+
+                            .condition-face {
+                                width: 80px;
+                                height: 80px;
+                                margin-right: 16px;
+                                border-radius: 16px;
+
+                                .btn-face {
+                                    font-size: 34px;
+                                }
+
+                                &.on {
+                                    .btn-face {
+                                        font-size: 44px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .diary-text-wrap {
+                        position: relative;
+                        width: 30%;
+                        padding: 0 20px;
+                        margin-top: 40px;
+                        margin-left: -20px;
 
                         .diary-text {
-                            font-size: 18px;
-                            padding: 0 20px;
+                            width: 100%;
+                            background: #ffffff;
+                            border: 3px solid #1DB6E9;
+                            border-radius: 20px;
+                            padding: 40px 20px;
+                            box-shadow:
+                                white 10px -10px 0 -3px,
+                                #1DB6E9 10px -10px 0 -1px,
+                                white 20px -20px 0 -3px,
+                                #1DB6E9 20px -20px 0 -1px;
 
-                            .title {
-                                font-size: 20px;
-                                margin: 12px 0;
-                            }
-
-                            p {
-                                line-height: 24px;
-                            }
-                        }
-                    }
-
-
-                    &.diary-page2 {
-                        .paper-inner {
-                            .condition-title {
-                                font-size: 20px;
-                            }
-                        }
-
-                        .choonsik-condition-container {
-                            width: auto;
-                            margin: 20px 0;
-
-                            .choonsik-condition {
-                                padding: 0 20px;
-
-                                .condition-face {
-                                    width: 80px;
-                                    height: 80px;
-                                    margin-right: 16px;
-                                    border-radius: 16px;
-
-                                    .btn-face {
-                                        font-size: 34px;
-                                    }
-
-                                    &.on {
-                                        .btn-face {
-                                            font-size: 44px;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        .diary-text-wrap {
-                            position: relative;
-                            width: 30%;
-                            padding: 0 20px;
-                            margin-top: 40px;
-                            margin-left: -20px;
-
-                            .diary-text {
-                                width: 100%;
-                                background: #ffffff;
-                                border: 3px solid #1DB6E9;
-                                border-radius: 20px;
-                                padding: 40px 20px;
-                                box-shadow:
-                                    white 10px -10px 0 -3px,
-                                    #1DB6E9 10px -10px 0 -1px,
-                                    white 20px -20px 0 -3px,
-                                    #1DB6E9 20px -20px 0 -1px;
-
-                                .big-face-box {
-                                    font-size: 40px;
-                                }
+                            .big-face-box {
+                                font-size: 40px;
                             }
                         }
                     }
+                }
 
-                    &.diary-page3 {
-                        .paper-inner {
-                            .paper {
-                                .cut-photo {
-                                    width: calc(50% - 16px);
-                                    height: 180px;
-                                    margin: 4px;
-                                }
+                &.diary-page3 {
+                    .paper-inner {
+                        .paper {
+                            .cut-photo {
+                                width: calc(50% - 16px);
+                                height: 180px;
+                                margin: 4px;
                             }
+                        }
 
-                            .cut-photo-text {
-                                font-size: 24px;
-                                margin-top: 30px;
-                            }
+                        .cut-photo-text {
+                            font-size: 24px;
+                            margin-top: 30px;
                         }
                     }
                 }
@@ -1804,6 +1810,30 @@ $text-black-color: #000;
         .play-btn {
             width: 40px;
             height: 40px;            
+        }
+    }
+
+    .scrolling-contents {                        
+        .sticky-text {
+            .inner {
+                padding: 20px 0;
+    
+                p {
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+            }
+        }
+    
+        &.on {
+            .sticky-text {
+                .inner {
+                    p {
+                        font-size: 20px;
+                        line-height: 30px;
+                    }
+                }
+            }
         }
     }
 }

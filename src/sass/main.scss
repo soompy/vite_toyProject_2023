@@ -1,14 +1,10 @@
-@import './partials/reset';
-@import './partials/variables';
-@import './partials/functions';
-@import './partials/mixins';
+@import './partials/reset.scss';
+@import './partials/variables.scss';
+@import './partials/mixins.scss';
 @import './partials/themes';
-@import './partials/base';
-@import './partials/block';
-@import './partials/icon';
-@import './partials/exceptions';
 
-@import './choonsik/anime';
-@import './choonsik/index-choonsik';
-@import './choonsik/sub-choonsik';
+@import './choonsik/anime.scss';
+@import './choonsik/index.scss';
+@import './choonsik/sub.scss';
+
 @import '../icomoon/style.css'

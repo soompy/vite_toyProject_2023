@@ -332,11 +332,14 @@ $mobile-size: 720;
     }
 }
 
-
-.content {
+.wrapper {
     position: relative;
     width: 100%;
     height: 100%;
+
+    .sticky-bg {
+        
+    }
 
     .area-common {
         position: relative;
@@ -716,7 +719,7 @@ $mobile-size: 720;
         }
     }
 
-    .choonsik-lover-wrapper {
+    .wrapper {
         position: relative;
         width: 100%;
         max-width: 720px;

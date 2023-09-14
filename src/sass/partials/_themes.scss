@@ -4,10 +4,8 @@
 [data-theme="light"] {
   --clr-basic: #ffffff;
   --clr-reversal: #222222;
-  --clr-surface: #A9FFE5;
-  --clr-onsurface: #E3FF94;
-  --clr-secondary: #1AB277;
-  --clr-primary: #f5eb51;
+  --clr-primary: #ffa7a7;
+  --clr-secondary: #f1b5b5;  
 }
 
 /**********
@@ -16,8 +14,6 @@
 [data-theme="dark"] {
   --clr-basic: #222222;
   --clr-reversal: #ffffff;
-  --clr-surface: #06825d;
-  --clr-onsurface: #8bb518;
-  --clr-secondary: #0f6a47;
-  --clr-primary: #534f1c;
+  --clr-primary: #d6d0d0; 
+  --clr-secondary: #ddc9c9;  
 }

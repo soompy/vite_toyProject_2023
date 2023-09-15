@@ -15,14 +15,17 @@
 <body>
   <load="/header.html" />
 
-  <div class="wrapper">
-    <!-- 양쪽에서 따라다니는 배경이미지 영역 -->
-    <div class="sticky-bg">
-      
+  <div id="scrollParallaxTrigger"></div>
+
+  <div class="scroll_action" id="scrollArea">
+    <div class="obj_wrap">
+        <span class="obj obj_01"></span>
+        <span class="obj obj_02"></span>
+        <span class="obj obj_03"></span>
+        <span class="obj obj_04"></span>
     </div>
 
     <section class="area-common _01">
-      <!-- 춘식이 유튜브 영상등장 // 스크롤시 dim이 올라오며 아래 텍스트가 뜬다 -->
       <div class="yt-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/Wo3BNuK86Jc?si=VEPzt_F0NPC0nveb&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            
       </div>
@@ -33,13 +36,14 @@
       </div>        
     </section>
 
-    
-    <section class="area-common _02">
-      <div class="inner">
+
+    <section class="area-common _02">      
+      <div class="cont-box">
         <h2 class="cont-title t-center">춘식이 빠르게 알아보기</h2>
         <!-- 3d 춘식이가 돌아간다 -->
         <span class="img-box"><img src="https://pbs.twimg.com/media/FrPp2mdaMAAR7l4.jpg" alt="춘식이이미지"></span>
-      </div>
+      </div>     
+      <div class="bg-box"></div>         
     </section>
 
 
@@ -49,8 +53,7 @@
           <div class="swiper-slide">
             <div class="slide-inner">
               <img src="https://i.pinimg.com/originals/95/8f/59/958f599f934e94f63d6d60b676707ece.png" alt="아이돌춘식">
-              <div class="slide-text">
-                <!-- 첫줄 텍스트가 뜨고 0.7초 뒤 두번째 줄 텍스트가 뜬다 -->
+              <div class="slide-text">                
                 <p class="text-line">냥플루언서 춘식이!</p>
                 <p class="text-line">춘식이 채널에서 라춘댄스 릴스를 검색해보세요!</p>
               </div>                  
@@ -100,6 +103,8 @@
     </section>
   </div>
 
+  <div id="scrollParallaxEnd"></div>
+  
   <div class="dimm"></div>
   <div class="alert-popup">
     <p>이 페이지는 모바일에 최적화된 페이지입니다.</p>
@@ -111,6 +116,42 @@
   <script type="module" src="/main.js"></script>
   <script src="./node_modules/animejs/lib/anime.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="./js/detector.js"></script>
+  <script>
+      var sd = new ScrollDetector();
+      var scrollParallaxTriggerTop = $('#scrollParallaxTrigger').offset().top
+      var scrollParallaxTriggerEndTop = $('#scrollParallaxEnd').offset().top + 200
+      var scrollParallaxStart = scrollParallaxTriggerTop - window.innerHeight
+
+      var maxRatio = scrollParallaxTriggerEndTop - scrollParallaxStart;
+
+      sd.add(document.getElementById('scrollParallaxTrigger'), function () {
+          $("#scrollArea").addClass("ani_active")
+      }, { actionType: "in" })
+      
+      sd.add(document.body, function (scrollTop) {
+          if (
+              (scrollTop + window.innerHeight > scrollParallaxTriggerTop) &&
+              (scrollTop < scrollParallaxTriggerEndTop)
+          ) {
+
+              var duration = (scrollTop - scrollParallaxStart) / maxRatio;
+              var accelamount = duration * 320;
+              var style = {
+                  'transform': 'translateY(' + accelamount + 'px) ',
+              }
+
+              $('.obj_01').css(style)
+              $('.obj_02').css(style)
+          }
+
+      }, { actionType: 'custom' })
+
+  </script>
+
+
   <script type="text/javascript">
     var swiper = new Swiper(".whos-cs", {
       effect: "coverflow",
@@ -132,7 +173,20 @@
         clickable: true
       },
     });
+
+    swiper.on("slideChange", function () {
+      var activeSlideIndex = swiper.realIndex;      
+      var slideTextElements = document.querySelectorAll(".slide-text");
+      slideTextElements.forEach(function (element) {
+        element.style.opacity = 0;
+      });
+  
+      setTimeout(function () {
+        slideTextElements[activeSlideIndex].style.opacity = 1;
+      }, 700);
+    });
   </script>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var clickableImages = document.querySelectorAll('.brand-img');

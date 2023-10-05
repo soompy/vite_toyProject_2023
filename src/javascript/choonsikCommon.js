@@ -23,22 +23,14 @@ const choonsik = () => {
             image.style.maxWidth = '100%';
             image.style.height = 'auto';
         });    
-
-        const wrappers = document.querySelector(body);
+       
+        const wrappers = document.querySelectorAll('body');
         wrappers.forEach((wrapper) => {
           wrapper.style.maxWidth = '100%';
           wrapper.style.height = 'auto';
-        });
+        });        
     }
     window.addEventListener('load', disableResizing);
-
-
-    let maxScrollValue;
-    function resizeHandler() {
-        maxScrollValue = document.body.offsetHeight - window.innerHeight;
-    }
-    window.addEventListener('resize', resizeHandler);
-    resizeHandler();
 
 
     const popupDim = document.querySelector(".dimm");

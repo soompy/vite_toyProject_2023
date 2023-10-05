@@ -30,6 +30,8 @@
 }
 
 body {
+    max-width: 720px;
+    margin: auto;
     background: var(--clr-basic);
 }
 
@@ -332,11 +334,12 @@ $mobile-size: 720;
     }
 }
 
-#scrollArea {
+#scrollArea {    
     overflow: hidden;
     position: relative;
     width: 100%;
-    z-index: 1;
+    // z-index: 1;
+    z-index: -1;
     &.ani_active {
         .obj_wrap {
             transform: translateY(0px);            
@@ -370,7 +373,7 @@ $mobile-size: 720;
         background-position: center center;
         background-size: auto 100%;
         transition: transform 1s, -webkit-transform 1s;
-        background-image: url("../../assets/images/Img_Choonsik.png");
+        background-image: url("../../assets/images/sweetpotato.png");
         width: 200px;
         height: 400px;
         &.obj_01 {
@@ -401,7 +404,6 @@ $mobile-size: 720;
         position: relative;
         width: 100%;
         height: 100%;
-        min-height: 100vh;
 
         .inner {
             padding: vw(40);
@@ -429,19 +431,18 @@ $mobile-size: 720;
         
         &._01 {
             .yt-container {
-                overflow: hidden;
                 position: relative;
                 width: 100%;
+                max-width: 720px;
                 height: 0;
-                padding-bottom: 56.25%;                
+                padding-bottom: 56.25%;                          
 
                 iframe {
                     position: absolute;
                     top: 0;
                     left: 0;
                     width: 100%;
-                    height: 100%;
-                    object-fit: cover;
+                    height: 100%;                
                 }
             }
             
@@ -640,18 +641,20 @@ $mobile-size: 720;
     position: fixed;
     left: 50%;
     top: 50%;
-    z-index: 5;
-    width: 90vw;
+    z-index: 5;    
+    max-width: 720px;
     transform: translate(-50%, -50%);    
-    background: var(--clr-reversal);    
-    padding: vw(40);
     transition: all 0.5s ease-in-out;
-    border-radius: vw(20);
+   
     p {
-        font-size: vw(30);
+        width: max-content;
+        font-size: vw(28);
         text-align: center;
+        background: var(--clr-reversal);    
         color: var(--clr-basic);
+        padding: vw(24);
         margin-bottom: 0;
+        border-radius: vw(14);
     }
     &.show {
         display: block;
@@ -873,9 +876,10 @@ $mobile-size: 720;
         height: 24px;
     }
 
-    .alert-popup {
-        font-size: 30px;
-        padding: 40px;
-        border-radius: 20px;
+    .alert-popup {     
+        p {
+            font-size: 28px;
+            border-radius: 14px;
+        }
     }
 }

@@ -1,5 +1,3 @@
-@import "variables";
-
 @function icon($iconName, $color: 666666) {
     $iconList: (
         ic_share: "%0A%3Csvg width='30' height='30' viewBox='0 0 32 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='26.1611' cy='6.64806' r='4.47286' stroke='%23#{$color}' stroke-width='2.7359'/%3E%3Ccircle cx='5.84081' cy='18.4152' r='4.47286' stroke='%23#{$color}' stroke-width='2.7359'/%3E%3Ccircle cx='26.1611' cy='28.3519' r='4.47286' stroke='%23#{$color}' stroke-width='2.7359'/%3E%3Cpath d='M9.8996 14.8202L21.7088 7.91118L23.1049 10.1846L11.2957 17.0935L9.8996 14.8202Z' fill='%23#{$color}'/%3E%3Cpath d='M22.8008 25.6947L11.4293 19.4726L10.0332 21.746L21.4047 27.9681L22.8008 25.6947Z' fill='%23#{$color}'/%3E%3C/svg%3E%0A",

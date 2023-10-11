@@ -14,6 +14,12 @@ const index = () => {
             contTitleBox01.classList.remove('fade-in');
         }
     });
+
+    var btnEntry = document.querySelector(".area-common._04 .btn");
+    btnEntry.addEventListener("click", function() {
+        var linkUrl = "./day-choonsik.html";
+        window.location.href = linkUrl;
+    });
 }
 
 export default index

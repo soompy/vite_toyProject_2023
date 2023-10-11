@@ -4,16 +4,16 @@
 [data-theme="light"] {
   --clr-basic: #ffffff;
   --clr-reversal: #222222;
-  --clr-primary: #ffa7a7;
-  --clr-secondary: #f1b5b5;  
+  --clr-primary: #defabb;  
+  --clr-secondary: #69F0AE;  
 }
 
 /**********
 * DARK MODE STYLES
 **********/
 [data-theme="dark"] {
-  --clr-basic: #222222;
+  --clr-basic: #999999;
   --clr-reversal: #ffffff;
-  --clr-primary: #d6d0d0; 
-  --clr-secondary: #ddc9c9;  
+  --clr-primary: #66BB6A; 
+  --clr-secondary: #1B5E20;  
 }

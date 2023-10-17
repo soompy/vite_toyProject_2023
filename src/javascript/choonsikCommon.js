@@ -1,19 +1,15 @@
 const choonsik = () => {
     const barMenu = document.querySelector(".barMenu");
     const gnbWrapper = document.querySelector(".gnb-wrapper");
-    const btnPrev = document.querySelector(".choonsik-condition-btn.btn-go-first");
+    const btnPrev = document.querySelector(".choonsik-condition-btn.btn-prev");
     const btnNext = document.querySelector(".choonsik-condition-btn.btn-next");
     const closeGnb = document.querySelector(".closeGnb");
 
     barMenu.addEventListener("click", () => {
-        gnbWrapper.style.display = "block";
-        btnPrev.style.display = "none";
-        btnNext.style.display = "none";
+        gnbWrapper.style.display = "block";        
     });
     closeGnb.addEventListener("click", () => {
-        gnbWrapper.style.display = "none";    
-        btnPrev.style.display = "block";
-        btnNext.style.display = "block";
+        gnbWrapper.style.display = "none";            
     });
 
 
@@ -31,18 +27,6 @@ const choonsik = () => {
         });        
     }
     window.addEventListener('load', disableResizing);
-
-
-    const popupDim = document.querySelector(".dimm");
-    const alertPopup = document.querySelector(".alert-popup");
-    
-    popupDim.classList.add("show");               
-    alertPopup.classList.add("show");   
-    
-    setTimeout(() => {
-        popupDim.classList.remove("show");
-        alertPopup.classList.remove("show");
-    }, 3000);
 }
 
 

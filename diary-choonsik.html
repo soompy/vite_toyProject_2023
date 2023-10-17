@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
-    <title>춘식러버 페이지 - 춘식이 일기</title>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:url" content="https://vite_choonsikLover_2023.vercel.app/">
+        <meta property="og:title" content="프론트엔드 이수민 vite 개인프로젝트">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://soominpf23.vercel.app/images/sec01/profile.png">
+        <meta property="og:description" content="다양한 프로젝트 경험과 기술 역량을 갖고 있는 UI개발자">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+        <title>vite 춘식러버 페이지 - 춘식일기</title>
+      </head>
 
 <body>
     <load="/header.html" />
@@ -80,7 +84,7 @@
             </div>
         </div>
 
-        <button id="prevPageBtn" class="choonsik-condition-btn btn-go-first">&lt;</button>
+        <button id="prevPageBtn" class="choonsik-condition-btn btn-prev">&lt;</button>
         <button id="nextPageBtn" class="choonsik-condition-btn btn-next">next &gt;</button>
     </div>
 
@@ -109,32 +113,49 @@
             })
         })
 
-
         const diaryPages = document.querySelectorAll(".diary-page");
         const choonsikDiary = document.querySelector(".choonsik-diary");
-        var previousButton = document.getElementById('prevPageBtn');
-        var nextButton = document.getElementById('nextPageBtn');
-        var currentPage = 0;
+        const previousButton = document.getElementById('prevPageBtn');
+        const nextButton = document.getElementById('nextPageBtn');
+        let currentPage = 0;
+
+        function updateDiaryView() {
+            let moveAmount;
+            if (window.innerWidth >= 720) {
+                moveAmount = 720;
+            } else {
+                moveAmount = window.innerWidth;
+            }
+            choonsikDiary.style.transform = `translateX(-${currentPage * moveAmount}px)`;
+        }
 
         function previousButtonClicked() {
             if (currentPage > 0) {
                 currentPage--;
-                choonsikDiary.style.transform = `translateX(-${currentPage * 100}vw)`;
+                updateDiaryView();
             }
-            console.log(currentPage);
         }
 
         function nextButtonClicked() {
-            var maxPage = choonsikDiary.children.length - 1;
+            const maxPage = choonsikDiary.children.length - 1;
             if (currentPage < maxPage) {
                 currentPage++;
-                choonsikDiary.style.transform = `translateX(-${currentPage * 100}vw)`;
+                updateDiaryView();
             }
-            console.log(currentPage);
         }
 
-        previousButton.addEventListener('click', previousButtonClicked);
-        nextButton.addEventListener('click', nextButtonClicked);    
+        function handleWindowSizeChange() {
+            updateDiaryView();
+            if (window.innerWidth >= 720) {
+                previousButton.addEventListener('click', previousButtonClicked);
+                nextButton.addEventListener('click', nextButtonClicked);
+            } else {
+                previousButton.removeEventListener('click', previousButtonClicked);
+                nextButton.removeEventListener('click', nextButtonClicked);
+            }
+        }
+        handleWindowSizeChange();
+        window.addEventListener('resize', handleWindowSizeChange);
     </script>
 
     <script type="module" src="/main.js"></script>

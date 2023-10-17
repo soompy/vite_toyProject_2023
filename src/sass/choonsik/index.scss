@@ -1,8 +1,6 @@
 @charset "UTF-8";
-
 @use 'sass:math';
 
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Courgette&family=Hi+Melody&family=Playfair+Display+SC:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Courgette&family=Playfair+Display+SC:wght@700&display=swap');
 
@@ -25,7 +23,11 @@
 * {
     box-sizing: border-box;
     color: var(--clr-reversal);
-    word-break: keep-all;
+    word-break: keep-all;    
+}
+
+body {
+    background: var(--clr-basic);
 }
 
 @function setTextColor($bg, $light, $dark) {
@@ -137,6 +139,7 @@ $mobile-size: 720;
     .inner {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         height: 100%;
         padding: 0 vw(40);
 
@@ -152,11 +155,12 @@ $mobile-size: 720;
                 position: relative;
                 width: 22px;
                 height: 22px; 
+                cursor: pointer;
 
                 .bar {
                     display: block;
                     width: 80%;
-                    height: vw(2);
+                    height: 1px;
                     background: var(--clr-reversal);
                     border-radius: vw(4);
                 }
@@ -172,9 +176,9 @@ $mobile-size: 720;
                 width: 100%;
                 max-width: 720px;
                 height: 100vh;
-                background: var(--clr-primary);
+                background: var(--clr-yellow);
                 transform: translateX(-50%);
-                
+
                 .gnb-inner {
                     display: flex;
                     flex-direction: column;
@@ -198,8 +202,9 @@ $mobile-size: 720;
                             padding: vw(10) 0;
 
                             a {
-                                font-size: vw(28);
+                                font-size: vw(32);
                                 font-family: "Hi Melody";
+                                color: var(--clr-reversal);
                             }
                         }
                     }
@@ -208,6 +213,9 @@ $mobile-size: 720;
         }
 
         .logo {            
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             width: 46px;
             height: auto;
             margin: auto;           
@@ -228,14 +236,14 @@ $mobile-size: 720;
 
                     &:before {
                         position: absolute;
-                        left: vw(4);
-                        top: vw(2);
+                        left: vw(2);
+                        top: vw(1);
                         width: vw(28);
-                        height: vw(28);
+                        height: vw(30);
                         content: "";
                         border-radius: 50%;
                         transform: scale(0.8);
-                        background-color: var(--clr-basic);
+                        background-color: var(--clr-gray);
                         transition: left 250ms linear;
                     }
 
@@ -247,10 +255,10 @@ $mobile-size: 720;
                 }
 
                 .mode-text {
-                    font-size: vw(20);
-                    line-height: vw(22);
+                    font-size: vw(24);
                     text-align: center;
-                    padding-left: vw(5);
+                    line-height: 1.2;
+                    padding-right: vw(16);
                 }
             }
         }
@@ -259,31 +267,34 @@ $mobile-size: 720;
 
 #footer {
     width: 100%;    
-    background: var(--clr-reversal);       
+    background: var(--clr-gray);
 
     .inner {   
-        padding: vw(40);        
-        .footer-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: vw(30);        
+        .right-box {
             .menu {
                 width: 100%;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
                 place-items: center;
                 gap: vw(20);
                 margin: 0;
 
                 li {
+                    margin-right: auto;
                     a {
                         display: inline-block;
                         font-size: vw(28);
                         text-align: left;
-                        color: var(--clr-basic);
                     }
                 }
             }
         }
 
-        .footer-bottom {
+        .left-box {
             display: flex;
             color: var(--clr-basic);
 
@@ -294,6 +305,7 @@ $mobile-size: 720;
 
             .copyrignt {
                 font-size: vw(24);
+                               
             }
         }
     }
@@ -303,7 +315,9 @@ $mobile-size: 720;
     overflow-y: auto;
     position: relative;
     width: 100%;
-    height: calc(100vh - 60px);   
+    max-width: 720px;        
+    height: calc(100vh - 60px);
+    margin: auto;
 }
 
 .area-common {
@@ -397,7 +411,7 @@ $mobile-size: 720;
                 .swiper-slide {
                     position: relative;
                     width: vw(360);
-                    height: vw(360);
+                    height: vw(520);
                     border-radius: vw(20);
                     padding: vw(20);
                     .slide-inner {      
@@ -412,22 +426,22 @@ $mobile-size: 720;
                             filter: blur(3px);
                         }
                         .slide-text {                                                                           
-                            font-size: vw(14);
+                            font-size: vw(24);
                             font-weight: bold;
                             transition: all 0.5s ease-in;
                             margin-top: vw(20);
                             .text-line {
-                                text-align: center;                                    
+                                text-align: center;                                                               
                             }
                         }
                     }
 
                     &:nth-child(odd) {
-                        background: pink;
+                        background: var(--clr-primary);
                     }
 
                     &:nth-child(even) {
-                        background: skyblue;
+                        background: var(--clr-secondary);
                     }
                 }
 
@@ -447,6 +461,7 @@ $mobile-size: 720;
             }
         }
         .swiper-pagination {
+            z-index: inherit;
             padding: vw(20) 0;
         }
     }
@@ -456,8 +471,8 @@ $mobile-size: 720;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background: #eeeeee;
-        padding: vw(20) 0;
+        background: var(--clr-yellow);
+        padding: vw(30) 0;
         .bg-hole {
             overflow: hidden;
             display: flex;
@@ -550,7 +565,7 @@ $mobile-size: 720;
     top: 50%;
     z-index: 5;    
     max-width: 720px;
-    transform: translate(-50%, -50%);    
+    transform: translate(-50%, -50%);
     transition: all 0.5s ease-in-out;
    
     p {
@@ -574,12 +589,14 @@ $mobile-size: 720;
 }
 
 .swiper-pagination-bullet {
+    opacity: 1;
     width: vw(24);
     height: vw(24);
+    background: var(--clr-gray);   
 
     &.swiper-pagination-bullet-active {
-        transform: scale(1.02);
-        background: var(--clr-secondary);
+        transform: scale(1.02);         
+        background: var(--clr-yellow);    
     }
 }
 
@@ -645,7 +662,7 @@ $mobile-size: 720;
                                 padding: 10px 0;
 
                                 a {
-                                    font-size: 28px;
+                                    font-size: 32px;
                                 }
                             }
                         }
@@ -679,9 +696,8 @@ $mobile-size: 720;
                     }
 
                     .mode-text {
-                        font-size: 20px;
-                        line-height: 22px;
-                        padding-left: 5px;
+                        font-size: 24px;
+                        padding-right: 16px;
                     }
                 }
             }
@@ -690,10 +706,11 @@ $mobile-size: 720;
 
     #footer {            
         .inner {
-            padding: 40px;
+            padding: 30px;
     
-            .footer-top {
+            .right-box {
                 .menu {
+                    gap: 20px;
                     li {
                         a {
                             font-size: 20px;
@@ -702,7 +719,7 @@ $mobile-size: 720;
                 }
             }
     
-            .footer-bottom {
+            .left-box {
                 .logo {
                     width: 100px;                    
                 }
@@ -748,12 +765,12 @@ $mobile-size: 720;
         
                         .swiper-slide {
                             width: 360px;
-                            height: 360px;
+                            height: 520px;
                             border-radius: 20px;
                             padding: 20px;      
                             .slide-inner {
                                 .slide-text {     
-                                    font-size: 14px;
+                                    font-size: 24px;
                                     margin-top: 20px;
                                 }
                             }                  
@@ -766,17 +783,13 @@ $mobile-size: 720;
             }
 
             &._04 {
-                padding: 20px 0;
+                padding: 30px 0;
             }
         }
     }
 
-    .wrapper {
-        position: relative;
-        width: 100%;        
-        max-width: 720px;
-        height: calc(100vh - 80px);   
-        margin: auto;
+    .wrapper {                
+        height: calc(100vh - 80px);           
     }
 
     .swiper-pagination-bullet {
@@ -788,6 +801,7 @@ $mobile-size: 720;
         p {
             font-size: 28px;
             border-radius: 14px;
+            padding: 24px;
         }
     }
 }

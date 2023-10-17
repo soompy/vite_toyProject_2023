@@ -3,17 +3,23 @@
 **********/
 [data-theme="light"] {
   --clr-basic: #ffffff;
+  --clr-middle: #333333;
   --clr-reversal: #222222;
   --clr-primary: #defabb;  
-  --clr-secondary: #69F0AE;  
+  --clr-secondary: #69F0AE;
+  --clr-gray: #eeeeee;
+  --clr-yellow: #F3C13A;
 }
 
 /**********
 * DARK MODE STYLES
 **********/
 [data-theme="dark"] {
-  --clr-basic: #999999;
+  --clr-basic: #333333;
+  --clr-middle: #111111;
   --clr-reversal: #ffffff;
   --clr-primary: #66BB6A; 
   --clr-secondary: #1B5E20;  
+  --clr-gray: #cccccc;
+  --clr-yellow: #CA6924;
 }

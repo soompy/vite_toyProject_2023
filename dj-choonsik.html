@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:url" content="https://vite_choonsikLover_2023.vercel.app/">
+    <meta property="og:title" content="프론트엔드 이수민 vite 개인프로젝트">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://soominpf23.vercel.app/images/sec01/profile.png">
+    <meta property="og:description" content="다양한 프로젝트 경험과 기술 역량을 갖고 있는 UI개발자">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
-    <title>춘식러버 페이지 - 춘식이 소개</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <title>vite 춘식러버 페이지 - dj춘식</title>
 </head>
 
 <body>
     <load="/header.html" />
 
-    <div class="wrapper">
-        <section class="area-common">
-            <!-- 디제이 춘식이의 플레이리스트 살짝공개 -->
+    <div class="wrapper">    
+        <section class="area-common music-container">            
+            <div class="music-title">
+                <p>라이언과 춘식이가 선택한 음악!!</p>
+                <p>Autumn jazz</p>
+            </div>
             <div class="music-progress-wrap">                        
                 <svg class="music-progress" width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">                                                    
                     <style>
@@ -24,7 +31,7 @@
                             transform: rotate(90deg);
                         }
                     </style>
-                    <!-- Music Player Circle -->
+                    
                     <circle class="outside-circle" cx="200" cy="200" r="180" viewBox="0 0 400 400" fill="#f0f0f0" stroke-width="6" />
 
                     <defs>
@@ -35,23 +42,20 @@
                         </linearGradient>
 
                         <pattern id="image-cover" x="0" y="0" patternUnits="userSpaceOnUse" width="400" height="400">
-                        <image x="0" y="0" width="400" height="400" xlink:href="https://image.bugsm.co.kr/album/images/500/40686/4068625.jpg" />
+                        <image x="0" y="0" width="400" height="400" xlink:href="https://cdnimg.melon.co.kr/svc/user_images/plylst/2022/12/0/-99/518183129_org.jpg?tm=20221207015953/melon/resize/500/quality/90/optimize" />
                         </pattern>
                     </defs>
-
-                    <!-- Progress Circle -->
+                    
                     <circle class="inside-circle" id="progressCircle" cx="200" cy="200" r="160" d="M 200 0" viewBox="0 0 400 400" fill="url(#image-cover)" stroke-width="6" stroke="url(#gradientStroke)" stroke-dashoffset="0" stroke-dasharray="0, 1010" />
-
-                    <!-- Current Time Text -->
+                    
                     <text class="music-timer" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
                         0:00
                     </text>                
                 </svg>
-
-                <!-- 재생/정지 버튼 -->
+                
                 <div class="play-btn" id="playPauseBtn" onclick="togglePlayPause()">
                     <svg class="play-icon" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="play-circle" cx="20" cy="20" r="20" fill="#4CAF50" />
+                        <circle class="play-circle" cx="20" cy="20" r="20" fill="#69F0AE" />
                         <polygon x="20" y="20" points="13,11 13,31 33,21" fill="#fff" />
                     </svg>
 
@@ -61,19 +65,7 @@
                     </svg>
                 </div>                                        
             </div>            
-        </section>
-
-        <section class="area-common">
-            <!-- 라이언과 간식타임 -->
-            <div class="lunch-time">
-                
-            </div>
-        </section>
-
-        <section class="area-common">
-            <!-- 라이언과 댄스시간 -->
-            <div class="dance-time"></div>
-        </section>        
+        </section>             
     </div>
 
     <load="/footer.html" />
@@ -106,6 +98,11 @@
                 insideCircle.setAttribute('filter', 'contrast(0.5)');                 
                 musicTimer.style.display = "block";
                 playPauseBtn.setAttribute('fill', 'red');
+               
+                if (currentTime >= duration) {
+                    currentTime = 0;
+                    updateProgress();
+                }
                 startMusic();
             } else {
                 playBtn.style.display = "block";          
@@ -113,13 +110,13 @@
                 insideCircle.setAttribute('filter', 'none');                 
                 musicTimer.style.display = "none";
                 playPauseBtn.setAttribute('fill', '#333');
-                pauseMusic();
-            }
+                pauseMusic();               
+            }          
         }
 
         function updateProgress() {
             const progress = currentTime / duration;      
-            const dashOffset = progress * (2 * insideBtnR * 3.14); // 1010 = circumference of the progress circle            
+            const dashOffset = progress * (2 * insideBtnR * 3.14);
             progressCircle.setAttribute('stroke-dasharray', dashOffset + ', 1010');
             document.querySelector('text').textContent = formatTime(currentTime);
         }
@@ -130,6 +127,13 @@
                     currentTime++;
                     updateProgress();
                 } else {
+                    isPlaying = false;
+                    playBtn.style.display = "block";
+                    pauseBtn.style.display = "none";
+                    insideCircle.setAttribute('filter', 'none');                 
+                    musicTimer.style.display = "none";
+                    playPauseBtn.setAttribute('fill', '#333');
+                    clearInterval(musicInterval);
                     pauseMusic();
                 }
             }, 1000);
@@ -145,7 +149,7 @@
             return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         }
 
-        updateProgress(); // Set initial progress
+        updateProgress();
     </script>
 
     <script type="module" src="/main.js"></script>

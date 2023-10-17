@@ -24,10 +24,12 @@ export default defineConfig({
   plugins: [
     injectHTML(),
     tsconfigPaths(),
-    requireTransform({}),
-    // ViteFaviconsPlugin({
-    //   logo: "./src/assets/favicon.png",
-    // }),
+    requireTransform({}),    
   ],
+  build: {
+    target: 'esnext',
+    outDir: 'dist',
+    assetsDir: './',
+  },  
 });
 

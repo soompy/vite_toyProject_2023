@@ -507,7 +507,7 @@ $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
     align-items: center;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 56px);
     font-family: "TypoCrayonB";
 
     .choonsik-diary {
@@ -754,7 +754,10 @@ $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
         font-size: vw(36);
         font-weight: bold;
         letter-spacing: vw(1.2);
-        text-transform: uppercase;                
+        text-transform: uppercase; 
+        &.disabled {
+            background: #cccccc;
+        }               
     }
 }
 
@@ -834,7 +837,9 @@ $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
         font-size: 40px;
     }
 
-    .choonsik-diary-container {        
+    .choonsik-diary-container {    
+        overflow: hidden;
+        height: calc(100vh - 80px);  
         .choonsik-diary {
             .diary-page {
                 .paper-inner {
@@ -940,7 +945,7 @@ $inset-shadow: inset vw(12) vw(12) 30px 5px rgba(255, 255, 255, 0.9),
         }
 
         &.btn-next {
-            height: 70px;
+            height: 80px;
             font-size: 36px;
         }
     }  

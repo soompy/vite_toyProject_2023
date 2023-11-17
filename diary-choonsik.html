@@ -127,25 +127,11 @@
                 moveAmount = window.innerWidth;
             }
             choonsikDiary.style.transform = `translateX(-${currentPage * moveAmount}px)`;
-        }
-
-        function previousButtonClicked() {
-            if (currentPage > 0) {
-                currentPage--;
-                updateDiaryView();
-            }
-        }
-
-        function nextButtonClicked() {
-            const maxPage = choonsikDiary.children.length - 1;
-            if (currentPage < maxPage) {
-                currentPage++;
-                updateDiaryView();
-            }
-        }
+        }        
 
         function handleWindowSizeChange() {
             updateDiaryView();
+
             if (window.innerWidth >= 720) {
                 previousButton.addEventListener('click', previousButtonClicked);
                 nextButton.addEventListener('click', nextButtonClicked);
@@ -153,9 +139,56 @@
                 previousButton.removeEventListener('click', previousButtonClicked);
                 nextButton.removeEventListener('click', nextButtonClicked);
             }
+
+            if (currentPage === 0) {
+                previousButton.style.display = "none";
+            } else {
+                previousButton.style.display = "block";
+            }
+
+            const maxPage = choonsikDiary.children.length - 1;
+            if (currentPage === maxPage) {
+                nextButton.classList.add('disabled');
+            } else {
+                nextButton.classList.remove('disabled');
+            }
         }
+
         handleWindowSizeChange();
-        window.addEventListener('resize', handleWindowSizeChange);
+
+        function onResize() {
+            handleWindowSizeChange();
+        }
+        
+        window.addEventListener('resize', onResize);
+
+
+        function previousButtonClicked() {            
+            if (currentPage > 0) {
+                currentPage--;
+                updateDiaryView();
+                nextButton.classList.remove('disabled');
+                if (currentPage === 0) {
+                    previousButton.style.display = "none";
+                } else {
+                    previousButton.style.display = "block";
+                }
+            }
+        }
+
+        function nextButtonClicked() {            
+            const maxPage = choonsikDiary.children.length - 1;
+            if (currentPage < maxPage) {
+                currentPage++;
+                updateDiaryView();
+                previousButton.style.display = "block";
+                if (currentPage === maxPage) {
+                    nextButton.classList.add('disabled');
+                } else {
+                    nextButton.classList.remove('disabled');
+                }
+            }
+        }
     </script>
 
     <script type="module" src="/main.js"></script>

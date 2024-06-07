@@ -28,6 +28,7 @@
 
 body {
     background: var(--clr-basic);
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
 }
 
 @function setTextColor($bg, $light, $dark) {
